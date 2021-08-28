@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,20 @@
 		7F708AC526D5751F00DAC8B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F708AC326D5751F00DAC8B0 /* LaunchScreen.storyboard */; };
 		7F708AD026D5751F00DAC8B0 /* MyCookBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708ACF26D5751F00DAC8B0 /* MyCookBookTests.swift */; };
 		7F708ADB26D5751F00DAC8B0 /* MyCookBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708ADA26D5751F00DAC8B0 /* MyCookBookUITests.swift */; };
+		7F708AF026D57F0100DAC8B0 /* SingIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F708AEF26D57F0100DAC8B0 /* SingIn.storyboard */; };
+		7F708AF926D589AF00DAC8B0 /* ProfileStartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708AF826D589AF00DAC8B0 /* ProfileStartVC.swift */; };
+		7F708AFC26D58B1A00DAC8B0 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708AFB26D58B1A00DAC8B0 /* SettingVC.swift */; };
+		7F708AFF26D6C8F900DAC8B0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7F708AFE26D6C8F900DAC8B0 /* Alamofire */; };
+		7F708B0226D6CAF100DAC8B0 /* ServiseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708B0126D6CAF100DAC8B0 /* ServiseAPI.swift */; };
+		7F708B0526D6CC3700DAC8B0 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708B0426D6CC3700DAC8B0 /* Recipe.swift */; };
+		7F708B0826D6D05C00DAC8B0 /* MyRecipesCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708B0726D6D05C00DAC8B0 /* MyRecipesCVC.swift */; };
+		7F708B0B26D6D09600DAC8B0 /* FavoriteCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708B0A26D6D09600DAC8B0 /* FavoriteCVC.swift */; };
+		7F708B0E26D6D8F700DAC8B0 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 7F708B0D26D6D8F700DAC8B0 /* SwiftyJSON */; };
+		7F708B3426D95F0100DAC8B0 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708B3326D95F0000DAC8B0 /* FavoriteCell.swift */; };
+		7F708B3726D97C3D00DAC8B0 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708B3626D97C3D00DAC8B0 /* Registration.swift */; };
+		7F708B3926D97DAF00DAC8B0 /* SingInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708B3826D97DAF00DAC8B0 /* SingInVC.swift */; };
+		7F708B3C26DA301000DAC8B0 /* SIngUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708B3B26DA301000DAC8B0 /* SIngUpVC.swift */; };
+		7F708B3E26DA9EC100DAC8B0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708B3D26DA9EC100DAC8B0 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +63,18 @@
 		7F708AD626D5751F00DAC8B0 /* MyCookBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyCookBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F708ADA26D5751F00DAC8B0 /* MyCookBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCookBookUITests.swift; sourceTree = "<group>"; };
 		7F708ADC26D5751F00DAC8B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F708AEF26D57F0100DAC8B0 /* SingIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SingIn.storyboard; sourceTree = "<group>"; };
+		7F708AF826D589AF00DAC8B0 /* ProfileStartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStartVC.swift; sourceTree = "<group>"; };
+		7F708AFB26D58B1A00DAC8B0 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		7F708B0126D6CAF100DAC8B0 /* ServiseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiseAPI.swift; sourceTree = "<group>"; };
+		7F708B0426D6CC3700DAC8B0 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		7F708B0726D6D05C00DAC8B0 /* MyRecipesCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesCVC.swift; sourceTree = "<group>"; };
+		7F708B0A26D6D09600DAC8B0 /* FavoriteCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCVC.swift; sourceTree = "<group>"; };
+		7F708B3326D95F0000DAC8B0 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		7F708B3626D97C3D00DAC8B0 /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
+		7F708B3826D97DAF00DAC8B0 /* SingInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingInVC.swift; sourceTree = "<group>"; };
+		7F708B3B26DA301000DAC8B0 /* SIngUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIngUpVC.swift; sourceTree = "<group>"; };
+		7F708B3D26DA9EC100DAC8B0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F708B0E26D6D8F700DAC8B0 /* SwiftyJSON in Frameworks */,
+				7F708AFF26D6C8F900DAC8B0 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,9 +127,13 @@
 		7F708AB726D5750F00DAC8B0 /* MyCookBook */ = {
 			isa = PBXGroup;
 			children = (
-				7F708AEA26D575AD00DAC8B0 /* AppDelegates */,
+				7F708B3526D97C1D00DAC8B0 /* Service */,
+				7F708B0326D6CC2200DAC8B0 /* Model */,
+				7F708B0026D6CAAD00DAC8B0 /* API */,
+				7F708AFA26D58AF000DAC8B0 /* Manager */,
 				7F708AE926D575A000DAC8B0 /* Views */,
 				7F708AE826D5756500DAC8B0 /* Controllers */,
+				7F708AEA26D575AD00DAC8B0 /* AppDelegates */,
 				7F708AEB26D575F000DAC8B0 /* Resourses */,
 				7F708AC626D5751F00DAC8B0 /* Info.plist */,
 			);
@@ -129,7 +161,9 @@
 		7F708AE826D5756500DAC8B0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7F708AEC26D57EC100DAC8B0 /* Profile */,
 				7F708ABE26D5750F00DAC8B0 /* Main.storyboard */,
+				7F708AEF26D57F0100DAC8B0 /* SingIn.storyboard */,
 				7F708AC326D5751F00DAC8B0 /* LaunchScreen.storyboard */,
 			);
 			path = Controllers;
@@ -138,6 +172,10 @@
 		7F708AE926D575A000DAC8B0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7F708B3A26DA2E6900DAC8B0 /* SingInAndSingUp */,
+				7F708B0926D6D07900DAC8B0 /* Favorite */,
+				7F708B0626D6D02C00DAC8B0 /* Recipes */,
+				7F708AF726D5899600DAC8B0 /* Profile */,
 				7F708ABC26D5750F00DAC8B0 /* ViewController.swift */,
 			);
 			path = Views;
@@ -160,6 +198,80 @@
 			path = Resourses;
 			sourceTree = "<group>";
 		};
+		7F708AEC26D57EC100DAC8B0 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		7F708AF726D5899600DAC8B0 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7F708AF826D589AF00DAC8B0 /* ProfileStartVC.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		7F708AFA26D58AF000DAC8B0 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				7F708AFB26D58B1A00DAC8B0 /* SettingVC.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		7F708B0026D6CAAD00DAC8B0 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				7F708B0126D6CAF100DAC8B0 /* ServiseAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		7F708B0326D6CC2200DAC8B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7F708B3D26DA9EC100DAC8B0 /* User.swift */,
+				7F708B0426D6CC3700DAC8B0 /* Recipe.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7F708B0626D6D02C00DAC8B0 /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				7F708B0726D6D05C00DAC8B0 /* MyRecipesCVC.swift */,
+			);
+			path = Recipes;
+			sourceTree = "<group>";
+		};
+		7F708B0926D6D07900DAC8B0 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				7F708B0A26D6D09600DAC8B0 /* FavoriteCVC.swift */,
+				7F708B3326D95F0000DAC8B0 /* FavoriteCell.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		7F708B3526D97C1D00DAC8B0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				7F708B3626D97C3D00DAC8B0 /* Registration.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		7F708B3A26DA2E6900DAC8B0 /* SingInAndSingUp */ = {
+			isa = PBXGroup;
+			children = (
+				7F708B3826D97DAF00DAC8B0 /* SingInVC.swift */,
+				7F708B3B26DA301000DAC8B0 /* SIngUpVC.swift */,
+			);
+			path = SingInAndSingUp;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,6 +288,10 @@
 			dependencies = (
 			);
 			name = MyCookBook;
+			packageProductDependencies = (
+				7F708AFE26D6C8F900DAC8B0 /* Alamofire */,
+				7F708B0D26D6D8F700DAC8B0 /* SwiftyJSON */,
+			);
 			productName = MyCookBook;
 			productReference = 7F708AB526D5750F00DAC8B0 /* MyCookBook.app */;
 			productType = "com.apple.product-type.application";
@@ -247,6 +363,10 @@
 				Base,
 			);
 			mainGroup = 7F708AAC26D5750E00DAC8B0;
+			packageReferences = (
+				7F708AFD26D6C8F900DAC8B0 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				7F708B0C26D6D8F700DAC8B0 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 7F708AB626D5750F00DAC8B0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -263,6 +383,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F708AF026D57F0100DAC8B0 /* SingIn.storyboard in Resources */,
 				7F708AC526D5751F00DAC8B0 /* LaunchScreen.storyboard in Resources */,
 				7F708AC226D5751F00DAC8B0 /* Assets.xcassets in Resources */,
 				7F708AC026D5750F00DAC8B0 /* Main.storyboard in Resources */,
@@ -290,9 +411,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F708B3C26DA301000DAC8B0 /* SIngUpVC.swift in Sources */,
 				7F708ABD26D5750F00DAC8B0 /* ViewController.swift in Sources */,
 				7F708AB926D5750F00DAC8B0 /* AppDelegate.swift in Sources */,
+				7F708B0826D6D05C00DAC8B0 /* MyRecipesCVC.swift in Sources */,
+				7F708B0526D6CC3700DAC8B0 /* Recipe.swift in Sources */,
+				7F708B0B26D6D09600DAC8B0 /* FavoriteCVC.swift in Sources */,
+				7F708B3E26DA9EC100DAC8B0 /* User.swift in Sources */,
+				7F708AFC26D58B1A00DAC8B0 /* SettingVC.swift in Sources */,
 				7F708ABB26D5750F00DAC8B0 /* SceneDelegate.swift in Sources */,
+				7F708B3426D95F0100DAC8B0 /* FavoriteCell.swift in Sources */,
+				7F708B3726D97C3D00DAC8B0 /* Registration.swift in Sources */,
+				7F708B0226D6CAF100DAC8B0 /* ServiseAPI.swift in Sources */,
+				7F708B3926D97DAF00DAC8B0 /* SingInVC.swift in Sources */,
+				7F708AF926D589AF00DAC8B0 /* ProfileStartVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +757,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7F708AFD26D6C8F900DAC8B0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.3;
+			};
+		};
+		7F708B0C26D6D8F700DAC8B0 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7F708AFE26D6C8F900DAC8B0 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F708AFD26D6C8F900DAC8B0 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		7F708B0D26D6D8F700DAC8B0 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F708B0C26D6D8F700DAC8B0 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7F708AAD26D5750E00DAC8B0 /* Project object */;
 }
