@@ -23,6 +23,9 @@ class MyRecipesCVC: UICollectionViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func addNewReciptes(_ sender: UIBarButtonItem) {
+        
+    }
     /*
     // MARK: - Navigation
 
@@ -48,9 +51,9 @@ class MyRecipesCVC: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
+
         // Configure the cell
-    
+
         return cell
     }
 

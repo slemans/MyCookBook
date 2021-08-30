@@ -13,19 +13,20 @@ private let reuseIdentifier = "Cell"
 
 class FavoriteCVC: UICollectionViewController {
 
-    private var favorites: [Recipe] = []
+    private var favorites: Recipe?
+    private var favoritesTwo: [Tasks] = []
     private var hits: [JSON] = []
     private var alboms: JSON? = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        //gethData()
-        getTwo()
-        // getTwoT()
+        //getTwoAF
+        getTwoUrlSession()
     }
     override func viewWillAppear(_ animated: Bool) {
-//        favorites = alboms["hits"].arrayValue
+        print(favoritesTwo)
+        //favorites = alboms[3].arrayValue
     }
 
 
@@ -48,7 +49,7 @@ class FavoriteCVC: UICollectionViewController {
 //
 //
 //    }
-    func getTwo() {
+    func getTwoAF() {
 
         let headers = [
             "x-rapidapi-host": "edamam-recipe-search.p.rapidapi.com",
@@ -71,68 +72,52 @@ class FavoriteCVC: UICollectionViewController {
             }
         }
     }
-    
-    
-    
-    
-    
-    
-//    func getTwoT() {
-//
-//        let headers = [
-//            "x-rapidapi-host": "edamam-recipe-search.p.rapidapi.com",
-//            "x-rapidapi-key": "eba0823ae8msh6033297465cdf65p145577jsn53c564785219"
-//        ]
-//
-//        let request = NSMutableURLRequest(url: NSURL(
-//            string: "https://edamam-recipe-search.p.rapidapi.com/search?q=chicken")! as URL,
-//            cachePolicy: .useProtocolCachePolicy,
-//            timeoutInterval: 10.0)
-//        request.httpMethod = "GET"
-//        request.allHTTPHeaderFields = headers
-//
-//        let session = URLSession.shared
-//        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, _, _) -> Void in
-//            guard let data = data else { return }
-//            do {
-//
-//                self.favorites = try JSONDecoder().decode([Recipe].self, from: data)
-//                print(self.favorites.count)
-//            } catch {
-//                print("Загрузка Albom ", error)
-//            }
-//            DispatchQueue.main.async {
-//                self.collectionView.reloadData()
-//            }
-//        })
-//
-//        dataTask.resume()
-//    }
+    func getTwoUrlSession() {
 
+        let headers = [
+            "x-rapidapi-host": "edamam-recipe-search.p.rapidapi.com",
+            "x-rapidapi-key": "eba0823ae8msh6033297465cdf65p145577jsn53c564785219"
+        ]
 
+        let request = NSMutableURLRequest(url: NSURL(
+            string: "https://edamam-recipe-search.p.rapidapi.com/search?q=chicken")! as URL,
+            cachePolicy: .useProtocolCachePolicy,
+            timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
 
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, _, _) -> Void in
+            guard let data = data else { return }
+            print(JSON(data))
+            do {
+                self.favoritesTwo = try JSONDecoder().decode([Tasks].self, from: data)
+            } catch {
+                print("Загрузка Task ", error)
+            }
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        })
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        dataTask.resume()
     }
-    */
+
+
+
+
+
 
     // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return favorites.count
+        return hits.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "favoriteCell", for: indexPath) as! FavoriteCell
-        let recipe = favorites[indexPath.row]
+        let recipe = hits[indexPath.row]
 
         cell.configure(user: "привет")
 

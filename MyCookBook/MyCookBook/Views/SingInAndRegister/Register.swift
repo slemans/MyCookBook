@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import Firebase
 
-class SIngUpVC: UIViewController {
+class Register: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var registrationBt: UIButton!
@@ -21,21 +22,29 @@ class SIngUpVC: UIViewController {
     @IBOutlet weak var passwordTf: UITextField!
     @IBOutlet weak var econfirmPasTf: UITextField!
     @IBOutlet var verifPassLine: [UIView]!
-    
+
     private var isValidEmail = false
     private var passwordStrenngth: PasswordLine = .veryWeak
     private var isValidEconfPass = false
-    
+
     var passworUser: String?
     var nameUser: String?
     var emailUser: String?
-    
+    var newUser: User?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         openingSeting()
         startKeyboardObserver()
+        
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        emailTf.text = ""
+        nameTf.text = ""
+        passwordTf.text = ""
+        econfirmPasTf.text = ""
+    }
     @IBAction func emailTexFieldAction(_ sender: UITextField) {
         isValidEmail = Registration.checkEmail(sender.text)
         errorLbEmail.isHidden = isValidEmail
@@ -61,24 +70,35 @@ class SIngUpVC: UIViewController {
         checkValidTf()
     }
     @IBAction func registrationBtAction() {
-        if emailCheckUsedDefault(emailTf.text) == false {
+        if isValidEmail == true && isValidEconfPass == true {
+            errorLbEmailAlready.isHidden = true
             guard let email = emailTf.text,
-                  let password = passwordTf.text else { return }
-            Registration.newUser = User(name: nameTf.text, email: email, password: password)
-            performSegue(withIdentifier: "singUpSegue", sender: nil)
+                let password = passwordTf.text,
+                let name = nameTf.text else { return }
+            Auth.auth().createUser(withEmail: email,
+                password: password,
+                completion: { [weak self] (user, error) in
+                    if error == nil {
+                        if user != nil {
+                            self?.performSegue(withIdentifier: "thankYouSegue", sender: nil)
+                            self?.dismiss(animated: true, completion: nil)
+                        }
+                    } else {
+                        self?.errorLbEmailAlready.isHidden = false
+                        self?.errorLbEmailAlready.text = "This email is already there"
+                    }
+                    
+                })
+           // newUser = User(name: name, email: email, password: password)
         } else {
             errorLbEmailAlready.isHidden = false
         }
     }
-    private func emailCheckUsedDefault(_ emeil: String?) -> Bool {
-        guard let emailTwo = emeil else { return false }
-        return emailTwo == Registration.userEmail
+    @IBAction func singInBtAct() {
+        performSegue(withIdentifier: "singInSegue", sender: nil)
+        dismiss(animated: true, completion: nil)
     }
-    
-    
-    
-    
-    
+
     private func checkConfPass() {
         isValidEconfPass = Registration.checkEconPass(passwordTf.text, econfirmPasTf.text)
         errorLbEconPass.isHidden = isValidEconfPass
@@ -92,25 +112,29 @@ class SIngUpVC: UIViewController {
             registrationBt.alpha = 0.2
         }
     }
-    
-    
+
+
 
     private func openingSeting() {
+        self.navigationItem.setHidesBackButton(true, animated: true)
         registrationLB.alpha = 0.0
         registrationBt.layer.cornerRadius = Border.borderRadius
         UIView.animate(withDuration: 1.05) {
             self.registrationLB.alpha = 1.0
         }
+
     }
-    
+
 }
 
+
+
 // Work with keyboord
-extension SIngUpVC{
+extension Register {
     private func startKeyboardObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(SIngUpVC.keyboardWillShow),
+        NotificationCenter.default.addObserver(self, selector: #selector(Register.keyboardWillShow),
             name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(SIngUpVC.keyboardWillHide),
+        NotificationCenter.default.addObserver(self, selector: #selector(Register.keyboardWillHide),
             name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -125,5 +149,5 @@ extension SIngUpVC{
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
     }
-    
+
 }

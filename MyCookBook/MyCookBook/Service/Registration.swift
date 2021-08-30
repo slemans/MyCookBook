@@ -12,7 +12,6 @@ class Registration {
     static var userName = "1"
     static let userPassword = "1"
     static let userEmail = "1"
-    static var newUser: User?
 
     static let passWeak = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
     static let passNotVeryStrong = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{8,}$"

@@ -6,8 +6,8 @@
 //
 
 import UIKit
-
-class ProfileStartVC: UIViewController {
+import Firebase
+class StartVC: UIViewController {
 
     @IBOutlet weak var titleVC: UIStackView!
     @IBOutlet weak var singInBt: UIButton!
@@ -16,6 +16,12 @@ class ProfileStartVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         openingSeting()
+//        Auth.auth().addStateDidChangeListener({ [weak self] (auth, user) in
+//            if user != nil {
+//                self?.performSegue(withIdentifier: "BarBatonSegue", sender: nil)
+//                self?.dismiss(animated: true, completion: nil)
+//            }
+//        })
     }
     private func openingSeting() {
         titleVC.alpha = 0.0
@@ -28,7 +34,17 @@ class ProfileStartVC: UIViewController {
             // self.titleVC.transform = CGAffineTransform(translationX: 15, y: 0) передвигает
         }
     }
-
-
-
+    @IBAction func singInAct() {
+        performSegue(withIdentifier: "singInSegue", sender: nil)
+    }
+    
+    @IBAction func singUpAct() {
+        
+//        if let singUpVC = storyboard?.instantiateViewController(
+//            withIdentifier: "SingUpVC") as? Register {
+//            singUpVC.modalPresentationStyle = .fullScreen
+//            present(singUpVC, animated: true)
+//        }
+        performSegue(withIdentifier: "singUpSegue", sender: nil)
+    }
 }
