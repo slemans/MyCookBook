@@ -13,8 +13,8 @@ private let reuseIdentifier = "Cell"
 
 class FavoriteCVC: UICollectionViewController {
 
-    private var favorites: Recipe?
-    private var favoritesTwo: [Tasks] = []
+    private var favorites: recipe?
+    private var favoritesTwo: Tasks?
     private var hits: [JSON] = []
     private var alboms: JSON? = []
     override func viewDidLoad() {
@@ -91,7 +91,7 @@ class FavoriteCVC: UICollectionViewController {
             guard let data = data else { return }
             print(JSON(data))
             do {
-                self.favoritesTwo = try JSONDecoder().decode([Tasks].self, from: data)
+                self.favoritesTwo = try JSONDecoder().decode(Tasks.self, from: data)
             } catch {
                 print("Загрузка Task ", error)
             }

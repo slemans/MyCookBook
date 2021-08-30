@@ -12,33 +12,33 @@ struct Tasks: Codable{
     let q: String?
     let more: Bool?
     let from: Int?
-   // let hits: [Recipe]
+    let hits: [recipe]
     let count: Int?
     
     
 }
-struct Recipe: Codable {
-    let shareAs: String?
-    let cautions: [String?]
-    let image: String?
-    let totalNutrients: [TotalNutrients?]
-    let totalDaily: [TotalDaily?]
-    let totalWeight: Double?
-    let dietLabels: [String?]
-    let calories: Double?
-    let mealType: [String?]
-    let ingredients: [Ingredients?]
+struct recipe: Codable {
+//    let shareAs: String?
+//    let cautions: [String?]
+//    let image: String?
+//    let totalNutrients: [TotalNutrients?]
+//    let totalDaily: [TotalDaily?]
+//    let totalWeight: Double?
+//    let dietLabels: [String?]
+//    let calories: Double?
+//    let mealType: [String?]
+//    let ingredients: [Ingredients?]
     let source: String?
-    let ingredientLines: [String?]
-    let url: String?
-    let healthLabels: [String?]
-    let cuisineType: [String?]
-    let dishType: [String?]
-    let yield: Int?
-    let uri: String?
-    let label: String?
-    let digest: [Digest?]
-    let totalTime: Int?
+//    let ingredientLines: [String?]
+//    let url: String?
+//    let healthLabels: [String?]
+//    let cuisineType: [String?]
+//    let dishType: [String?]
+//    let yield: Int?
+//    let uri: String?
+//    let label: String?
+//    let digest: [Digest?]
+//    let totalTime: Int?
 }
 
 

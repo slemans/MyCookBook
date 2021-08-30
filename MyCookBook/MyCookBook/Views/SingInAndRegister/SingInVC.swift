@@ -25,11 +25,16 @@ class SingInVC: UIViewController {
     override func viewDidLoad() {
         openingSeting()
         startKeyboardObserver()
-        Auth.auth().addStateDidChangeListener({ [weak self] (auth, user) in
-            if user != nil {
-                self?.performSegue(withIdentifier: "BarBatonSegue", sender: nil)
-                self?.dismiss(animated: true, completion: nil)
-            }
+        Auth.auth().addStateDidChangeListener({ [weak self] _, user in
+            guard let _ = user else { return }
+            let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
+                controller.modalPresentationStyle = .fullScreen
+                self?.present(controller, animated: true, completion: nil)
+//            if user != nil {
+//                self?.performSegue(withIdentifier: "BarBatonSegue", sender: nil)
+//                self?.dismiss(animated: true, completion: nil)
+//            }
         })
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -42,29 +47,24 @@ class SingInVC: UIViewController {
         guard let email = emailTF.text,
             let password = passwordTF.text,
             email != "", password != "" else {
-            displayWarningText(text: "User does not exist")
+                displayWarningText(text: "User does not exist")
             return
         }
-        Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] (user, error) in
-            if error != nil {
-                self?.displayWarningText(text: "Error occured")
+        Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] user, error in
+            if let errors = error {
+                self?.displayWarningText(text: "Error \n\(errors.localizedDescription)")
+                return
+            } else if user != nil {
+               // self?.performSegue(withIdentifier: "BarBatonSegue", sender: nil)
+              //  self?.dismiss(animated: true, completion: nil)
                 return
             }
-            if user != nil {
-                self?.performSegue(withIdentifier: "BarBatonSegue", sender: nil)
-                self?.dismiss(animated: true, completion: nil)
-                return
-            }
-            self?.displayWarningText(text: "No such user")
         })
     }
     @IBAction func registrationBtAct() {
         performSegue(withIdentifier: "singUpSegue", sender: nil)
         dismiss(animated: true, completion: nil)
     }
-
-
-
     private func openingSeting() {
         self.navigationItem.setHidesBackButton(true, animated: true)
         errorLB.alpha = 0.0
@@ -81,7 +81,7 @@ class SingInVC: UIViewController {
 extension SingInVC {
     private func displayWarningText(text: String) {
         errorLB.text = text
-        UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations: { [weak self] in
+        UIView.animate(withDuration: 4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations: { [weak self] in
             self?.errorLB.alpha = 1.0
         }) { [weak self] complete in
             self?.errorLB.alpha = 0

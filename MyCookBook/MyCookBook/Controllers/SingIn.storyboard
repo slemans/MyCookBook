@@ -13,11 +13,11 @@
             <objects>
                 <viewController storyboardIdentifier="SingInVC" id="Y6W-OH-hqX" customClass="SingInVC" customModule="MyCookBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TxR-RI-YRR">
-                                <rect key="frame" x="25" y="25" width="84.5" height="15"/>
+                                <rect key="frame" x="25" y="113" width="84.5" height="15"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBA-ZE-e3k">
                                         <rect key="frame" x="0.0" y="0.0" width="28.5" height="15"/>
@@ -35,7 +35,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xE-oV-Xdi">
-                                <rect key="frame" x="25" y="105" width="349.5" height="34"/>
+                                <rect key="frame" x="25" y="193" width="349.5" height="34"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SING " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fj2-wp-V9M">
                                         <rect key="frame" x="0.0" y="0.0" width="87.5" height="34"/>
@@ -59,7 +59,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="xcS-fx-dkw">
-                                <rect key="frame" x="25" y="439" width="344.5" height="186"/>
+                                <rect key="frame" x="25" y="493" width="344.5" height="186"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="B4M-pK-BZt">
                                         <rect key="frame" x="0.0" y="0.0" width="344.5" height="61.5"/>
@@ -147,7 +147,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gNd-jh-twz">
-                                <rect key="frame" x="25" y="695" width="344.5" height="88"/>
+                                <rect key="frame" x="25" y="749" width="344.5" height="88"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7X4-S6-sis">
                                         <rect key="frame" x="0.0" y="0.0" width="344.5" height="40"/>
@@ -218,7 +218,6 @@
                         <outlet property="passwordTF" destination="3c4-Fb-oSa" id="8TG-or-O19"/>
                         <outlet property="singInBT" destination="TX6-oq-tt3" id="Skb-DZ-Vh4"/>
                         <outlet property="singInLB" destination="Fj2-wp-V9M" id="PnQ-QL-oEg"/>
-                        <segue destination="B5q-pK-KUq" kind="show" identifier="BarBatonSegue" id="9HV-aP-oaL"/>
                         <segue destination="1hQ-2J-JrM" kind="show" identifier="singUpSegue" id="Tvr-CU-yTd"/>
                     </connections>
                 </viewController>
@@ -226,10 +225,10 @@
             </objects>
             <point key="canvasLocation" x="1776.8115942028987" y="-488.16964285714283"/>
         </scene>
-        <!--TabBarViewController-->
+        <!--TabBar-->
         <scene sceneID="bAD-NT-Lhf">
             <objects>
-                <viewControllerPlaceholder storyboardName="TabBarViewController" id="B5q-pK-KUq" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="TabBar" id="B5q-pK-KUq" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="jd4-gF-bu2"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbM-Tp-4Kb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -359,11 +358,11 @@
             <objects>
                 <viewController storyboardIdentifier="SingUpVC" id="1hQ-2J-JrM" customClass="Register" customModule="MyCookBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Qj-6H-aZ3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZT6-ob-KmN">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOP-MR-0gi">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="794.5"/>
@@ -709,11 +708,11 @@
             <objects>
                 <viewController storyboardIdentifier="ThankYouVC" id="NDs-ih-MVl" customClass="ThankYouVC" customModule="MyCookBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h1X-4V-BHA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIu-YJ-UBU">
-                                <rect key="frame" x="25" y="25" width="84.5" height="15"/>
+                                <rect key="frame" x="25" y="113" width="84.5" height="15"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhS-g4-hs4">
                                         <rect key="frame" x="0.0" y="0.0" width="28.5" height="15"/>
@@ -731,13 +730,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for registration with us" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mac-p0-88W">
-                                <rect key="frame" x="25" y="370.5" width="364" height="67.5"/>
+                                <rect key="frame" x="25" y="441.5" width="364" height="67.5"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="30"/>
                                 <color key="textColor" systemColor="systemGreenColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iha-dQ-SyK">
-                                <rect key="frame" x="25" y="743" width="364" height="40"/>
+                                <rect key="frame" x="25" y="797" width="364" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JcT-5O-Xnk">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="40"/>
@@ -799,8 +798,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Tvr-CU-yTd"/>
-        <segue reference="aqD-PC-yAi"/>
+        <segue reference="ZP3-K0-uuD"/>
+        <segue reference="IDV-c6-9J3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

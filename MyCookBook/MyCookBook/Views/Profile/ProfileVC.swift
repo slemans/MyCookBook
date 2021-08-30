@@ -6,16 +6,24 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     
+    @IBAction func goOutBtAct() {
+        do{
+            try Auth.auth().signOut()
+            navigationController?.popToRootViewController(animated: true)
+            dismiss(animated: true, completion: nil)
+        } catch{
+            print(error.localizedDescription)
+        }
+    }
     
     
     @IBAction func addNewBrAct() {
@@ -30,5 +38,8 @@ class ProfileVC: UIViewController {
         alert.addAction(cencel)
         present(alert, animated: true, completion: nil)
     }
+    
+    
+    
     
 }

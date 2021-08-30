@@ -12,7 +12,7 @@
         <!--Recipes-->
         <scene sceneID="1qz-7D-A2j">
             <objects>
-                <viewController storyboardIdentifier="MainVC" id="k6G-aL-dOM" customClass="HomeViewController" customModule="MyCookBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="k6G-aL-dOM" customClass="HomeViewController" customModule="MyCookBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vn2-pa-3Gw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,12 +81,11 @@
                             <constraint firstItem="oxy-Aw-dfa" firstAttribute="trailing" secondItem="VCb-Az-OfP" secondAttribute="trailing" constant="25" id="oe1-yQ-345"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="myr-s4-tC1"/>
                     <navigationItem key="navigationItem" title="Recipes" id="4Kl-kb-itf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yf4-x1-aod" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10791.304347826088" y="-129.24107142857142"/>
+            <point key="canvasLocation" x="12601" y="-129"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="3ya-Nw-sAr">
@@ -139,12 +138,11 @@
                             <outlet property="delegate" destination="TBc-yz-VK5" id="MZF-rO-f8N"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="suit.heart" catalog="system" selectedImage="suit.heart.fill" id="vbd-kw-8v6"/>
                     <navigationItem key="navigationItem" title="Favorites" id="v8m-Ee-2yG"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uMI-8B-vmE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11691.304347826088" y="555.80357142857144"/>
+            <point key="canvasLocation" x="12601.44927536232" y="555.80357142857144"/>
         </scene>
         <!--My recipes-->
         <scene sceneID="mfx-mG-RQJ">
@@ -175,25 +173,22 @@
                             <outlet property="delegate" destination="T3H-iZ-3HP" id="3SA-W8-GMb"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="My recipe" image="doc.richtext" catalog="system" selectedImage="doc.richtext.fill" id="nge-dw-UtA"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My recipes" largeTitleDisplayMode="always" id="TUN-5N-gvK">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="imj-oN-iRu"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pON-FD-znN">
                             <connections>
                                 <action selector="addNewReciptes:" destination="O1C-ju-Rfc" id="5qW-0e-NRX"/>
+                                <segue destination="plE-mp-aid" kind="show" id="egf-9a-sAX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <segue destination="plE-mp-aid" kind="show" id="tTI-li-rsO"/>
-                    </connections>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5n3-zK-QLK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="O1C-ju-Rfc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="11700" y="1273.6607142857142"/>
+            <point key="canvasLocation" x="12608.695652173914" y="1273.6607142857142"/>
         </scene>
         <!--Account-->
         <scene sceneID="HDY-HA-DCc">
@@ -211,16 +206,27 @@
                                     <action selector="addNewBrAct" destination="CH2-Jl-IjR" eventType="touchUpInside" id="Oxk-60-clc"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTB-Cz-Wxd">
+                                <rect key="frame" x="322" y="73" width="49" height="30"/>
+                                <state key="normal" title="Go Out"/>
+                                <connections>
+                                    <action selector="goOutBtAct" destination="CH2-Jl-IjR" eventType="touchUpInside" id="ksd-45-giq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KFG-l5-ZCN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KFG-l5-ZCN" firstAttribute="trailing" secondItem="YTB-Cz-Wxd" secondAttribute="trailing" constant="43" id="558-ai-kPD"/>
+                            <constraint firstItem="YTB-Cz-Wxd" firstAttribute="top" secondItem="KFG-l5-ZCN" secondAttribute="top" constant="29" id="XsP-m5-M6j"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" image="person.crop.circle" catalog="system" selectedImage="person.circle.fill" id="xET-07-V6Q"/>
                     <navigationItem key="navigationItem" id="QqP-2I-sif"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EFf-FU-GnD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10791.304347826088" y="2033.7053571428571"/>
+            <point key="canvasLocation" x="11690" y="2040"/>
         </scene>
         <!--New Recip-->
         <scene sceneID="oqX-EF-GF7">
@@ -231,7 +237,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qhs-eU-Mbc">
-                                <rect key="frame" x="0.0" y="88" width="414" height="676"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Bu-ei-5T7">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
@@ -353,18 +359,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qDb-8p-o3t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12501.44927536232" y="1273.6607142857142"/>
+            <point key="canvasLocation" x="13411.594202898552" y="1273.6607142857142"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="OcA-a0-kKf">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Qep-x1-D72" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarViewController" automaticallyAdjustsScrollViewInsets="NO" id="Qep-x1-D72" customClass="TabBarViewController" customModule="MyCookBook" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Oiw-4F-LDX">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="KHN-cl-8xv"/>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationItem key="navigationItem" id="Oiw-4F-LDX"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="h5Z-1H-Wff">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="83"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -372,15 +375,72 @@
                         <color key="selectedImageTintColor" systemColor="systemGreenColor"/>
                     </tabBar>
                     <connections>
-                        <segue destination="k6G-aL-dOM" kind="relationship" relationship="viewControllers" id="WZi-zF-pdp"/>
-                        <segue destination="TBc-yz-VK5" kind="relationship" relationship="viewControllers" id="Wa3-Ma-15D"/>
-                        <segue destination="T3H-iZ-3HP" kind="relationship" relationship="viewControllers" id="cAG-WD-plE"/>
+                        <segue destination="k6h-gr-nMu" kind="relationship" relationship="viewControllers" id="WZi-zF-pdp"/>
+                        <segue destination="5nG-Ob-Jts" kind="relationship" relationship="viewControllers" id="Wa3-Ma-15D"/>
+                        <segue destination="YlE-Hq-Wrn" kind="relationship" relationship="viewControllers" id="cAG-WD-plE"/>
                         <segue destination="CH2-Jl-IjR" kind="relationship" relationship="viewControllers" id="V0e-lj-Fah"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Z9-pA-vc3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9736" y="860"/>
+        </scene>
+        <!--My recipe-->
+        <scene sceneID="CCt-36-74e">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YlE-Hq-Wrn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My recipe" image="doc.richtext" catalog="system" selectedImage="doc.richtext.fill" id="5PI-2p-bqk"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U3z-hO-OB1">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="T3H-iZ-3HP" kind="relationship" relationship="rootViewController" id="HWO-6x-SSL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0qg-L1-Iko" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11698.550724637682" y="1273.6607142857142"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="0gy-oc-5C0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5nG-Ob-Jts" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="suit.heart" catalog="system" selectedImage="suit.heart.fill" id="vbd-kw-8v6"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8nr-CX-6Bx">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TBc-yz-VK5" kind="relationship" relationship="rootViewController" id="bpy-5m-Dff"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qkm-mt-yoY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11691.304347826088" y="555.80357142857144"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="5j5-dB-8jp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k6h-gr-nMu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="myr-s4-tC1"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VV1-fk-4bz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="k6G-aL-dOM" kind="relationship" relationship="rootViewController" id="fB8-yH-3Jo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NRs-JS-vko" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11691" y="-129"/>
         </scene>
     </scenes>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

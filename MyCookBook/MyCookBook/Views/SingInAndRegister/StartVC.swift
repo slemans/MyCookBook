@@ -7,21 +7,16 @@
 
 import UIKit
 import Firebase
+
 class StartVC: UIViewController {
 
     @IBOutlet weak var titleVC: UIStackView!
     @IBOutlet weak var singInBt: UIButton!
     @IBOutlet weak var singUpBt: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         openingSeting()
-//        Auth.auth().addStateDidChangeListener({ [weak self] (auth, user) in
-//            if user != nil {
-//                self?.performSegue(withIdentifier: "BarBatonSegue", sender: nil)
-//                self?.dismiss(animated: true, completion: nil)
-//            }
-//        })
     }
     private func openingSeting() {
         titleVC.alpha = 0.0
@@ -37,14 +32,13 @@ class StartVC: UIViewController {
     @IBAction func singInAct() {
         performSegue(withIdentifier: "singInSegue", sender: nil)
     }
-    
+
     @IBAction func singUpAct() {
-        
-//        if let singUpVC = storyboard?.instantiateViewController(
-//            withIdentifier: "SingUpVC") as? Register {
-//            singUpVC.modalPresentationStyle = .fullScreen
-//            present(singUpVC, animated: true)
+//        if let homeVС = storyboard?.instantiateViewController(
+//            withIdentifier: "HomeViewController") as? HomeViewController {
+//            homeVС.modalPresentationStyle = .fullScreen
+//            present(homeVС, animated: true)
 //        }
-        performSegue(withIdentifier: "singUpSegue", sender: nil)
+         performSegue(withIdentifier: "singUpSegue", sender: nil)
     }
 }

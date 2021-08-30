@@ -21,17 +21,8 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    // выход из аккаунта
-    @IBAction func singOutAction(_ sender: UIBarButtonItem) {
-        do{
-            try Auth.auth().signOut()
-            navigationController?.popToRootViewController(animated: true)
-            dismiss(animated: true, completion: nil)
-        } catch{
-            print(error.localizedDescription)
-        }
-        
-    }
+
+
     
     @IBAction func addTask(_ sender: UIBarButtonItem) {
         
