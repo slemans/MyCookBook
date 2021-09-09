@@ -12,10 +12,11 @@ class SingInVC: UIViewController {
 
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
-    @IBOutlet weak var errorLB: UILabel!
     @IBOutlet weak var singInBT: UIButton!
     @IBOutlet weak var singInLB: UILabel!
-
+    @IBOutlet weak var inLb: UILabel!
+    @IBOutlet weak var paswordAndEmaileErrorLb: UILabel!
+    
     private let BoolFalse = false
     private let Booltrue = true
     private var isValidEmail = false
@@ -29,12 +30,8 @@ class SingInVC: UIViewController {
             guard let _ = user else { return }
             let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
-                controller.modalPresentationStyle = .fullScreen
-                self?.present(controller, animated: true, completion: nil)
-//            if user != nil {
-//                self?.performSegue(withIdentifier: "BarBatonSegue", sender: nil)
-//                self?.dismiss(animated: true, completion: nil)
-//            }
+            controller.modalPresentationStyle = .fullScreen
+            self?.present(controller, animated: true, completion: nil)
         })
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -47,31 +44,39 @@ class SingInVC: UIViewController {
         guard let email = emailTF.text,
             let password = passwordTF.text,
             email != "", password != "" else {
-                displayWarningText(text: "User does not exist")
+            displayWarningText(text: "Email or password is not correct")
             return
         }
         Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] user, error in
-            if let errors = error {
-                self?.displayWarningText(text: "Error \n\(errors.localizedDescription)")
+            if let _ = error {
+                self?.displayWarningText(text: "User is not found")
                 return
-            } else if user != nil {
-               // self?.performSegue(withIdentifier: "BarBatonSegue", sender: nil)
-              //  self?.dismiss(animated: true, completion: nil)
+            } else if let _ = user {
+                // self?.performSegue(withIdentifier: "BarBatonSegue", sender: nil)
+                //  self?.dismiss(animated: true, completion: nil)
                 return
+            } else {
+                self?.displayWarningText(text: "Email or password is not correct")
             }
         })
+//        let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
+//        controller.modalPresentationStyle = .fullScreen
+//        present(controller, animated: true, completion: nil)
     }
     @IBAction func registrationBtAct() {
-        performSegue(withIdentifier: "singUpSegue", sender: nil)
+        performSegue(withIdentifier: Constants.Segues.singUp, sender: nil)
         dismiss(animated: true, completion: nil)
     }
-    private func openingSeting() {
+    fileprivate func openingSeting() {
         self.navigationItem.setHidesBackButton(true, animated: true)
-        errorLB.alpha = 0.0
+        paswordAndEmaileErrorLb.alpha = 0.0
         singInLB.alpha = 0.0
+        inLb.alpha = 0.0
         singInBT.layer.cornerRadius = Border.borderRadius
-        UIView.animate(withDuration: 1.05) {
-            self.singInLB.alpha = 1.0
+        UIView.animate(withDuration: 1.05) { [weak self] in
+            self?.singInLB.alpha = 1.0
+            self?.inLb.alpha = 1.0
         }
     }
 
@@ -80,11 +85,11 @@ class SingInVC: UIViewController {
 // Warning
 extension SingInVC {
     private func displayWarningText(text: String) {
-        errorLB.text = text
+        paswordAndEmaileErrorLb.text = text
         UIView.animate(withDuration: 4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations: { [weak self] in
-            self?.errorLB.alpha = 1.0
+            self?.paswordAndEmaileErrorLb.alpha = 1.0
         }) { [weak self] complete in
-            self?.errorLB.alpha = 0
+            self?.paswordAndEmaileErrorLb.alpha = 0
         }
     }
 }

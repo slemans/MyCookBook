@@ -8,17 +8,18 @@
 import Foundation
 import Firebase
 
-struct Users {
-    let uid: String
-    let name: String?
-    let email: String
-    //let recepets: Recipe?
-    
-    init(user: User){
+struct User {
+    // MARK: Lifecycle
+
+    init(user: Firebase.User) {
         self.uid = user.uid
-        self.email = user.email!
-        self.name = user.displayName
+        self.email = user.email ?? ""
     }
-    
+
+    // MARK: Internal
+
+    // идентификатор пользователя
+    let uid: String
+    let email: String
 }
 

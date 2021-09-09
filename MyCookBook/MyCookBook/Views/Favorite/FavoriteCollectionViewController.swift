@@ -1,16 +1,17 @@
 //
-//  MyRecipesCVC.swift
+//  FavoriteCollectionViewController.swift
 //  MyCookBook
 //
-//  Created by sleman on 25.08.21.
+//  Created by sleman on 2.09.21.
 //
 
 import UIKit
+import SwiftyJSON
 
 private let reuseIdentifier = "Cell"
 
-class MyRecipesCVC: UICollectionViewController {
-
+class FavoriteCollectionViewController: UICollectionViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,12 +21,8 @@ class MyRecipesCVC: UICollectionViewController {
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
-        // Do any additional setup after loading the view.
     }
-
-    @IBAction func addNewReciptes(_ sender: UIBarButtonItem) {
-        
-    }
+    
     /*
     // MARK: - Navigation
 
@@ -38,22 +35,18 @@ class MyRecipesCVC: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
+        
         return 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-
-        // Configure the cell
-
+    
+        
+    
         return cell
     }
 

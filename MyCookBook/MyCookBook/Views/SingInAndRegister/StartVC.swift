@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 
 class StartVC: UIViewController {
 
@@ -18,6 +17,7 @@ class StartVC: UIViewController {
         super.viewDidLoad()
         openingSeting()
     }
+  
     private func openingSeting() {
         titleVC.alpha = 0.0
         singInBt.layer.cornerRadius = Border.borderRadius
@@ -28,17 +28,15 @@ class StartVC: UIViewController {
             self.titleVC.alpha = 1.0
             // self.titleVC.transform = CGAffineTransform(translationX: 15, y: 0) передвигает
         }
+         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layoutIfNeeded()
     }
     @IBAction func singInAct() {
-        performSegue(withIdentifier: "singInSegue", sender: nil)
+        performSegue(withIdentifier: Constants.Segues.singIn, sender: nil)
     }
 
     @IBAction func singUpAct() {
-//        if let homeVС = storyboard?.instantiateViewController(
-//            withIdentifier: "HomeViewController") as? HomeViewController {
-//            homeVС.modalPresentationStyle = .fullScreen
-//            present(homeVС, animated: true)
-//        }
-         performSegue(withIdentifier: "singUpSegue", sender: nil)
+        performSegue(withIdentifier: Constants.Segues.singUp, sender: nil)
     }
 }

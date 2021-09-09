@@ -36,7 +36,6 @@ class Register: UIViewController {
         super.viewDidLoad()
         openingSeting()
         startKeyboardObserver()
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -47,7 +46,9 @@ class Register: UIViewController {
     }
     @IBAction func emailTexFieldAction(_ sender: UITextField) {
         isValidEmail = Registration.checkEmail(sender.text)
-        errorLbEmail.isHidden = isValidEmail
+        if isValidEmail == false {
+            displayWarningLabelEmail(withText: "Wrong Email")
+        }
         registrationBt.isUserInteractionEnabled = isValidEmail
         checkValidTf()
     }
@@ -71,31 +72,25 @@ class Register: UIViewController {
     }
     @IBAction func registrationBtAction() {
         if isValidEmail == true && isValidEconfPass == true {
-            errorLbEmailAlready.isHidden = true
             guard let email = emailTf.text,
-                let password = passwordTf.text,
-                let name = nameTf.text else { return }
+                let password = passwordTf.text else { return }
             Auth.auth().createUser(withEmail: email,
                 password: password,
                 completion: { [weak self] (user, error) in
-                    if error == nil {
-                        if user != nil {
-                            self?.performSegue(withIdentifier: "thankYouSegue", sender: nil)
-                            self?.dismiss(animated: true, completion: nil)
-                        }
+                    if let error = error {
+                        self?.displayWarningLabelEmail(withText: "\(error.localizedDescription)")
                     } else {
-                        self?.errorLbEmailAlready.isHidden = false
-                        self?.errorLbEmailAlready.text = "This email is already there"
+                        // guard let user = user else { return } // delete
+                        self?.performSegue(withIdentifier: Constants.Segues.start, sender: nil)
                     }
-                    
                 })
-           // newUser = User(name: name, email: email, password: password)
+            // newUser = User(name: name, email: email, password: password)
         } else {
-            errorLbEmailAlready.isHidden = false
+            displayWarningLabelEmail(withText: "Wrong Email")
         }
     }
     @IBAction func singInBtAct() {
-        performSegue(withIdentifier: "singInSegue", sender: nil)
+        performSegue(withIdentifier: Constants.Segues.singIn, sender: nil)
         dismiss(animated: true, completion: nil)
     }
 
@@ -117,17 +112,28 @@ class Register: UIViewController {
 
     private func openingSeting() {
         self.navigationItem.setHidesBackButton(true, animated: true)
-        registrationLB.alpha = 0.0
+        //registrationLB.alpha = 0.0
+        errorLbEmail.alpha = 0
         registrationBt.layer.cornerRadius = Border.borderRadius
-        UIView.animate(withDuration: 1.05) {
-            self.registrationLB.alpha = 1.0
-        }
+//        UIView.animate(withDuration: 1.05) {
+//            self.registrationLB.alpha = 1.0
+//        }
 
     }
 
+
+
 }
 
-
+// Label
+extension Register {
+    private func displayWarningLabelEmail(withText text: String) {
+        errorLbEmail.text = text
+        UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations: { [weak self] in self?.errorLbEmail.alpha = 1 }) { [weak self] _ in
+            self?.errorLbEmail.alpha = 0
+        }
+    }
+}
 
 // Work with keyboord
 extension Register {
