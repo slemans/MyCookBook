@@ -20,20 +20,23 @@ class ServiseAPI {
         switch type {
         case .chicken:
             url = "https://edamam-recipe-search.p.rapidapi.com/search?q=chicken"
-        case .keto:
-            url = "https://edamam-recipe-search.p.rapidapi.com/search?q=keto"
-        case .steak:
-            url = "https://edamam-recipe-search.p.rapidapi.com/search?q=steak"
+        case .pork:
+            url = "https://edamam-recipe-search.p.rapidapi.com/search?q=pork"
+        case .beef:
+            url = "https://edamam-recipe-search.p.rapidapi.com/search?q=beef"
+        case .fish:
+            url = "https://edamam-recipe-search.p.rapidapi.com/search?q=fish"
         }
         let request = NSMutableURLRequest(url: NSURL(
             string: "\(url)")! as URL,
             cachePolicy: .useProtocolCachePolicy,
             timeoutInterval: 10.0)
+        
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { [weak self] data, response, error in
-            print(JSON(data))
+            // print(JSON(data))
             if let data = data, let myRecipes = self?.parseJSON(withData: data) {
                 completionHandler(myRecipes)
             }

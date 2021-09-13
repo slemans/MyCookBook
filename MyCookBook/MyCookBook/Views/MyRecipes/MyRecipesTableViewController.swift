@@ -42,7 +42,7 @@ class MyRecipesTableViewController: UITableViewController {
         let recipe = masRecipes[indexPath.row]
         cell.textLabel?.text = recipe.recipe.label
         //cell.textLabel?.text = "\(indexPath)"
-        cell.detailTextLabel?.text = String(recipe.recipe.calories)
+//        cell.detailTextLabel?.text = String(recipe.recipe.calories)
         cell.textLabel?.textColor = .white
         cell.backgroundColor = .red
 

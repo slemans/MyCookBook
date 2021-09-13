@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7F0DAFB326E376240039AFF9 /* ConstantsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DAFB226E376240039AFF9 /* ConstantsApi.swift */; };
 		7F0DAFB526E5561F0039AFF9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DAFB426E5561F0039AFF9 /* MainTableViewCell.swift */; };
+		7F0DB02426ED0DBE0039AFF9 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DB02326ED0DBE0039AFF9 /* DescriptionViewController.swift */; };
 		7F708AB926D5750F00DAC8B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708AB826D5750F00DAC8B0 /* AppDelegate.swift */; };
 		7F708ABB26D5750F00DAC8B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708ABA26D5750F00DAC8B0 /* SceneDelegate.swift */; };
 		7F708AC026D5750F00DAC8B0 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F708ABE26D5750F00DAC8B0 /* TabBar.storyboard */; };
@@ -29,7 +30,6 @@
 		7F708B3926D97DAF00DAC8B0 /* SingInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708B3826D97DAF00DAC8B0 /* SingInVC.swift */; };
 		7F708B3C26DA301000DAC8B0 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708B3B26DA301000DAC8B0 /* Register.swift */; };
 		7F708B3E26DA9EC100DAC8B0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708B3D26DA9EC100DAC8B0 /* User.swift */; };
-		7F708B4326DB88AB00DAC8B0 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708B4226DB88AB00DAC8B0 /* TabBarViewController.swift */; };
 		7F708B4626DBD25900DAC8B0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708B4526DBD25800DAC8B0 /* MainViewController.swift */; };
 		7F708B4A26DBDA7700DAC8B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F708B4926DBDA7700DAC8B0 /* GoogleService-Info.plist */; };
 		7F708B5126DC109700DAC8B0 /* ThankYouVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708B5026DC109700DAC8B0 /* ThankYouVC.swift */; };
@@ -39,7 +39,6 @@
 		7F708BC226DD41FB00DAC8B0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7F708BC126DD41FB00DAC8B0 /* FirebaseAuth */; };
 		7F708BC426DD41FB00DAC8B0 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 7F708BC326DD41FB00DAC8B0 /* FirebaseDatabase */; };
 		7F801D4226E011D5004354CC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F801D4126E011D5004354CC /* Constants.swift */; };
-		7F801D4526E016EA004354CC /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F801D4426E016EA004354CC /* Task.swift */; };
 		7F801D5126E0EE50004354CC /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F801D5026E0EE50004354CC /* FavoriteTableViewCell.swift */; };
 		7F801D5326E0EF3D004354CC /* FavoriteCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F801D5226E0EF3D004354CC /* FavoriteCollectionViewController.swift */; };
 		7F801D5926E2A295004354CC /* MyRecipesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F801D5826E2A295004354CC /* MyRecipesTableViewController.swift */; };
@@ -65,6 +64,7 @@
 /* Begin PBXFileReference section */
 		7F0DAFB226E376240039AFF9 /* ConstantsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsApi.swift; sourceTree = "<group>"; };
 		7F0DAFB426E5561F0039AFF9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		7F0DB02326ED0DBE0039AFF9 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		7F708AB526D5750F00DAC8B0 /* MyCookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F708AB826D5750F00DAC8B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F708ABA26D5750F00DAC8B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,13 +89,11 @@
 		7F708B3826D97DAF00DAC8B0 /* SingInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingInVC.swift; sourceTree = "<group>"; };
 		7F708B3B26DA301000DAC8B0 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		7F708B3D26DA9EC100DAC8B0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		7F708B4226DB88AB00DAC8B0 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		7F708B4526DBD25800DAC8B0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7F708B4926DBDA7700DAC8B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7F708B5026DC109700DAC8B0 /* ThankYouVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankYouVC.swift; sourceTree = "<group>"; };
 		7F708B5426DD1D9600DAC8B0 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		7F801D4126E011D5004354CC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		7F801D4426E016EA004354CC /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		7F801D5026E0EE50004354CC /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		7F801D5226E0EF3D004354CC /* FavoriteCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewController.swift; sourceTree = "<group>"; };
 		7F801D5826E2A295004354CC /* MyRecipesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesTableViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +130,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F0DB02726ED0F780039AFF9 /* Description */ = {
+			isa = PBXGroup;
+			children = (
+				7F0DB02326ED0DBE0039AFF9 /* DescriptionViewController.swift */,
+			);
+			path = Description;
+			sourceTree = "<group>";
+		};
 		7F708AAC26D5750E00DAC8B0 = {
 			isa = PBXGroup;
 			children = (
@@ -206,7 +212,6 @@
 				7F708B0926D6D07900DAC8B0 /* Favorite */,
 				7F708B0626D6D02C00DAC8B0 /* MyRecipes */,
 				7F708AF726D5899600DAC8B0 /* Profile */,
-				7F708B4226DB88AB00DAC8B0 /* TabBarViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -266,7 +271,6 @@
 			children = (
 				7F708B3D26DA9EC100DAC8B0 /* User.swift */,
 				7F708B0426D6CC3700DAC8B0 /* Recipes.swift */,
-				7F801D4426E016EA004354CC /* Task.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -312,6 +316,7 @@
 		7F708B3F26DB856000DAC8B0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				7F0DB02726ED0F780039AFF9 /* Description */,
 				7F708B4526DBD25800DAC8B0 /* MainViewController.swift */,
 				7F0DAFB426E5561F0039AFF9 /* MainTableViewCell.swift */,
 			);
@@ -496,9 +501,7 @@
 			files = (
 				7F708B5526DD1D9700DAC8B0 /* ProfileVC.swift in Sources */,
 				7F801D5926E2A295004354CC /* MyRecipesTableViewController.swift in Sources */,
-				7F708B4326DB88AB00DAC8B0 /* TabBarViewController.swift in Sources */,
 				7F708B5126DC109700DAC8B0 /* ThankYouVC.swift in Sources */,
-				7F801D4526E016EA004354CC /* Task.swift in Sources */,
 				7F801D5326E0EF3D004354CC /* FavoriteCollectionViewController.swift in Sources */,
 				7F0DAFB326E376240039AFF9 /* ConstantsApi.swift in Sources */,
 				7F708B3C26DA301000DAC8B0 /* Register.swift in Sources */,
@@ -508,6 +511,7 @@
 				7F708B0B26D6D09600DAC8B0 /* FavoriteCVC.swift in Sources */,
 				7F801D4226E011D5004354CC /* Constants.swift in Sources */,
 				7F801D5126E0EE50004354CC /* FavoriteTableViewCell.swift in Sources */,
+				7F0DB02426ED0DBE0039AFF9 /* DescriptionViewController.swift in Sources */,
 				7F708B4626DBD25900DAC8B0 /* MainViewController.swift in Sources */,
 				7F708B3E26DA9EC100DAC8B0 /* User.swift in Sources */,
 				7F708AFC26D58B1A00DAC8B0 /* SettingVC.swift in Sources */,

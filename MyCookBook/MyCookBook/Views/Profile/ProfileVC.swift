@@ -10,11 +10,16 @@ import Firebase
 
 class ProfileVC: UIViewController {
 
+    @IBOutlet weak var nameUserLb: UILabel!
+    @IBOutlet weak var logOutBt: UIButton!
+    @IBOutlet weak var imagesUser: UIImageView!
+    @IBOutlet weak var myRecipeLb: UILabel!
+    @IBOutlet weak var favoritesLb: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        openingSeting()
     }
-    
-    
     @IBAction func goOutBtAct() {
         do{
             try Auth.auth().signOut()
@@ -24,7 +29,10 @@ class ProfileVC: UIViewController {
             print(error.localizedDescription)
         }
     }
-    
+    fileprivate func openingSeting() {
+        logOutBt.layer.cornerRadius = Border.borderRadius
+        imagesUser.layer.cornerRadius = Border.borderRadius
+    }
     
     @IBAction func addNewBrAct() {
         let alert = UIAlertController(title: "New Recipte", message: "Add new recepte", preferredStyle: .alert)

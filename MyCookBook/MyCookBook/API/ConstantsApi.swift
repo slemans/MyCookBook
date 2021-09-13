@@ -10,7 +10,8 @@ import Foundation
 
 enum TypeFood {
     case chicken
-    case steak
-    case keto
+    case beef
+    case pork
+    case fish
 }
 

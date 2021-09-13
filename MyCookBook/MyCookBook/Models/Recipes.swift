@@ -22,82 +22,31 @@ struct Hit: Codable {
 struct Recipe: Codable {
     let label: String
     let image: String
-    let source: String
-    let url: String
-    let shareAs: String
-    let yield: Int
-    let dietLabels, healthLabels: [String]
-    let cautions: [Caution]
-    let ingredientLines: [String]
-    let ingredients: [Ingredient]
-    let calories, totalWeight: Double
     let totalTime: Int
-    let cuisineType: [String]
     let mealType: [MealType]
-    let dishType: [DishType]
-    let totalNutrients, totalDaily: [String: Total]
-    let digest: [Digest]
+    let totalNutrients: [String: Total]
+    let calories: Double
+    let ingredients: [Ingredient]
+    let healthLabels: [String]
 }
-
-enum Caution: String, Codable {
-    case fodmap = "FODMAP"
-    case sulfites = "Sulfites"
-}
-
 struct Ingredient: Codable {
     let text: String
-    let weight: Double
-    let foodCategory, foodID: String
-    // let image: String?
-
     enum CodingKeys: String, CodingKey {
-        case text, weight, foodCategory
-        case foodID = "foodId"
-        // case image
+        case text
     }
 }
-
 enum MealType: String, Codable {
     case brunch = "brunch"
     case lunchDinner = "lunch/dinner"
+    case breakfast = "breakfast"
+    case teatime = "teatime"
+    case snack = "snack"
 }
-
-enum DishType: String, Codable {
-    case condimentsAndSauces = "condiments and sauces"
-    case mainCourse = "main course"
-    case starter = "starter"
-}
-
-struct Digest: Codable {
-    let label, tag: String
-    let schemaOrgTag: SchemaOrgTag?
-    let total: Double
-    let hasRDI: Bool
-    let daily: Double
-    let unit: Unit
-    let sub: [Digest]?
-}
-
 struct Total: Codable {
     let label: String
     let quantity: Double
     let unit: Unit
 }
-
-enum SchemaOrgTag: String, Codable {
-    case carbohydrateContent = "carbohydrateContent"
-    case cholesterolContent = "cholesterolContent"
-    case fatContent = "fatContent"
-    case fiberContent = "fiberContent"
-    case proteinContent = "proteinContent"
-    case saturatedFatContent = "saturatedFatContent"
-    case sodiumContent = "sodiumContent"
-    case sugarContent = "sugarContent"
-    case transFatContent = "transFatContent"
-}
-
-
-
 enum Unit: String, Codable {
     case empty = "%"
     case g = "g"
@@ -105,5 +54,33 @@ enum Unit: String, Codable {
     case mg = "mg"
     case µg = "µg"
 }
+
+//enum Caution: String, Codable {
+//    case fodmap = "FODMAP"
+//    case sulfites = "Sulfites"
+//}
+
+
+
+
+
+
+//struct Digest: Codable {
+//    let label, tag: String
+//    let schemaOrgTag: SchemaOrgTag?
+//    let total: Double
+//    let hasRDI: Bool
+//    let daily: Double
+//    let unit: Unit
+//    let sub: [Digest]?
+//}
+
+
+
+
+
+
+
+
 
 

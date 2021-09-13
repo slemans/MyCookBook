@@ -1,0 +1,98 @@
+//
+//  DescriptionViewController.swift
+//  MyCookBook
+//
+//  Created by sleman on 11.09.21.
+//
+
+import UIKit
+
+class DescriptionViewController: UIViewController {
+
+    @IBOutlet weak var imagesLb: UIImageView!
+    @IBOutlet weak var nameProductLb: UILabel!
+    @IBOutlet weak var timeСookingLb: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var stackViewName: UIStackView!
+    @IBOutlet weak var ingredientBt: UIButton!
+    @IBOutlet weak var healthBt: UIButton!
+
+    var recipel: Recipe!
+    var ingredientOrhealth = true
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        fenchRecipe()
+    }
+
+    @IBAction func ingridientBtAction(_ sender: UIButton) {
+        reload(first: sender, second: healthBt, bool: true)
+    }
+    @IBAction func healthBtAction(_ sender: UIButton) {
+        reload(first: sender, second: ingredientBt, bool: false)
+    }
+    @IBAction func faloverBtActive(_ sender: UIButton) {
+        if sender.currentImage == UIImage(named: "heart") {
+            sender.setImage(UIImage(named: "heart.fill"), for: .normal)
+        }
+        else {
+            sender.setImage(UIImage(named: "heart"), for: .normal)
+        }
+    }
+
+
+
+    private func reload(first: UIButton, second: UIButton, bool: Bool) {
+        first.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        first.tintColor = .white
+        second.backgroundColor = .white
+        second.tintColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        ingredientOrhealth = bool
+        tableView.reloadData()
+    }
+
+    private func fenchRecipe() {
+        putImage(image: recipel.image)
+        nameProductLb.text = recipel.label
+        timeСookingLb.text = totalTime(time: recipel.totalTime)
+
+    }
+    private func totalTime(time: Int?) -> String {
+        if time != 0 {
+            return "\(time!) minutes"
+        } else {
+            return "time not unknown"
+        }
+
+    }
+    private func putImage(image: String) {
+        guard let urlImg = URL(string: image) else { return }
+        URLSession.shared.dataTask(with: urlImg) { data, _, _ in
+            let queue = DispatchQueue.global(qos: .utility)
+            queue.async {
+                if let data = data, let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.imagesLb.image = image
+                    }
+                }
+            }
+        }.resume()
+    }
+}
+
+extension DescriptionViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ingredientOrhealth == true ? recipel.ingredients.count : recipel.healthLabels.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell", for: indexPath)
+        if ingredientOrhealth == true {
+            let ingridient = recipel.ingredients[indexPath.row]
+            cell.textLabel?.text = ingridient.text
+        } else {
+            let health = recipel.healthLabels[indexPath.row]
+            cell.textLabel?.text = health
+        }
+        return cell
+    }
+}
