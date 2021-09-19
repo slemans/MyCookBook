@@ -115,3 +115,11 @@ extension SingInVC {
     }
 
 }
+
+// remove keyboard
+extension SingInVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}

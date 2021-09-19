@@ -32,9 +32,9 @@ class MainTableViewCell: UITableViewCell {
         nameRecipeLb.text = recipe.label
         dishTypeLb.text = recipe.mealType.first?.rawValue
         timeLb.text = returnTime(time: recipe.totalTime)
-        fatLb.text = returnToFullString(tip: "FAT", recipe: recipe)
-        fiberLb.text = returnToFullString(tip: "FIBTG", recipe: recipe)
-        carbLb.text = returnToFullString(tip: "CHOCDF", recipe: recipe)
+        fatLb.text = tableviewFunction.returnToFullString(tip: "FAT", recipe: recipe)
+        fiberLb.text = tableviewFunction.returnToFullString(tip: "FIBTG", recipe: recipe)
+        carbLb.text = tableviewFunction.returnToFullString(tip: "CHOCDF", recipe: recipe)
         sugarLb.text = String((Int(recipe.calories) * 10) / 10) //returnToFullString(tip: "SUGAR", recipe: recipe)
         putImage(image: recipe.image)
     }
@@ -47,12 +47,12 @@ class MainTableViewCell: UITableViewCell {
         
     }
     
-    private func returnToFullString(tip: String, recipe: Recipe) -> String {
-        guard let quantity = recipe.totalNutrients[tip]?.quantity,
-              let unit = recipe.totalNutrients[tip]?.unit.rawValue else { return ""}
-        let newQuantity = (Int(quantity) * 10) / 10
-        return "\(newQuantity) \(unit)"
-    }
+//    private func returnToFullString(tip: String, recipe: Recipe) -> String {
+//        guard let quantity = recipe.totalNutrients[tip]?.quantity,
+//              let unit = recipe.totalNutrients[tip]?.unit.rawValue else { return ""}
+//        let newQuantity = (Int(quantity) * 10) / 10
+//        return "\(newQuantity) \(unit)"
+//    }
 
     private func putImage(image: String) {
         guard let urlImg = URL(string: image) else { return }

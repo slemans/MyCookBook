@@ -43,3 +43,10 @@ class ForgotPasswordViewController: UIViewController {
     
     
 }
+// remove keyboard
+extension ForgotPasswordViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}

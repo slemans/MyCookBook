@@ -43,6 +43,8 @@
 		7F801D5126E0EE50004354CC /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F801D5026E0EE50004354CC /* FavoriteTableViewCell.swift */; };
 		7F801D5326E0EF3D004354CC /* FavoriteCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F801D5226E0EF3D004354CC /* FavoriteCollectionViewController.swift */; };
 		7F801D5926E2A295004354CC /* MyRecipesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F801D5826E2A295004354CC /* MyRecipesTableViewController.swift */; };
+		7FEC6AC826F7B4E0000A5FBB /* AddNewRecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEC6AC726F7B4E0000A5FBB /* AddNewRecipeTableViewController.swift */; };
+		7FEC6ACA26F7B8F8000A5FBB /* FunctionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEC6AC926F7B8F8000A5FBB /* FunctionVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,8 @@
 		7F801D5026E0EE50004354CC /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		7F801D5226E0EF3D004354CC /* FavoriteCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewController.swift; sourceTree = "<group>"; };
 		7F801D5826E2A295004354CC /* MyRecipesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesTableViewController.swift; sourceTree = "<group>"; };
+		7FEC6AC726F7B4E0000A5FBB /* AddNewRecipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewRecipeTableViewController.swift; sourceTree = "<group>"; };
+		7FEC6AC926F7B8F8000A5FBB /* FunctionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				7F708AFB26D58B1A00DAC8B0 /* SettingVC.swift */,
+				7FEC6AC926F7B8F8000A5FBB /* FunctionVC.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				7F801D5826E2A295004354CC /* MyRecipesTableViewController.swift */,
+				7FEC6AC726F7B4E0000A5FBB /* AddNewRecipeTableViewController.swift */,
 			);
 			path = MyRecipes;
 			sourceTree = "<group>";
@@ -520,6 +526,8 @@
 				7F708B3E26DA9EC100DAC8B0 /* User.swift in Sources */,
 				7F708AFC26D58B1A00DAC8B0 /* SettingVC.swift in Sources */,
 				7F708ABB26D5750F00DAC8B0 /* SceneDelegate.swift in Sources */,
+				7FEC6AC826F7B4E0000A5FBB /* AddNewRecipeTableViewController.swift in Sources */,
+				7FEC6ACA26F7B8F8000A5FBB /* FunctionVC.swift in Sources */,
 				7F708B3426D95F0100DAC8B0 /* FavoriteCell.swift in Sources */,
 				7F708B3726D97C3D00DAC8B0 /* Registration.swift in Sources */,
 				7F708B0226D6CAF100DAC8B0 /* ServiseAPI.swift in Sources */,

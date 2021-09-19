@@ -73,7 +73,10 @@
                                                     <constraint firstAttribute="height" constant="40" id="yJQ-uk-xNk"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="gRO-NB-YO4"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -95,7 +98,10 @@
                                                             <constraint firstAttribute="height" constant="40" id="lZG-JE-k8w"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="Gdg-Bg-1ff"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -241,7 +247,10 @@
                                             <constraint firstAttribute="height" constant="40" id="gcX-a9-NIh"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="zGW-xd-C8u" id="1fL-qn-M7n"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -508,9 +517,10 @@
                                                                         </constraints>
                                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
                                                                         <connections>
                                                                             <action selector="emailTexFieldAction:" destination="1hQ-2J-JrM" eventType="editingChanged" id="n17-fv-qIh"/>
+                                                                            <outlet property="delegate" destination="1hQ-2J-JrM" id="jGa-dG-lrb"/>
                                                                         </connections>
                                                                     </textField>
                                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This email already exist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4O-MS-0Ht">
@@ -556,7 +566,10 @@
                                                                         </constraints>
                                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                                                        <textInputTraits key="textInputTraits" textContentType="name"/>
+                                                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="name"/>
+                                                                        <connections>
+                                                                            <outlet property="delegate" destination="1hQ-2J-JrM" id="JDo-Pr-zO2"/>
+                                                                        </connections>
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
@@ -601,9 +614,10 @@
                                                                         </constraints>
                                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                                                         <connections>
                                                                             <action selector="passwordTextFieldAction:" destination="1hQ-2J-JrM" eventType="editingChanged" id="WXS-zr-98J"/>
+                                                                            <outlet property="delegate" destination="1hQ-2J-JrM" id="ekL-8i-hOl"/>
                                                                         </connections>
                                                                     </textField>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="mec-q7-gIZ">
@@ -653,9 +667,10 @@
                                                                 </constraints>
                                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="password"/>
                                                                 <connections>
                                                                     <action selector="passwordEconTextFieldAction:" destination="1hQ-2J-JrM" eventType="editingChanged" id="BrN-qL-hg1"/>
+                                                                    <outlet property="delegate" destination="1hQ-2J-JrM" id="kQM-gI-i2C"/>
                                                                 </connections>
                                                             </textField>
                                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="you repeated the password incorrectly" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNs-Jx-2aA">
@@ -771,7 +786,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8pq-aP-CLz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1777" y="345"/>
+            <point key="canvasLocation" x="1746" y="345"/>
         </scene>
         <!--Thank YouVC-->
         <scene sceneID="mer-sM-xFY">

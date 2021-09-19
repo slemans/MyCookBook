@@ -18,6 +18,10 @@ class DescriptionViewController: UIViewController {
     @IBOutlet weak var healthBt: UIButton!
     @IBOutlet weak var faloverBt: UIButton!
     @IBOutlet weak var stackViewMain: UIStackView!
+    @IBOutlet weak var calLb: UILabel!
+    @IBOutlet weak var fatLb: UILabel!
+    @IBOutlet weak var carbLb: UILabel!
+    @IBOutlet weak var fiverLb: UILabel!
     
     var recipel: Recipe!
     var flag = false
@@ -26,7 +30,10 @@ class DescriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fenchRecipe()
-        
+        calLb.text = String((Int(recipel.calories) * 10) / 10)
+        fatLb.text = tableviewFunction.returnToFullString(tip: "FAT", recipe: recipel)
+        carbLb.text = tableviewFunction.returnToFullString(tip: "FIBTG", recipe: recipel)
+        fiverLb.text = tableviewFunction.returnToFullString(tip: "CHOCDF", recipe: recipel)
     }
 
     @IBAction func ingridientBtAction(_ sender: UIButton) {
@@ -36,11 +43,20 @@ class DescriptionViewController: UIViewController {
         reload(first: sender, second: ingredientBt, bool: false)
     }
     @IBAction func faloverBtActive(_ sender: UIButton) {
-        flag = !flag
-        let image = UIImage(named: flag ? "icons8-heart-100Green.png" : "icons8-heart-100.png")
+        if recipel.favorite == nil{
+            recipel.favorite = true
+        } else {
+            recipel.favorite = !recipel.favorite!
+        }
+        favoriteImage(bool: recipel.favorite)
+    }
+    
+    private func favoriteImage(bool: Bool?){
+        guard let bool = bool else { return }
+        let image = UIImage(named: bool ? "icons8-heart-100Green.png" : "icons8-heart-100.png")
         self.faloverBt.setImage(image, for: .normal)
     }
-
+    
     private func reload(first: UIButton, second: UIButton, bool: Bool) {
         first.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         first.tintColor = .white

@@ -91,10 +91,10 @@ class Register: UIViewController {
             displayWarningLabelEmail(withText: "Wrong Email")
         }
     }
-//    @IBAction func singInBtAct() {
-//        performSegue(withIdentifier: Constants.Segues.singIn, sender: nil)
-//        dismiss(animated: true, completion: nil)
-//    }
+    @IBAction func singInBtAct() {
+        performSegue(withIdentifier: Constants.Segues.singIn, sender: nil)
+        dismiss(animated: true, completion: nil)
+    }
 
     private func checkConfPass() {
         isValidEconfPass = Registration.checkEconPass(passwordTf.text, econfirmPasTf.text)
@@ -158,4 +158,12 @@ extension Register {
         scrollView.scrollIndicatorInsets = contentInsets
     }
 
+}
+
+// remove keyboard
+extension Register: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

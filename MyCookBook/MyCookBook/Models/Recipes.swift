@@ -7,19 +7,20 @@ struct Recipes: Codable {
     let more: Bool
     let count: Int
     let hits: [Hit]
-    init?(recipe: Recipes){
+    init?(recipe: Recipes) {
         self.q = recipe.q
         self.to = recipe.to
         self.more = recipe.more
         self.count = recipe.count
         self.hits = recipe.hits
     }
-    
+
 }
 struct Hit: Codable {
     let recipe: Recipe
 }
 struct Recipe: Codable {
+    var favorite: Bool?
     let label: String
     let image: String
     let totalTime: Int
@@ -55,25 +56,10 @@ enum Unit: String, Codable {
     case µg = "µg"
 }
 
-//enum Caution: String, Codable {
-//    case fodmap = "FODMAP"
-//    case sulfites = "Sulfites"
-//}
 
 
 
 
-
-
-//struct Digest: Codable {
-//    let label, tag: String
-//    let schemaOrgTag: SchemaOrgTag?
-//    let total: Double
-//    let hasRDI: Bool
-//    let daily: Double
-//    let unit: Unit
-//    let sub: [Digest]?
-//}
 
 
 
