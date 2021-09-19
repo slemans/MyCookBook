@@ -17,24 +17,26 @@ class MainViewController: UIViewController {
     @IBOutlet weak var indicatorActivity: UIActivityIndicatorView!
     
     var serviseAPI = ServiseAPI()
+    var pageTo = numberOther.numberTenForTo
     private var recipes: [Hit] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getTwoUrlSession(type: .pork)
+        getUrlSession(type: .pork, numberTo: pageTo)
 
     }
+    
     @IBAction func beefActionBt() {
-        getTwoUrlSession(type: .pork)
+        getUrlSession(type: .pork, numberTo: numberOther.numberTenForTo)
     }
     @IBAction func chiekenActionBt() {
-        getTwoUrlSession(type: .chicken)
+        getUrlSession(type: .chicken, numberTo: numberOther.numberTenForTo)
     }
     @IBAction func sneckActionBt() {
-        getTwoUrlSession(type: .beef)
+        getUrlSession(type: .beef, numberTo: numberOther.numberTenForTo)
     }
     @IBAction func feshActionBt() {
-        getTwoUrlSession(type: .fish)
+        getUrlSession(type: .fish, numberTo: numberOther.numberTenForTo)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let DescriptionVC = segue.destination as? DescriptionViewController {
@@ -43,11 +45,8 @@ class MainViewController: UIViewController {
             }
         }
     }
-
-    
-
-    func getTwoUrlSession(type food: TypeFood) {
-        serviseAPI.fetchUrlSession(forType: food) { recipes in
+    func getUrlSession(type food: TypeFood, numberTo: Int) {
+        serviseAPI.fetchUrlSession(forType: food, numberTo: numberTo) { recipes in
                 self.recipes = recipes.hits
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -55,14 +54,25 @@ class MainViewController: UIViewController {
                 }
         }
     }
-
-
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipes.count
     }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
+        if indexPath.row == recipes.count - 1 { // last cell
+            let spinner = UIActivityIndicatorView(style: .large)
+            spinner.startAnimating()
+            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(144))
+            self.tableView.tableFooterView = spinner
+            pageTo += numberOther.numberTenForTo
+            getUrlSession(type: .pork, numberTo: pageTo)
+            self.tableView.tableFooterView = spinner
+            self.tableView.tableFooterView?.isHidden = false
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainTableViewCell
         let recipe = recipes[indexPath.row].recipe

@@ -15,17 +15,17 @@ class ServiseAPI {
     ]
 
 
-    func fetchUrlSession(forType type: TypeFood, completionHandler: @escaping (Recipes) -> Void) {
+    func fetchUrlSession(forType type: TypeFood, numberTo: Int, completionHandler: @escaping (Recipes) -> Void) {
         var url = ""
         switch type {
         case .chicken:
-            url = "https://edamam-recipe-search.p.rapidapi.com/search?q=chicken"
+            url = "https://edamam-recipe-search.p.rapidapi.com/search?q=chicken&to=\(numberTo)"
         case .pork:
-            url = "https://edamam-recipe-search.p.rapidapi.com/search?q=pork"
+            url = "https://edamam-recipe-search.p.rapidapi.com/search?q=pork&to=\(numberTo)"
         case .beef:
-            url = "https://edamam-recipe-search.p.rapidapi.com/search?q=beef"
+            url = "https://edamam-recipe-search.p.rapidapi.com/search?q=beef&to=\(numberTo)"
         case .fish:
-            url = "https://edamam-recipe-search.p.rapidapi.com/search?q=fish"
+            url = "https://edamam-recipe-search.p.rapidapi.com/search?q=fish&to=\(numberTo)"
         }
         let request = NSMutableURLRequest(url: NSURL(
             string: "\(url)")! as URL,

@@ -27,10 +27,11 @@ class Register: UIViewController {
     private var passwordStrenngth: PasswordLine = .veryWeak
     private var isValidEconfPass = false
 
-    var passworUser: String?
-    var nameUser: String?
-    var emailUser: String?
-    var newUser: User?
+//    var passworUser: String?
+//    var nameUser: String?
+//    var emailUser: String?
+//    var newUser: User!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +74,8 @@ class Register: UIViewController {
     @IBAction func registrationBtAction() {
         if isValidEmail == true && isValidEconfPass == true {
             guard let email = emailTf.text,
-                let password = passwordTf.text else { return }
+                let password = passwordTf.text
+                /* let name = nameTf.text */ else { return }
             Auth.auth().createUser(withEmail: email,
                 password: password,
                 completion: { [weak self] (user, error) in
@@ -89,10 +91,10 @@ class Register: UIViewController {
             displayWarningLabelEmail(withText: "Wrong Email")
         }
     }
-    @IBAction func singInBtAct() {
-        performSegue(withIdentifier: Constants.Segues.singIn, sender: nil)
-        dismiss(animated: true, completion: nil)
-    }
+//    @IBAction func singInBtAct() {
+//        performSegue(withIdentifier: Constants.Segues.singIn, sender: nil)
+//        dismiss(animated: true, completion: nil)
+//    }
 
     private func checkConfPass() {
         isValidEconfPass = Registration.checkEconPass(passwordTf.text, econfirmPasTf.text)

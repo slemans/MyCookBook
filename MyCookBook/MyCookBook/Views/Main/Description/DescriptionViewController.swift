@@ -16,13 +16,17 @@ class DescriptionViewController: UIViewController {
     @IBOutlet weak var stackViewName: UIStackView!
     @IBOutlet weak var ingredientBt: UIButton!
     @IBOutlet weak var healthBt: UIButton!
-
+    @IBOutlet weak var faloverBt: UIButton!
+    @IBOutlet weak var stackViewMain: UIStackView!
+    
     var recipel: Recipe!
+    var flag = false
     var ingredientOrhealth = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
         fenchRecipe()
+        
     }
 
     @IBAction func ingridientBtAction(_ sender: UIButton) {
@@ -32,15 +36,10 @@ class DescriptionViewController: UIViewController {
         reload(first: sender, second: ingredientBt, bool: false)
     }
     @IBAction func faloverBtActive(_ sender: UIButton) {
-        if sender.currentImage == UIImage(named: "heart") {
-            sender.setImage(UIImage(named: "heart.fill"), for: .normal)
-        }
-        else {
-            sender.setImage(UIImage(named: "heart"), for: .normal)
-        }
+        flag = !flag
+        let image = UIImage(named: flag ? "icons8-heart-100Green.png" : "icons8-heart-100.png")
+        self.faloverBt.setImage(image, for: .normal)
     }
-
-
 
     private func reload(first: UIButton, second: UIButton, bool: Bool) {
         first.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
@@ -55,6 +54,11 @@ class DescriptionViewController: UIViewController {
         putImage(image: recipel.image)
         nameProductLb.text = recipel.label
         timeСookingLb.text = totalTime(time: recipel.totalTime)
+        stackViewMain.layer.borderWidth = Border.borderWidth
+        stackViewMain.layer.borderColor = Color.backgroundColor
+        stackViewMain.layer.cornerRadius = Border.borderRadius15
+        tableView.layer.cornerRadius = Border.borderRadius15
+        title = recipel.label
 
     }
     private func totalTime(time: Int?) -> String {

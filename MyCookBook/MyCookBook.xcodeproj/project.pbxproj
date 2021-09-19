@@ -10,6 +10,7 @@
 		7F0DAFB326E376240039AFF9 /* ConstantsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DAFB226E376240039AFF9 /* ConstantsApi.swift */; };
 		7F0DAFB526E5561F0039AFF9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DAFB426E5561F0039AFF9 /* MainTableViewCell.swift */; };
 		7F0DB02426ED0DBE0039AFF9 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DB02326ED0DBE0039AFF9 /* DescriptionViewController.swift */; };
+		7F0DB04D26EF71D60039AFF9 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DB04C26EF71D60039AFF9 /* ForgotPasswordViewController.swift */; };
 		7F708AB926D5750F00DAC8B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708AB826D5750F00DAC8B0 /* AppDelegate.swift */; };
 		7F708ABB26D5750F00DAC8B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708ABA26D5750F00DAC8B0 /* SceneDelegate.swift */; };
 		7F708AC026D5750F00DAC8B0 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F708ABE26D5750F00DAC8B0 /* TabBar.storyboard */; };
@@ -65,6 +66,7 @@
 		7F0DAFB226E376240039AFF9 /* ConstantsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsApi.swift; sourceTree = "<group>"; };
 		7F0DAFB426E5561F0039AFF9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		7F0DB02326ED0DBE0039AFF9 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
+		7F0DB04C26EF71D60039AFF9 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		7F708AB526D5750F00DAC8B0 /* MyCookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F708AB826D5750F00DAC8B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F708ABA26D5750F00DAC8B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				7F708B3B26DA301000DAC8B0 /* Register.swift */,
 				7F708B5026DC109700DAC8B0 /* ThankYouVC.swift */,
 				7F708AF826D589AF00DAC8B0 /* StartVC.swift */,
+				7F0DB04C26EF71D60039AFF9 /* ForgotPasswordViewController.swift */,
 			);
 			path = SingInAndRegister;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F708B5526DD1D9700DAC8B0 /* ProfileVC.swift in Sources */,
+				7F0DB04D26EF71D60039AFF9 /* ForgotPasswordViewController.swift in Sources */,
 				7F801D5926E2A295004354CC /* MyRecipesTableViewController.swift in Sources */,
 				7F708B5126DC109700DAC8B0 /* ThankYouVC.swift in Sources */,
 				7F801D5326E0EF3D004354CC /* FavoriteCollectionViewController.swift in Sources */,

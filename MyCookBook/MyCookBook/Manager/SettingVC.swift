@@ -13,7 +13,13 @@ struct Color {
 
 struct Border {
     static let borderRadius: CGFloat = 20
+    static let borderRadius15: CGFloat = 15
     static let borderRadiusMax: CGFloat = 50
     static let borderWidth: CGFloat = 1.0
+    
+}
+
+struct numberOther {
+    static let numberTenForTo = 10
 }
 
