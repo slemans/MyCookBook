@@ -101,18 +101,23 @@ class DescriptionViewController: UIViewController {
 }
 
 extension DescriptionViewController: UITableViewDelegate, UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return ingredientOrhealth == true ? recipel.ingredients.count : recipel.healthLabels.count
+//    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ingredientOrhealth == true ? recipel.ingredients.count : recipel.healthLabels.count
+        guard let ingredients = recipel.ingredients?.count,
+              let healthLabels = recipel.healthLabels?.count else { return 0 }
+        return ingredientOrhealth == true ? ingredients : healthLabels
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell", for: indexPath)
-        if ingredientOrhealth == true {
-            let ingridient = recipel.ingredients[indexPath.row]
+        if ingredientOrhealth == true,
+           let ingridient = recipel.ingredients?[indexPath.row]{
             cell.textLabel?.text = ingridient.text
-        } else {
-            let health = recipel.healthLabels[indexPath.row]
+        } else if let health = recipel.healthLabels?[indexPath.row]{
             cell.textLabel?.text = health
         }
+        cell.textLabel?.numberOfLines = 0
         return cell
     }
 }

@@ -14,6 +14,6 @@ class FavoriteCell: UICollectionViewCell {
     
     func configure(user: String) {
         nameLb.text = user
-        images.image = #imageLiteral(resourceName: "1024")
+        images.image = #imageLiteral(resourceName: "icons8-salt-bae-100")
     }
 }

@@ -30,7 +30,7 @@ class MainTableViewCell: UITableViewCell {
     func fenchRecipe(forrecipe recipe: Recipe?) {
         guard let recipe = recipe else { return }
         nameRecipeLb.text = recipe.label
-        dishTypeLb.text = recipe.mealType.first?.rawValue
+        dishTypeLb.text = recipe.mealType.first??.rawValue
         timeLb.text = returnTime(time: recipe.totalTime)
         fatLb.text = tableviewFunction.returnToFullString(tip: "FAT", recipe: recipe)
         fiberLb.text = tableviewFunction.returnToFullString(tip: "FIBTG", recipe: recipe)

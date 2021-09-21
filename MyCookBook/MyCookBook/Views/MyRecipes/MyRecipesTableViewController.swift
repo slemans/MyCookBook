@@ -9,43 +9,31 @@ import UIKit
 
 class MyRecipesTableViewController: UITableViewController {
 
-    private var myRecipe: Recipes!
-    private var masRecipes: [Hit] = []
-    var serviseAPI = ServiseAPI()
+    var MyRecipes: [MyRecipe] = []
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //getTwoUrlSession()
+//        collectionMyRecipes.append(MyRecipeTwo(label: "Demo1", image: #imageLiteral(resourceName: "imagePlaceholder"), totalTime: 10, calories: 20))
+//        collectionMyRecipes.append(MyRecipeTwo(label: "Demo2", image: #imageLiteral(resourceName: "imagePlaceholder"), totalTime: 10, calories: 20))
+//        collectionMyRecipes.append(MyRecipeTwo(label: "Demo3", image: #imageLiteral(resourceName: "imagePlaceholder"), totalTime: 10, calories: 20))
     }
-//    func getTwoUrlSession() {
-//        serviseAPI.fetchUrlSession(forType: .chicken){ recipe in
-//            if recipe.hits.count != 0{
-//                self.masRecipes = recipe.hits
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                }
-//            }
-//        }
-//    }
+
 
 
     // MARK: - Table view data source
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return masRecipes.count
+        return MyRecipes.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let recipe = masRecipes[indexPath.row]
-        cell.textLabel?.text = recipe.recipe.label
-        //cell.textLabel?.text = "\(indexPath)"
-//        cell.detailTextLabel?.text = String(recipe.recipe.calories)
-        cell.textLabel?.textColor = .white
-        cell.backgroundColor = .red
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellMyRecipe", for: indexPath) as! MyRecipeTableViewCell
+        let recipe = MyRecipes[indexPath.row]
+        cell.nameRecipeLb.text = recipe.name
+        cell.imagesRecipe.image = #imageLiteral(resourceName: "imagePlaceholder")
         return cell
     }
 

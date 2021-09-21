@@ -59,10 +59,6 @@ class SingInVC: UIViewController {
                 self?.displayWarningText(text: "Email or password is not correct")
             }
         })
-//        let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
-//        let controller = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
-//        controller.modalPresentationStyle = .fullScreen
-//        present(controller, animated: true, completion: nil)
     }
     @IBAction func registrationBtAct() {
         performSegue(withIdentifier: Constants.Segues.singUp, sender: nil)

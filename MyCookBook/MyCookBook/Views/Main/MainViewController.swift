@@ -10,6 +10,8 @@ import Firebase
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var stackMain: UIStackView!
+   
     @IBOutlet weak var categoryFirstBt: UIButton!
     @IBOutlet weak var categorySecondBt: UIButton!
     @IBOutlet weak var categoryThreeBt: UIButton!
@@ -25,17 +27,9 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         getUrlSession(type: .pork, numberTo: pageTo)
         categoryFirstBt.layer.cornerRadius = categoryFirstBt.frame.size.height / 2
-        categoryFirstBt.layer.borderWidth = 2
-        categoryFirstBt.layer.borderColor = Color.backgroundColor
         categorySecondBt.layer.cornerRadius = categorySecondBt.frame.size.height / 2
-        categorySecondBt.layer.borderWidth = 2
-        categorySecondBt.layer.borderColor = Color.backgroundColor
         categoryThreeBt.layer.cornerRadius = categoryThreeBt.frame.size.height / 2
-        categoryThreeBt.layer.borderWidth = 2
-        categoryThreeBt.layer.borderColor = Color.backgroundColor
         categoryForeBt.layer.cornerRadius = categoryForeBt.frame.size.height / 2
-        categoryForeBt.layer.borderWidth = 2
-        categoryForeBt.layer.borderColor = Color.backgroundColor
     }
     
     @IBAction func beefActionBt() {

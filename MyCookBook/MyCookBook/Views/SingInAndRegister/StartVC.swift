@@ -17,7 +17,9 @@ class StartVC: UIViewController {
         super.viewDidLoad()
         openingSeting()
     }
-  
+    private func requestAutorization(){
+      //  notificationCenter.
+    }
     private func openingSeting() {
         titleVC.alpha = 0.0
         singInBt.layer.cornerRadius = Border.borderRadius

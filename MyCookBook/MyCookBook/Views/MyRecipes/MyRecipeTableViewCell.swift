@@ -1,17 +1,19 @@
 //
-//  FavoriteTableViewCell.swift
+//  MyRecipeTableViewCell.swift
 //  MyCookBook
 //
-//  Created by sleman on 2.09.21.
+//  Created by sleman on 20.09.21.
 //
 
 import UIKit
 
-class FavoriteTableViewCell: UITableViewCell {
+class MyRecipeTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var nameRecipeLb: UILabel!
+    @IBOutlet weak var imagesRecipe: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

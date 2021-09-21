@@ -1,5 +1,5 @@
 
-import Foundation
+import UIKit
 
 struct Recipes: Codable {
     let q: String
@@ -23,12 +23,13 @@ struct Recipe: Codable {
     var favorite: Bool?
     let label: String
     let image: String
+//    let userImageFood: UIImage?
     let totalTime: Int
-    let mealType: [MealType]
-    let totalNutrients: [String: Total]
+    let mealType: [MealType?]
+    let totalNutrients: [String: Total]?
     let calories: Double
-    let ingredients: [Ingredient]
-    let healthLabels: [String]
+    let ingredients: [Ingredient]?
+    let healthLabels: [String]?
 }
 struct Ingredient: Codable {
     let text: String

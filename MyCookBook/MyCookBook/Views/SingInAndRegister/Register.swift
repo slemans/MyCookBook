@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import CoreData
 
 class Register: UIViewController {
 
@@ -23,6 +24,9 @@ class Register: UIViewController {
     @IBOutlet weak var econfirmPasTf: UITextField!
     @IBOutlet var verifPassLine: [UIView]!
 
+    var users: [User] = []
+    
+
     private var isValidEmail = false
     private var passwordStrenngth: PasswordLine = .veryWeak
     private var isValidEconfPass = false
@@ -31,7 +35,7 @@ class Register: UIViewController {
 //    var nameUser: String?
 //    var emailUser: String?
 //    var newUser: User!
-    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,23 +78,41 @@ class Register: UIViewController {
     @IBAction func registrationBtAction() {
         if isValidEmail == true && isValidEconfPass == true {
             guard let email = emailTf.text,
-                let password = passwordTf.text
-                /* let name = nameTf.text */ else { return }
+                let password = passwordTf.text,
+                let name = nameTf.text else { return }
             Auth.auth().createUser(withEmail: email,
                 password: password,
                 completion: { [weak self] (user, error) in
                     if let error = error {
                         self?.displayWarningLabelEmail(withText: "\(error.localizedDescription)")
                     } else {
-                        // guard let user = user else { return } // delete
+                        let userUid = Auth.auth().currentUser!.uid
+                        self!.saveItems(name: name, email: email, userUid: userUid)
                         self?.performSegue(withIdentifier: Constants.Segues.start, sender: nil)
                     }
                 })
-            // newUser = User(name: name, email: email, password: password)
+
         } else {
             displayWarningLabelEmail(withText: "Wrong Email")
         }
     }
+    
+    private func saveItems(name: String?, email: String, userUid: String) {
+       // guard let entity = NSEntityDescription.entity(forEntityName: "User", in: context) else { return }
+        let context = SettingCoreDate.getContext()
+        let newUser = User(context: SettingCoreDate.getContext())
+        newUser.name = name
+        newUser.email = email
+        newUser.uid = userUid
+        do {
+            try context.save()
+            print("все добавилось")
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
+
     @IBAction func singInBtAct() {
         performSegue(withIdentifier: Constants.Segues.singIn, sender: nil)
         dismiss(animated: true, completion: nil)
