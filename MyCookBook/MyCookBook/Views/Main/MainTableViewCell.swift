@@ -17,12 +17,15 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var fatLb: UILabel!
     @IBOutlet weak var carbLb: UILabel!
     @IBOutlet weak var fiberLb: UILabel!
-
+    @IBOutlet weak var secondStackViewCell: UIStackView!
+    @IBOutlet weak var firstStackViewCell: UIStackView!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        imagesRecipe.image = #imageLiteral(resourceName: "icons8-frying-64")
+        imagesRecipe.image = #imageLiteral(resourceName: "imagePlaceholder")
         // imagesRecipe.layer.cornerRadius = 5.0
+        firstStackViewCell.layer.cornerRadius = 10.0
     }
    
 

@@ -46,6 +46,7 @@
 		7FEC6AF226F88607000A5FBB /* MyRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEC6AF126F88607000A5FBB /* MyRecipeTableViewCell.swift */; };
 		7FEC6AF426F8B328000A5FBB /* MyRecipeTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEC6AF326F8B328000A5FBB /* MyRecipeTwo.swift */; };
 		7FEC6AF726F9FEC2000A5FBB /* SettingCoreDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEC6AF626F9FEC1000A5FBB /* SettingCoreDate.swift */; };
+		7FEC6AF926FB2E87000A5FBB /* FirebaseServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEC6AF826FB2E87000A5FBB /* FirebaseServise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		7FEC6AF126F88607000A5FBB /* MyRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipeTableViewCell.swift; sourceTree = "<group>"; };
 		7FEC6AF326F8B328000A5FBB /* MyRecipeTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipeTwo.swift; sourceTree = "<group>"; };
 		7FEC6AF626F9FEC1000A5FBB /* SettingCoreDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCoreDate.swift; sourceTree = "<group>"; };
+		7FEC6AF826FB2E87000A5FBB /* FirebaseServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServise.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +310,7 @@
 			children = (
 				7F708B3626D97C3D00DAC8B0 /* Registration.swift */,
 				7FEC6AF626F9FEC1000A5FBB /* SettingCoreDate.swift */,
+				7FEC6AF826FB2E87000A5FBB /* FirebaseServise.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				7FEC6ACA26F7B8F8000A5FBB /* FunctionVC.swift in Sources */,
 				7F708B3426D95F0100DAC8B0 /* FavoriteCell.swift in Sources */,
 				7F708B3726D97C3D00DAC8B0 /* Registration.swift in Sources */,
+				7FEC6AF926FB2E87000A5FBB /* FirebaseServise.swift in Sources */,
 				7F708B0226D6CAF100DAC8B0 /* ServiseAPI.swift in Sources */,
 				7F708B3926D97DAF00DAC8B0 /* SingInVC.swift in Sources */,
 				7F708AF926D589AF00DAC8B0 /* StartVC.swift in Sources */,

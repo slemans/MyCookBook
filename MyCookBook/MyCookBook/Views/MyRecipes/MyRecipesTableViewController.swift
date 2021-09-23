@@ -6,81 +6,116 @@
 //
 
 import UIKit
+import CoreData
+import Firebase
 
 class MyRecipesTableViewController: UITableViewController {
 
     var MyRecipes: [MyRecipe] = []
-    
+    var users: [User] = []
+
+    let context = SettingCoreDate.getContext()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        collectionMyRecipes.append(MyRecipeTwo(label: "Demo1", image: #imageLiteral(resourceName: "imagePlaceholder"), totalTime: 10, calories: 20))
-//        collectionMyRecipes.append(MyRecipeTwo(label: "Demo2", image: #imageLiteral(resourceName: "imagePlaceholder"), totalTime: 10, calories: 20))
-//        collectionMyRecipes.append(MyRecipeTwo(label: "Demo3", image: #imageLiteral(resourceName: "imagePlaceholder"), totalTime: 10, calories: 20))
+        loadItems()
+        print(MyRecipes.count)
+
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        let searchPredicate = NSPredicate(format: "uid CONTAINS[cd] %@", FirebaseServise.searchUserFirebase())
+        request.sortDescriptors = [NSSortDescriptor(key: "uid", ascending: true)]
+        request.predicate = searchPredicate
+        do {
+            users = try context.fetch(request)
+            //print(users[0].myRecipes?.count)
+            // print(users[0].favorites?.count)
+            //print(users.count)
+        } catch {
+            print("Error fetching data from context: \(error)")
+        }
+        saveCategories()
+    }
+    @IBAction func addNewRecipe(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: Constants.Segues.addNewRecipe, sender: 1)
+    }
+    private func loadItems() {
+        let request: NSFetchRequest<MyRecipe> = MyRecipe.fetchRequest()
+        let categoryPredicate = NSPredicate(format: "parentUser.uid MATCHES %@", FirebaseServise.searchUserFirebase())
+        request.predicate = categoryPredicate
+        do {
+            MyRecipes = try context.fetch(request)
+        } catch {
+            print("Error fetching data from context: \(error)")
+        }
+        tableView.reloadData()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let AddNewRecipeVC = segue.destination as? AddNewRecipeTableViewController {
+            AddNewRecipeVC.selectedUser = users[.zero]
+            AddNewRecipeVC.recipe = sender as? MyRecipe
+            AddNewRecipeVC.delegate = self
+        }
+    }
 
+    
 
-    // MARK: - Table view data source
+    private func saveCategories() {
+        do {
+            try context.save()
+        } catch {
+            print("Error saving context: \(error)")
+        }
+    }
+}
 
-
+// MARK: - Table view data source
+extension MyRecipesTableViewController{
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MyRecipes.count
+        return MyRecipes.isEmpty ? 0 : MyRecipes.count
     }
-
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellMyRecipe", for: indexPath) as! MyRecipeTableViewCell
         let recipe = MyRecipes[indexPath.row]
         cell.nameRecipeLb.text = recipe.name
-        cell.imagesRecipe.image = #imageLiteral(resourceName: "imagePlaceholder")
+        cell.imagesRecipe.image = UIImage(data: recipe.images!)
         return cell
     }
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let cateroryDelete = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
+            if let name = self.MyRecipes[indexPath.row].name,
+               let userUid = self.users[.zero].uid{
+                let request: NSFetchRequest<MyRecipe> = MyRecipe.fetchRequest()
+                let categoryPredicate = NSPredicate(format: "parentUser.uid MATCHES %@", userUid)
+                let itemPredicate = NSPredicate(format: "name MATCHES %@", name)
+                request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, itemPredicate])
+                if let recipes = try? self.context.fetch(request) {
+                    for recipe in recipes {
+                        self.context.delete(recipe)
+                    }
+                    self.MyRecipes.remove(at: indexPath.row)
+                    self.saveCategories()
+                    tableView.reloadData()
+                }
+            }
 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+        }
+        cateroryDelete.image = #imageLiteral(resourceName: "cartm")
+        let swipeActions = UISwipeActionsConfiguration(actions: [cateroryDelete])
+        return swipeActions
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recipe = MyRecipes[indexPath.row]
+        performSegue(withIdentifier: Constants.Segues.addNewRecipe, sender: recipe)
     }
-    */
+}
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+extension MyRecipesTableViewController: DelegatReturnTable {
+    func returnTableReview(recipe: MyRecipe) {
+        MyRecipes.append(recipe)
+        print(MyRecipes.count)
+        tableView.reloadData()
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

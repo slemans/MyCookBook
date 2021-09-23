@@ -10,8 +10,19 @@ import UIKit
 
 
 struct SettingCoreDate {
-    static func getContext() -> NSManagedObjectContext{
+
+    static let context = SettingCoreDate.getContext()
+
+    static func getContext() -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
+//    static func saveItems() {
+//        do {
+//            try context.save()
+//        } catch {
+//            print("Error saving context: \(error)")
+//        }
+//    }
+
 }

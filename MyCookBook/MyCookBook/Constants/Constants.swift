@@ -12,5 +12,6 @@ struct Constants {
         static let singIn = "singInSegue"
         static let singUp = "singUpSegue"
         static let start = "thankYouSegue"
+        static let addNewRecipe = "SegueFullRecipe"
     }
 }
