@@ -22,9 +22,14 @@ class MainViewController: UIViewController {
     var serviseAPI = ServiseAPI()
     var pageTo = numberOther.numberTenForTo
     private var recipes: [Hit] = []
+    var categoryFood: TypeFood = .pork
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        startSetting()
+    }
+    public func startSetting() {
         getUrlSession(type: .pork, numberTo: pageTo)
         categoryFirstBt.layer.cornerRadius = categoryFirstBt.frame.size.height / 2
         categorySecondBt.layer.cornerRadius = categorySecondBt.frame.size.height / 2
@@ -33,16 +38,20 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func beefActionBt() {
-        getUrlSession(type: .pork, numberTo: numberOther.numberTenForTo)
+        categoryFood = .pork
+        getUrlSession(type: categoryFood, numberTo: numberOther.numberTenForTo)
     }
     @IBAction func chiekenActionBt() {
-        getUrlSession(type: .chicken, numberTo: numberOther.numberTenForTo)
+        categoryFood = .chicken
+        getUrlSession(type: categoryFood, numberTo: numberOther.numberTenForTo)
     }
     @IBAction func sneckActionBt() {
-        getUrlSession(type: .beef, numberTo: numberOther.numberTenForTo)
+        categoryFood = .beef
+        getUrlSession(type: categoryFood, numberTo: numberOther.numberTenForTo)
     }
     @IBAction func feshActionBt() {
-        getUrlSession(type: .fish, numberTo: numberOther.numberTenForTo)
+        categoryFood = .fish
+        getUrlSession(type: categoryFood, numberTo: numberOther.numberTenForTo)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let DescriptionVC = segue.destination as? DescriptionViewController {
@@ -73,7 +82,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(144))
             self.tableView.tableFooterView = spinner
             pageTo += numberOther.numberTenForTo
-            getUrlSession(type: .pork, numberTo: pageTo)
+            getUrlSession(type: categoryFood, numberTo: pageTo)
             self.tableView.tableFooterView = spinner
             self.tableView.tableFooterView?.isHidden = false
         }

@@ -206,7 +206,6 @@
 		7F708AE826D5756500DAC8B0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7F708AEC26D57EC100DAC8B0 /* Profile */,
 				7F708ABE26D5750F00DAC8B0 /* TabBar.storyboard */,
 				7F708AEF26D57F0100DAC8B0 /* SingIn.storyboard */,
 				7F708AC326D5751F00DAC8B0 /* LaunchScreen.storyboard */,
@@ -242,13 +241,6 @@
 				7F708AC126D5751F00DAC8B0 /* Assets.xcassets */,
 			);
 			path = SuportingFile;
-			sourceTree = "<group>";
-		};
-		7F708AEC26D57EC100DAC8B0 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Profile;
 			sourceTree = "<group>";
 		};
 		7F708AF726D5899600DAC8B0 /* Profile */ = {

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol DelegatReturnCollection: AnyObject {
+    func returnCollectionView(recipe: Favorite)
+}
+
 class DescriptionViewController: UIViewController {
 
     @IBOutlet weak var imagesLb: UIImageView!
@@ -26,6 +30,10 @@ class DescriptionViewController: UIViewController {
     var recipel: Recipe!
     var flag = false
     var ingredientOrhealth = true
+    weak var delegate: DelegatReturnCollection?
+    let newRecipe = Favorite(context: SettingCoreDate.context)
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,10 +59,22 @@ class DescriptionViewController: UIViewController {
         favoriteImage(bool: recipel.favorite)
     }
     
-    private func favoriteImage(bool: Bool?){
+    private func favoriteImage(bool: Bool?) {
         guard let bool = bool else { return }
         let image = UIImage(named: bool ? "icons8-heart-100Green.png" : "icons8-heart-100.png")
         self.faloverBt.setImage(image, for: .normal)
+        newRecipe.label = recipel.label
+        newRecipe.image = recipel.image
+        newRecipe.calories = recipel.calories
+        newRecipe.totalTime = Int32(recipel.totalTime)
+//        let f = recipel.
+       // let data = Data(recipel.)
+        // newRecipe.mealTypeF = recipel.mealType.data
+        newRecipe.parentUser = SettingCoreDate.userCoreDate()
+//        newRecipe.parentUser = SettingCoreDate.userCoreDate()
+        //SettingCoreDate.saveInCoreData()
+        
+        delegate?.returnCollectionView(recipe: newRecipe)
     }
     
     private func reload(first: UIButton, second: UIButton, bool: Bool) {

@@ -12,8 +12,24 @@ class FavoriteCell: UICollectionViewCell {
     @IBOutlet weak var nameLb: UILabel!
     @IBOutlet weak var images: UIImageView!
     
-    func configure(user: String) {
-        nameLb.text = user
-        images.image = #imageLiteral(resourceName: "icons8-salt-bae-100")
+    func configure(recipe: Favorite) {
+        nameLb.text = recipe.label
+        if recipe.image != nil {
+            putImage(image: recipe.image!)
+        }
+        
+    }
+    public func putImage(image: String) {
+        guard let urlImg = URL(string: image) else { return }
+        URLSession.shared.dataTask(with: urlImg) { data, _, _ in
+            let queue = DispatchQueue.global(qos: .utility)
+            queue.async {
+                if let data = data, let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.images.image = image
+                    }
+                }
+            }
+        }.resume()
     }
 }
