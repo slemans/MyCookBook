@@ -19,7 +19,6 @@ class MyRecipesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadItems()
-        print(MyRecipes.count)
 
         let request: NSFetchRequest<User> = User.fetchRequest()
         let searchPredicate = NSPredicate(format: "uid CONTAINS[cd] %@", FirebaseServise.searchUserFirebase())
@@ -27,13 +26,10 @@ class MyRecipesTableViewController: UITableViewController {
         request.predicate = searchPredicate
         do {
             users = try context.fetch(request)
-            //print(users[0].myRecipes?.count)
-            // print(users[0].favorites?.count)
-            //print(users.count)
         } catch {
             print("Error fetching data from context: \(error)")
         }
-        saveCategories()
+        SettingCoreDate.saveInCoreData()
     }
     @IBAction func addNewRecipe(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: Constants.Segues.addNewRecipe, sender: 1)
@@ -96,7 +92,8 @@ extension MyRecipesTableViewController{
                         self.context.delete(recipe)
                     }
                     self.MyRecipes.remove(at: indexPath.row)
-                    self.saveCategories()
+                    SettingCoreDate.saveInCoreData()
+//                    self.saveCategories()
                     tableView.reloadData()
                 }
             }
@@ -115,7 +112,6 @@ extension MyRecipesTableViewController{
 extension MyRecipesTableViewController: DelegatReturnTable {
     func returnTableReview(recipe: MyRecipe) {
         MyRecipes.append(recipe)
-        print(MyRecipes.count)
         tableView.reloadData()
     }
 }

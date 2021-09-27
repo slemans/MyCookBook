@@ -21,24 +21,71 @@ class AddNewRecipeTableViewController: UITableViewController {
     @IBOutlet weak var IngredientsTf: UIStackView!
     @IBOutlet weak var totalTimeTf: UITextField!
     @IBOutlet weak var nameTf: UITextField!
-
+    @IBOutlet weak var ingredientTf: UITextField!
+    
     var selectedUser: User?
     var recipe: MyRecipe?
     weak var delegate: DelegatReturnTable?
 
     let userUid = Auth.auth().currentUser!.uid
-    let context = SettingCoreDate.getContext()
-    var newRecipe: MyRecipeTwo?
     var imageIsChanged = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         startSetting()
-
+    }
+    
+    @IBAction func cencelBtAct(_ sender: UIBarButtonItem) {
+        returnToBack()
+    }
+    @IBAction func saveBtAct(_ sender: Any) {
+        let image: UIImage? = imageIsChanged ? imagesFood.image: #imageLiteral(resourceName: "imagePlaceholder")
+        let imageDate = image?.pngData()
+        let newMyrecipe = MyRecipe(context: SettingCoreDate.context)
+        newMyrecipe.name = nameTf.text
+        newMyrecipe.images = imageDate
+        newMyrecipe.parentUser = selectedUser
+        newMyrecipe.totalTime = totalTimeTf.text
+        newMyrecipe.calories = caloriesTf.text
+        newMyrecipe.ingridients = ingredientTf.text
+        newMyrecipe.parentUser = selectedUser
+        delegate?.returnTableReview(recipe: newMyrecipe)
+        SettingCoreDate.saveInCoreData()
+        returnToBack()
     }
 
 
+    public func startSetting() {
+        if recipe != nil {
+            nameTf.text = recipe?.name
+            imagesFood.image = UIImage(data: (recipe?.images)!)
+            caloriesTf.text = recipe?.calories
+            totalTimeTf.text = recipe?.totalTime
+            ingredientTf.text = recipe?.ingridients
+            if isEqualToImage(recipe?.images) != true {
+                imagesFood.contentMode = .scaleAspectFill
+            } else {
+                imagesFood.contentMode = .scaleAspectFit
+            }
+        }
+        tableView.tableFooterView = UIView() // убираем лишние cell
+        saveBt.isEnabled = false
+        nameTf.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+    }
+    private func isEqualToImage(_ image: Data?) -> Bool {
+        let data1 = image
+        let data2 = #imageLiteral(resourceName: "imagePlaceholder").pngData()
+        return data1 == data2
+    }
+    private func returnToBack() {
+        navigationController?.popToRootViewController(animated: true)
+        dismiss(animated: true)
+    }
 
+}
+
+// MARK: - Table view data source
+extension AddNewRecipeTableViewController{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             let cameraIcon = #imageLiteral(resourceName: "camera")
@@ -66,57 +113,6 @@ class AddNewRecipeTableViewController: UITableViewController {
             view.endEditing(true)
         }
     }
-
-    // MARK: - Table view data source
-
-    @IBAction func cencelBtAct(_ sender: UIBarButtonItem) {
-        returnToBack()
-    }
-    @IBAction func saveBtAct(_ sender: Any) {
-        let image: UIImage? = imageIsChanged ? imagesFood.image: #imageLiteral(resourceName: "imagePlaceholder")
-        let imageDate = image?.pngData()
-        let newMyrecipe = MyRecipe(context: self.context)
-        newMyrecipe.name = nameTf.text
-        newMyrecipe.images = imageDate
-        newMyrecipe.parentUser = selectedUser
-//        guard let totalTime: Int64 = Int64(totalTimeTf.text),
-//              let colories = caloriesTf.text else { return }
-//            newMyrecipe.totalTime = totalTime
-
-//        newMyrecipe.totalTime = Int64(totalTimeTf.text)!
-//        newMyrecipe.calories = caloriesTf.text as Double
-        delegate?.returnTableReview(recipe: newMyrecipe)
-        saveItems()
-
-        returnToBack()
-    }
-
-
-    public func startSetting() {
-        if recipe != nil {
-            nameTf.text = recipe?.name
-            imagesFood.image = UIImage(data: (recipe?.images)!)
-            if isEqualToImage(recipe?.images) != true {
-                imagesFood.contentMode = .scaleAspectFill
-            } else {
-                imagesFood.contentMode = .scaleAspectFit
-            }
-        }
-        tableView.tableFooterView = UIView() // убираем лишние cell
-        saveBt.isEnabled = false
-        nameTf.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-    }
-    private func isEqualToImage(_ image: Data?) -> Bool {
-        let data1 = image
-        let data2 = #imageLiteral(resourceName: "imagePlaceholder").pngData()
-        return data1 == data2
-    }
-
-    private func returnToBack() {
-        navigationController?.popToRootViewController(animated: true)
-        dismiss(animated: true)
-    }
-
 }
 
 extension AddNewRecipeTableViewController: UITextFieldDelegate {
@@ -157,11 +153,5 @@ extension AddNewRecipeTableViewController: UIImagePickerControllerDelegate, UINa
         imageIsChanged = true
         dismiss(animated: true)
     }
-    private func saveItems() {
-        do {
-            try context.save()
-        } catch {
-            print("Error saving context: \(error)")
-        }
-    }
+
 }

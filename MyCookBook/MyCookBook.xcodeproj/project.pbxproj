@@ -44,9 +44,9 @@
 		7FEC6ACA26F7B8F8000A5FBB /* FunctionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEC6AC926F7B8F8000A5FBB /* FunctionVC.swift */; };
 		7FEC6AF026F87EDE000A5FBB /* MyCookBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FEC6AEE26F87EDE000A5FBB /* MyCookBook.xcdatamodeld */; };
 		7FEC6AF226F88607000A5FBB /* MyRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEC6AF126F88607000A5FBB /* MyRecipeTableViewCell.swift */; };
-		7FEC6AF426F8B328000A5FBB /* MyRecipeTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEC6AF326F8B328000A5FBB /* MyRecipeTwo.swift */; };
 		7FEC6AF726F9FEC2000A5FBB /* SettingCoreDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEC6AF626F9FEC1000A5FBB /* SettingCoreDate.swift */; };
 		7FEC6AF926FB2E87000A5FBB /* FirebaseServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEC6AF826FB2E87000A5FBB /* FirebaseServise.swift */; };
+		7FFB6F3B2700B65A00CB4B32 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB6F3A2700B65A00CB4B32 /* ProfileTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,9 +104,9 @@
 		7FEC6AC926F7B8F8000A5FBB /* FunctionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionVC.swift; sourceTree = "<group>"; };
 		7FEC6AEF26F87EDE000A5FBB /* _demo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = _demo.xcdatamodel; sourceTree = "<group>"; };
 		7FEC6AF126F88607000A5FBB /* MyRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipeTableViewCell.swift; sourceTree = "<group>"; };
-		7FEC6AF326F8B328000A5FBB /* MyRecipeTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipeTwo.swift; sourceTree = "<group>"; };
 		7FEC6AF626F9FEC1000A5FBB /* SettingCoreDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCoreDate.swift; sourceTree = "<group>"; };
 		7FEC6AF826FB2E87000A5FBB /* FirebaseServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServise.swift; sourceTree = "<group>"; };
+		7FFB6F3A2700B65A00CB4B32 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				7F708B5426DD1D9600DAC8B0 /* ProfileVC.swift */,
+				7FFB6F3A2700B65A00CB4B32 /* ProfileTableViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -273,7 +274,6 @@
 			children = (
 				7FEC6AF526F9E173000A5FBB /* DataModels */,
 				7F708B0426D6CC3700DAC8B0 /* Recipes.swift */,
-				7FEC6AF326F8B328000A5FBB /* MyRecipeTwo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -528,9 +528,9 @@
 				7FEC6AF226F88607000A5FBB /* MyRecipeTableViewCell.swift in Sources */,
 				7F708B0526D6CC3700DAC8B0 /* Recipes.swift in Sources */,
 				7F801D4226E011D5004354CC /* Constants.swift in Sources */,
+				7FFB6F3B2700B65A00CB4B32 /* ProfileTableViewController.swift in Sources */,
 				7F0DB02426ED0DBE0039AFF9 /* DescriptionViewController.swift in Sources */,
 				7F708B4626DBD25900DAC8B0 /* MainViewController.swift in Sources */,
-				7FEC6AF426F8B328000A5FBB /* MyRecipeTwo.swift in Sources */,
 				7F708AFC26D58B1A00DAC8B0 /* SettingVC.swift in Sources */,
 				7F708ABB26D5750F00DAC8B0 /* SceneDelegate.swift in Sources */,
 				7FEC6AC826F7B4E0000A5FBB /* AddNewRecipeTableViewController.swift in Sources */,
