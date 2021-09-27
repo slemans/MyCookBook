@@ -13,7 +13,7 @@ class MyRecipesTableViewController: UITableViewController {
 
     var MyRecipes: [MyRecipe] = []
     var users: [User] = []
-
+    var recipeId: Int? = nil
     let context = SettingCoreDate.getContext()
 
     override func viewDidLoad() {
@@ -32,7 +32,7 @@ class MyRecipesTableViewController: UITableViewController {
         SettingCoreDate.saveInCoreData()
     }
     @IBAction func addNewRecipe(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: Constants.Segues.addNewRecipe, sender: 1)
+        performSegue(withIdentifier: Constants.Segues.addNewRecipe, sender: nil)
     }
     private func loadItems() {
         let request: NSFetchRequest<MyRecipe> = MyRecipe.fetchRequest()
@@ -51,16 +51,7 @@ class MyRecipesTableViewController: UITableViewController {
             AddNewRecipeVC.selectedUser = users[.zero]
             AddNewRecipeVC.recipe = sender as? MyRecipe
             AddNewRecipeVC.delegate = self
-        }
-    }
-
-    
-
-    private func saveCategories() {
-        do {
-            try context.save()
-        } catch {
-            print("Error saving context: \(error)")
+            AddNewRecipeVC.recipeId = recipeId
         }
     }
 }
@@ -89,11 +80,10 @@ extension MyRecipesTableViewController{
                 request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, itemPredicate])
                 if let recipes = try? self.context.fetch(request) {
                     for recipe in recipes {
-                        self.context.delete(recipe)
+                        SettingCoreDate.context.delete(recipe)
                     }
                     self.MyRecipes.remove(at: indexPath.row)
                     SettingCoreDate.saveInCoreData()
-//                    self.saveCategories()
                     tableView.reloadData()
                 }
             }
@@ -105,11 +95,16 @@ extension MyRecipesTableViewController{
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recipe = MyRecipes[indexPath.row]
+        recipeId = indexPath.row
         performSegue(withIdentifier: Constants.Segues.addNewRecipe, sender: recipe)
     }
 }
 
 extension MyRecipesTableViewController: DelegatReturnTable {
+    func returnTableReviewOld(recipe: MyRecipe, index: Int) {
+        MyRecipes[index] = recipe
+        tableView.reloadData()
+    }
     func returnTableReview(recipe: MyRecipe) {
         MyRecipes.append(recipe)
         tableView.reloadData()

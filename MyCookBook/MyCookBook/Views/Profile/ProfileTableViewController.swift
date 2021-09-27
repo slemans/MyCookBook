@@ -17,21 +17,18 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var noNameLb: UILabel!
     @IBOutlet weak var imagesProfileUser: UIImageView!
     
-//    var ourUser: [User] = []
+
     var user: User!
     var imageIsChanged = false
     override func viewDidLoad() {
         super.viewDidLoad()
         searchUser()
-        print(user.name)
-        
         startSetting()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         searchUser()
         findeFavoriteAndMyRecipeCount()
-        
         tableView.reloadData()
     }
     
