@@ -10,13 +10,13 @@ import UIKit
 import CoreData
 
 class ProfileTableViewController: UITableViewController {
-    
+
     @IBOutlet weak var nameUserLb: UILabel!
     @IBOutlet weak var myRecipeLb: UILabel!
     @IBOutlet weak var favoritesLb: UILabel!
     @IBOutlet weak var noNameLb: UILabel!
     @IBOutlet weak var imagesProfileUser: UIImageView!
-    
+
 
     var user: User!
     var imageIsChanged = false
@@ -25,14 +25,14 @@ class ProfileTableViewController: UITableViewController {
         searchUser()
         startSetting()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         searchUser()
         findeFavoriteAndMyRecipeCount()
         tableView.reloadData()
     }
-    
-    
+
+
     @IBAction func logOutBtAct(_ sender: UIBarButtonItem) {
         do {
             try Auth.auth().signOut()
@@ -42,26 +42,17 @@ class ProfileTableViewController: UITableViewController {
             print(error.localizedDescription)
         }
     }
-    
+
     private func searchUser() {
-        let request: NSFetchRequest<User> = User.fetchRequest()
-            let searchPredicate = NSPredicate(format: "uid CONTAINS[cd] %@", FirebaseServise.searchUserFirebase())
-            request.sortDescriptors = [NSSortDescriptor(key: "uid", ascending: true)]
-            request.predicate = searchPredicate
-            do {
-                let ourUser = try SettingCoreDate.context.fetch(request)
-                user = ourUser[0]
-            } catch {
-                print("Error fetching data from context: \(error)")
-            }
+        user = SettingCoreDate.userCoreDate()
     }
-    
-    public func startSetting(){
-        if user?.images != nil{
+
+    public func startSetting() {
+        if user?.images != nil {
             imagesProfileUser.image = UIImage(data: (user?.images)!)
             imagesProfileUser.contentMode = .scaleAspectFill
         }
-        if user.name != ""{
+        if user.name != "" {
             nameUserLb.text = user.name
             nameUserLb.textColor = .black
         } else {
@@ -72,19 +63,19 @@ class ProfileTableViewController: UITableViewController {
         findeFavoriteAndMyRecipeCount()
         tableView.tableFooterView = UIView()
     }
-    public func findeFavoriteAndMyRecipeCount(){
+    public func findeFavoriteAndMyRecipeCount() {
         if let numberCountMyRecipe = user.myRecipes?.count,
-           let numberCountFavorite = user.favorites?.count{
+            let numberCountFavorite = user.favorites?.count {
             myRecipeLb.text = String(numberCountMyRecipe)
             favoritesLb.text = String(numberCountFavorite)
         }
     }
-    public func userImagesAndName(image: UIImage?, name: String?){
-        if image != nil{
+    public func userImagesAndName(image: UIImage?, name: String?) {
+        if image != nil {
             let imageDate = image?.pngData()
             user.images = imageDate
         }
-        if name != nil{
+        if name != nil {
             user.name = name
         }
         SettingCoreDate.saveInCoreData()
@@ -92,7 +83,7 @@ class ProfileTableViewController: UITableViewController {
 }
 
 // MARK: - Table view data source
-extension ProfileTableViewController{
+extension ProfileTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             let cameraIcon = #imageLiteral(resourceName: "camera")
@@ -115,7 +106,7 @@ extension ProfileTableViewController{
             actionSheet.addAction(photo)
             actionSheet.addAction(cancel)
             present(actionSheet, animated: true)
-        } else if indexPath.row == 1{
+        } else if indexPath.row == 1 {
             let alert = UIAlertController(title: "Enter your name", message: nil, preferredStyle: .alert)
             alert.addTextField { textField in
                 textField.placeholder = "Ivan"
@@ -164,6 +155,6 @@ extension ProfileTableViewController: UIImagePickerControllerDelegate, UINavigat
         userImagesAndName(image: info[.editedImage] as? UIImage, name: nil)
         dismiss(animated: true)
     }
-    
-    
+
+
 }

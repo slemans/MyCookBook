@@ -31,6 +31,7 @@ struct SettingCoreDate {
         request.predicate = searchPredicate
         return request
     }
+    
     static func userCoreDate() -> User{
         var users: [User] = []
         do {

@@ -32,7 +32,6 @@
 		7F708B4626DBD25900DAC8B0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708B4526DBD25800DAC8B0 /* MainViewController.swift */; };
 		7F708B4A26DBDA7700DAC8B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F708B4926DBDA7700DAC8B0 /* GoogleService-Info.plist */; };
 		7F708B5126DC109700DAC8B0 /* ThankYouVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708B5026DC109700DAC8B0 /* ThankYouVC.swift */; };
-		7F708B5526DD1D9700DAC8B0 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708B5426DD1D9600DAC8B0 /* ProfileVC.swift */; };
 		7F708BBE26DD41FB00DAC8B0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7F708BBD26DD41FB00DAC8B0 /* FirebaseAnalytics */; };
 		7F708BC026DD41FB00DAC8B0 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7F708BBF26DD41FB00DAC8B0 /* FirebaseCrashlytics */; };
 		7F708BC226DD41FB00DAC8B0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7F708BC126DD41FB00DAC8B0 /* FirebaseAuth */; };
@@ -96,7 +95,6 @@
 		7F708B4526DBD25800DAC8B0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7F708B4926DBDA7700DAC8B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7F708B5026DC109700DAC8B0 /* ThankYouVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankYouVC.swift; sourceTree = "<group>"; };
-		7F708B5426DD1D9600DAC8B0 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		7F801D4126E011D5004354CC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F801D5226E0EF3D004354CC /* FavoriteCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewController.swift; sourceTree = "<group>"; };
 		7F801D5826E2A295004354CC /* MyRecipesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesTableViewController.swift; sourceTree = "<group>"; };
@@ -246,7 +244,6 @@
 		7F708AF726D5899600DAC8B0 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				7F708B5426DD1D9600DAC8B0 /* ProfileVC.swift */,
 				7FFB6F3A2700B65A00CB4B32 /* ProfileTableViewController.swift */,
 			);
 			path = Profile;
@@ -514,7 +511,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F708B5526DD1D9700DAC8B0 /* ProfileVC.swift in Sources */,
 				7F0DB04D26EF71D60039AFF9 /* ForgotPasswordViewController.swift in Sources */,
 				7F801D5926E2A295004354CC /* MyRecipesTableViewController.swift in Sources */,
 				7F708B5126DC109700DAC8B0 /* ThankYouVC.swift in Sources */,
