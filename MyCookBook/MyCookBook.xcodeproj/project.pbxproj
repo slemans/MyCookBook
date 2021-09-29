@@ -11,6 +11,8 @@
 		7F0DAFB526E5561F0039AFF9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DAFB426E5561F0039AFF9 /* MainTableViewCell.swift */; };
 		7F0DB02426ED0DBE0039AFF9 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DB02326ED0DBE0039AFF9 /* DescriptionViewController.swift */; };
 		7F0DB04D26EF71D60039AFF9 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DB04C26EF71D60039AFF9 /* ForgotPasswordViewController.swift */; };
+		7F41E875270502320002A851 /* old.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F41E874270502320002A851 /* old.swift */; };
+		7F41E87727050E880002A851 /* DemoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F41E87627050E880002A851 /* DemoClass.swift */; };
 		7F708AB926D5750F00DAC8B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708AB826D5750F00DAC8B0 /* AppDelegate.swift */; };
 		7F708ABB26D5750F00DAC8B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708ABA26D5750F00DAC8B0 /* SceneDelegate.swift */; };
 		7F708AC026D5750F00DAC8B0 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F708ABE26D5750F00DAC8B0 /* TabBar.storyboard */; };
@@ -70,6 +72,8 @@
 		7F0DAFB426E5561F0039AFF9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		7F0DB02326ED0DBE0039AFF9 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		7F0DB04C26EF71D60039AFF9 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		7F41E874270502320002A851 /* old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = old.swift; sourceTree = "<group>"; };
+		7F41E87627050E880002A851 /* DemoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoClass.swift; sourceTree = "<group>"; };
 		7F708AB526D5750F00DAC8B0 /* MyCookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F708AB826D5750F00DAC8B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F708ABA26D5750F00DAC8B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				7F0DB02326ED0DBE0039AFF9 /* DescriptionViewController.swift */,
+				7F41E874270502320002A851 /* old.swift */,
 			);
 			path = Description;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 			children = (
 				7FEC6AF526F9E173000A5FBB /* DataModels */,
 				7F708B0426D6CC3700DAC8B0 /* Recipes.swift */,
+				7F41E87627050E880002A851 /* DemoClass.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -518,11 +524,13 @@
 				7F801D5326E0EF3D004354CC /* FavoriteCollectionViewController.swift in Sources */,
 				7F0DAFB326E376240039AFF9 /* ConstantsApi.swift in Sources */,
 				7F708B3C26DA301000DAC8B0 /* Register.swift in Sources */,
+				7F41E875270502320002A851 /* old.swift in Sources */,
 				7F708AB926D5750F00DAC8B0 /* AppDelegate.swift in Sources */,
 				7FEC6AF026F87EDE000A5FBB /* MyCookBook.xcdatamodeld in Sources */,
 				7F0DAFB526E5561F0039AFF9 /* MainTableViewCell.swift in Sources */,
 				7FEC6AF226F88607000A5FBB /* MyRecipeTableViewCell.swift in Sources */,
 				7F708B0526D6CC3700DAC8B0 /* Recipes.swift in Sources */,
+				7F41E87727050E880002A851 /* DemoClass.swift in Sources */,
 				7F801D4226E011D5004354CC /* Constants.swift in Sources */,
 				7FFB6F3B2700B65A00CB4B32 /* ProfileTableViewController.swift in Sources */,
 				7F0DB02426ED0DBE0039AFF9 /* DescriptionViewController.swift in Sources */,

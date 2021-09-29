@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Favorite" representedClassName="Favorite" syncable="YES" codeGenerationType="class">
-        <attribute name="calories" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="allfavoriteRecipe" optional="YES" attributeType="Binary"/>
         <attribute name="image" optional="YES" attributeType="String"/>
         <attribute name="label" optional="YES" attributeType="String"/>
-        <attribute name="totalTime" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="parentUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="favorites" inverseEntity="User"/>
     </entity>
     <entity name="MyRecipe" representedClassName="MyRecipe" syncable="YES" codeGenerationType="class">
@@ -24,7 +23,7 @@
         <relationship name="myRecipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MyRecipe" inverseName="parentUser" inverseEntity="MyRecipe"/>
     </entity>
     <elements>
-        <element name="Favorite" positionX="-36" positionY="45" width="128" height="104"/>
+        <element name="Favorite" positionX="-36" positionY="45" width="128" height="89"/>
         <element name="MyRecipe" positionX="-54" positionY="18" width="128" height="119"/>
         <element name="User" positionX="-63" positionY="-18" width="128" height="119"/>
     </elements>
