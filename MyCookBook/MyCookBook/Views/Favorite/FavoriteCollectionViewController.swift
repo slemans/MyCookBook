@@ -15,6 +15,7 @@ private let reuseIdentifier = "Cell"
 class FavoriteCollectionViewController: UICollectionViewController {
 
     var colectionFavorite: [Favorite] = []
+    var recipe: Recipe?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,17 +30,9 @@ class FavoriteCollectionViewController: UICollectionViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let DescriptionVC = segue.destination as? DescriptionViewController {
-//            if let indexPath =  tableView.indexPathForSelectedRow {
-//                DescriptionVC.recipel = recipes[indexPath.row].recipe
-//            }
-//            DescriptionVC.recipeFavorite = sender as? Favorite
             DescriptionVC.recipel = sender as? Recipe
-            DescriptionVC.recipeOrFavoriteRecipe = true
+            DescriptionVC.mainRecipeOrFavorite = false
         }
-    }
-    
-    private func afff(){
-       
     }
 
     private func loadItems() {
@@ -66,29 +59,19 @@ extension FavoriteCollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "favoriteCell", for: indexPath) as! FavoriteCell
         let favoriteRecipe = colectionFavorite[indexPath.row]
         cell.configure(recipe: favoriteRecipe)
-
         return cell
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-//        if let jsonData = jsonString.data(using: .utf8){
-//            let photoObject = try? JSONDecoder().decode(Recipes.self, from: jsonData)
-//        }
-        
-        
-        guard let recipe = colectionFavorite[indexPath.row].allfavoriteRecipe else { return }
-        print(recipe)
-        let favoriteRecipe = parseJSON(withData: recipe)
-//        let favoriteRecipe = try decoder.decode(Recipes.self, from: recipe)
-//        let favoriteRecipe = try? JSONDecoder().decode(Recipes.self, from: recipe)
-        print("после кодировки \(favoriteRecipe)")
-        performSegue(withIdentifier: "segueFavoriteRecipe", sender: favoriteRecipe)
+        let recipeData = colectionFavorite[indexPath.row].allfavoriteRecipe
+        guard let newEncodedDataRecipe = recipeData else { return }
+        recipe =  parseData(withData: newEncodedDataRecipe)
+        performSegue(withIdentifier: "segueFavoriteRecipe", sender: recipe)
     }
-    func parseJSON(withData data: Data) -> Recipes? {
+    
+    public func parseData(withData data: Data) -> Recipe? {
         let decoder = JSONDecoder()
         do {
-            let recipes = try decoder.decode(Recipes.self, from: data)
-            guard let recipe = Recipes(recipe: recipes) else { return nil }
+            let recipe = try decoder.decode(Recipe.self, from: data)
             return recipe
         } catch let error as NSError {
             print(error.localizedDescription)
@@ -102,7 +85,6 @@ extension FavoriteCollectionViewController {
 
 
 extension FavoriteCollectionViewController: UICollectionViewDelegateFlowLayout {
-
     override func viewWillAppear(_ animated: Bool) {
         let layout = UICollectionViewFlowLayout()
         let sizeWH = UIScreen.main.bounds.size.width / 2.2

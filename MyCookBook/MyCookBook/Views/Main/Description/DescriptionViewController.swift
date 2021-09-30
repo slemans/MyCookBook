@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 //protocol DelegatReturnCollection: AnyObject {
 //    func returnCollectionView(recipe: Favorite)
@@ -27,32 +28,26 @@ class DescriptionViewController: UIViewController {
     @IBOutlet weak var carbLb: UILabel!
     @IBOutlet weak var fiverLb: UILabel!
 
-    var recipel: Recipe?
-    var recipeFavorite: Favorite?
+    var recipel: Recipe!
     var flag = false
     var ingredientOrhealth = true
-    var recipeOrFavoriteRecipe: Bool?
+    var mainRecipeOrFavorite: Bool?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("представление DescriptionViewController: \(recipel)")
         fenchRecipe()
         startSetting()
+        
     }
     public func startSetting() {
-        if recipeOrFavoriteRecipe == true {
-            if recipel != nil, let recipel = recipel {
-                calLb.text = String((Int(recipel.calories) * 10) / 10)
-                fatLb.text = tableviewFunction.returnToFullString(tip: "FAT", recipe: recipel)
-                carbLb.text = tableviewFunction.returnToFullString(tip: "FIBTG", recipe: recipel)
-                fiverLb.text = tableviewFunction.returnToFullString(tip: "CHOCDF", recipe: recipel)
-            }
-        } else {
-
+        calLb.text = String((Int(recipel.calories ?? 0) * 10) / 10)
+        fatLb.text = tableviewFunction.returnToFullString(tip: "FAT", recipe: recipel)
+        carbLb.text = tableviewFunction.returnToFullString(tip: "FIBTG", recipe: recipel)
+        fiverLb.text = tableviewFunction.returnToFullString(tip: "CHOCDF", recipe: recipel)
+        if mainRecipeOrFavorite == false {
+            favoriteImage(bool: recipel.favorite)
         }
-
     }
-
 
     @IBAction func ingridientBtAction(_ sender: UIButton) {
         reload(first: sender, second: healthBt, bool: true)
@@ -61,33 +56,42 @@ class DescriptionViewController: UIViewController {
         reload(first: sender, second: ingredientBt, bool: false)
     }
     @IBAction func faloverBtActive(_ sender: UIButton) {
-
-        if recipel?.favorite == nil {
-            recipel?.favorite = true
-//            let newEncodedDataRecipe = try? JSONEncoder().encode(recipel)
-//            let newRecipe = Favorite(context: SettingCoreDate.context)
-//            newRecipe.label = recipel?.label
-//            newRecipe.image = recipel?.image
-//            newRecipe.allfavoriteRecipe = newEncodedDataRecipe
-//            newRecipe.parentUser = SettingCoreDate.userCoreDate()
-//            SettingCoreDate.saveInCoreData()
-
-
-            let demo = Recipe(favorite: true, label: "Demo", image: "images", totalTime: 8, mealType: [nil], totalNutrients: ["demo total 1": Total(label: "demoTotal2", quantity: 2, unit: .g)], calories: 22, ingredients: [Ingredient(text: "Ingredient demo")], healthLabels: [String("healthLabels demo")])
-            print("Старт кодирования \(demo)")
-            let newEncodedDataRecipe = try? JSONEncoder().encode(demo)
-            print("Закодировал \(newEncodedDataRecipe)")
-            guard let newEncodedDataRecipe = newEncodedDataRecipe else { return }
-            let favoriteRecipe = try? JSONDecoder().decode(Recipe.self, from: newEncodedDataRecipe)
-            print("получил данные \(favoriteRecipe)")
-
-
+        if mainRecipeOrFavorite == true {
+            if recipel?.favorite == nil{
+                recipel?.favorite = true
+                let newEncodedDataRecipe = try? JSONEncoder().encode(recipel)
+                let newRecipe = Favorite(context: SettingCoreDate.context)
+                newRecipe.label = recipel?.label
+                newRecipe.image = recipel?.image
+                newRecipe.allfavoriteRecipe = newEncodedDataRecipe
+                newRecipe.parentUser = SettingCoreDate.userCoreDate()
+                SettingCoreDate.saveInCoreData()
+            } else {
+                recipel.favorite = !(recipel.favorite)!
+            }
         } else {
-            recipel?.favorite = !(recipel?.favorite)!
+            print("удалил рецепт")
+            recipel.favorite = !(recipel.favorite)!
+            navigationController?.popToRootViewController(animated: true)
+            deleteRecipe()
         }
-        favoriteImage(bool: recipel?.favorite)
+        favoriteImage(bool: recipel.favorite)
     }
-
+    func deleteRecipe() {
+        guard let label = recipel.label,
+              let userUid = SettingCoreDate.getUserCoreDataUid() else { return }
+        let request: NSFetchRequest<Favorite> = Favorite.fetchRequest()
+        let categoryPredicate = NSPredicate(format: "parentUser.uid MATCHES %@", userUid)
+        let itemPredicate = NSPredicate(format: "label MATCHES %@", label)
+        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, itemPredicate])
+        if let recipesFavorite = try?  SettingCoreDate.context.fetch(request) {
+            for recipe in recipesFavorite {
+                SettingCoreDate.context.delete(recipe)
+            }
+//            self.MyRecipes.remove(at: indexPath.row)
+            SettingCoreDate.saveInCoreData()
+        }
+    }
 
     private func favoriteImage(bool: Bool?) {
         guard let bool = bool else { return }
@@ -140,18 +144,15 @@ class DescriptionViewController: UIViewController {
 }
 
 extension DescriptionViewController: UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return ingredientOrhealth == true ? recipel.ingredients.count : recipel.healthLabels.count
-//    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let ingredients = recipel?.ingredients?.count,
+        guard let ingredients = recipel?.ingredients.count,
             let healthLabels = recipel?.healthLabels?.count else { return 0 }
         return ingredientOrhealth == true ? ingredients : healthLabels
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionTableViewCell", for: indexPath)
         if ingredientOrhealth == true,
-            let ingridient = recipel?.ingredients?[indexPath.row] {
+            let ingridient = recipel?.ingredients[indexPath.row] {
             cell.textLabel?.text = ingridient.text
         } else if let health = recipel?.healthLabels?[indexPath.row] {
             cell.textLabel?.text = health

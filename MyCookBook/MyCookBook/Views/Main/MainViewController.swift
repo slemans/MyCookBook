@@ -57,7 +57,7 @@ class MainViewController: UIViewController {
         if let DescriptionVC = segue.destination as? DescriptionViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 DescriptionVC.recipel = recipes[indexPath.row].recipe
-                DescriptionVC.recipeOrFavoriteRecipe = true
+                DescriptionVC.mainRecipeOrFavorite = true
             }
         }
     }

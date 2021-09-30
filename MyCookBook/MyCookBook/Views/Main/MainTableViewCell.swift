@@ -19,7 +19,7 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var fiberLb: UILabel!
     @IBOutlet weak var secondStackViewCell: UIStackView!
     @IBOutlet weak var firstStackViewCell: UIStackView!
-    
+
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +27,7 @@ class MainTableViewCell: UITableViewCell {
         // imagesRecipe.layer.cornerRadius = 5.0
         firstStackViewCell.layer.cornerRadius = 10.0
     }
-   
+
 
 
     func fenchRecipe(forrecipe recipe: Recipe?) {
@@ -38,18 +38,17 @@ class MainTableViewCell: UITableViewCell {
         fatLb.text = tableviewFunction.returnToFullString(tip: "FAT", recipe: recipe)
         fiberLb.text = tableviewFunction.returnToFullString(tip: "FIBTG", recipe: recipe)
         carbLb.text = tableviewFunction.returnToFullString(tip: "CHOCDF", recipe: recipe)
-        sugarLb.text = String((Int(recipe.calories) * 10) / 10) //returnToFullString(tip: "SUGAR", recipe: recipe)
+        sugarLb.text = String((Int(recipe.calories ?? 0) * 10) / 10) //returnToFullString(tip: "SUGAR", recipe: recipe)
         putImage(image: recipe.image)
     }
-    private func returnTime(time: Int) -> String{
-        if time == 0{
-            return "time not unknown"
-        } else {
+    private func returnTime(time: Int?) -> String {
+        if time != 0, let time = time  {
             return "\(time) minutes"
+        } else {
+            return "time not unknown"
         }
-        
     }
-    
+
 //    private func returnToFullString(tip: String, recipe: Recipe) -> String {
 //        guard let quantity = recipe.totalNutrients[tip]?.quantity,
 //              let unit = recipe.totalNutrients[tip]?.unit.rawValue else { return ""}
@@ -57,8 +56,9 @@ class MainTableViewCell: UITableViewCell {
 //        return "\(newQuantity) \(unit)"
 //    }
 
-    private func putImage(image: String) {
-        guard let urlImg = URL(string: image) else { return }
+    private func putImage(image: String?) {
+        guard let image = image,
+            let urlImg = URL(string: image) else { return }
         URLSession.shared.dataTask(with: urlImg) { data, _, _ in
             let queue = DispatchQueue.global(qos: .utility)
             queue.async {

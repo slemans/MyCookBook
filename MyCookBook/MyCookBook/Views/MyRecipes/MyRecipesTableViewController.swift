@@ -74,6 +74,8 @@ extension MyRecipesTableViewController{
         let cateroryDelete = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
             if let name = self.MyRecipes[indexPath.row].name,
                let userUid = self.users[.zero].uid{
+                print(userUid)
+                print(name)
                 let request: NSFetchRequest<MyRecipe> = MyRecipe.fetchRequest()
                 let categoryPredicate = NSPredicate(format: "parentUser.uid MATCHES %@", userUid)
                 let itemPredicate = NSPredicate(format: "name MATCHES %@", name)
@@ -87,7 +89,6 @@ extension MyRecipesTableViewController{
                     tableView.reloadData()
                 }
             }
-
         }
         cateroryDelete.image = #imageLiteral(resourceName: "cartm")
         let swipeActions = UISwipeActionsConfiguration(actions: [cateroryDelete])

@@ -32,6 +32,17 @@ struct SettingCoreDate {
         return request
     }
     
+    static func getUserCoreDataUid() -> String?{
+        do {
+            let users = try context.fetch(requestUidUser())
+            return users[.zero].uid
+        } catch {
+            print("Error fetching data from context: \(error)")
+            return nil
+        }
+    }
+    
+    
     static func userCoreDate() -> User{
         var users: [User] = []
         do {
