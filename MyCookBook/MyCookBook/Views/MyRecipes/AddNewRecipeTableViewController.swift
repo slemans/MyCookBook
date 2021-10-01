@@ -154,13 +154,6 @@ extension AddNewRecipeTableViewController: UITextFieldDelegate {
                 saveBt.isEnabled = false
             }
     }
-    
-    
- 
-    
-    
-    
-    
 }
 
 // MARK: Work with image

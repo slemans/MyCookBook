@@ -12,43 +12,27 @@ import Firebase
 class MyRecipesTableViewController: UITableViewController {
 
     var MyRecipes: [MyRecipe] = []
-    var users: [User] = []
+    var user: User!
     var recipeId: Int? = nil
-    let context = SettingCoreDate.getContext()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         loadItems()
-
-        let request: NSFetchRequest<User> = User.fetchRequest()
-        let searchPredicate = NSPredicate(format: "uid CONTAINS[cd] %@", FirebaseServise.searchUserFirebase())
-        request.sortDescriptors = [NSSortDescriptor(key: "uid", ascending: true)]
-        request.predicate = searchPredicate
-        do {
-            users = try context.fetch(request)
-        } catch {
-            print("Error fetching data from context: \(error)")
-        }
-        SettingCoreDate.saveInCoreData()
+        user = SettingCoreDate.userCoreDate()
     }
     @IBAction func addNewRecipe(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: Constants.Segues.addNewRecipe, sender: nil)
     }
     private func loadItems() {
-        let request: NSFetchRequest<MyRecipe> = MyRecipe.fetchRequest()
-        let categoryPredicate = NSPredicate(format: "parentUser.uid MATCHES %@", FirebaseServise.searchUserFirebase())
-        request.predicate = categoryPredicate
-        do {
-            MyRecipes = try context.fetch(request)
-        } catch {
-            print("Error fetching data from context: \(error)")
+        if let recipes = SettingCoreDate.getMyRecipes() {
+            MyRecipes = recipes
+            tableView.reloadData()
         }
-        tableView.reloadData()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let AddNewRecipeVC = segue.destination as? AddNewRecipeTableViewController {
-            AddNewRecipeVC.selectedUser = users[.zero]
+            AddNewRecipeVC.selectedUser = user //users[.zero]
             AddNewRecipeVC.recipe = sender as? MyRecipe
             AddNewRecipeVC.delegate = self
             AddNewRecipeVC.recipeId = recipeId
@@ -73,14 +57,12 @@ extension MyRecipesTableViewController{
         
         let cateroryDelete = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
             if let name = self.MyRecipes[indexPath.row].name,
-               let userUid = self.users[.zero].uid{
-                print(userUid)
-                print(name)
+               let userUid = self.user.uid{
                 let request: NSFetchRequest<MyRecipe> = MyRecipe.fetchRequest()
                 let categoryPredicate = NSPredicate(format: "parentUser.uid MATCHES %@", userUid)
                 let itemPredicate = NSPredicate(format: "name MATCHES %@", name)
                 request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, itemPredicate])
-                if let recipes = try? self.context.fetch(request) {
+                if let recipes = try? SettingCoreDate.context.fetch(request) {
                     for recipe in recipes {
                         SettingCoreDate.context.delete(recipe)
                     }

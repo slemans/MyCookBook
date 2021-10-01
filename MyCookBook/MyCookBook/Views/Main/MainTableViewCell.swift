@@ -49,12 +49,6 @@ class MainTableViewCell: UITableViewCell {
         }
     }
 
-//    private func returnToFullString(tip: String, recipe: Recipe) -> String {
-//        guard let quantity = recipe.totalNutrients[tip]?.quantity,
-//              let unit = recipe.totalNutrients[tip]?.unit.rawValue else { return ""}
-//        let newQuantity = (Int(quantity) * 10) / 10
-//        return "\(newQuantity) \(unit)"
-//    }
 
     private func putImage(image: String?) {
         guard let image = image,

@@ -34,13 +34,9 @@ class ProfileTableViewController: UITableViewController {
 
 
     @IBAction func logOutBtAct(_ sender: UIBarButtonItem) {
-        do {
-            try Auth.auth().signOut()
-            navigationController?.popToRootViewController(animated: true)
-            dismiss(animated: true, completion: nil)
-        } catch {
-            print(error.localizedDescription)
-        }
+        FirebaseServise.logOutUserFirebase()
+        navigationController?.popToRootViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
 
     private func searchUser() {
@@ -92,12 +88,10 @@ extension ProfileTableViewController {
                 message: nil,
                 preferredStyle: .actionSheet)
             let camera = UIAlertAction(title: "Camera", style: .default) { _ in
-                // вызов метода с изображение камеры
                 self.cooseImagePicker(source: .camera)
             }
             camera.setValue(cameraIcon, forKey: "image")
             let photo = UIAlertAction(title: "Photo", style: .default) { _ in
-                // вызов imagePicker
                 self.cooseImagePicker(source: .photoLibrary)
             }
             photo.setValue(photoIcon, forKey: "image")
@@ -145,7 +139,6 @@ extension ProfileTableViewController: UIImagePickerControllerDelegate, UINavigat
             present(imagePicker, animated: true)
         }
     }
-
     // вставляем в UIImages фото пользователя
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         imagesProfileUser.image = info[.editedImage] as? UIImage
@@ -155,6 +148,4 @@ extension ProfileTableViewController: UIImagePickerControllerDelegate, UINavigat
         userImagesAndName(image: info[.editedImage] as? UIImage, name: nil)
         dismiss(animated: true)
     }
-
-
 }

@@ -16,5 +16,4 @@ class MyRecipeTableViewCell: UITableViewCell {
         super.awakeFromNib()
         imagesRecipe.layer.cornerRadius =  imagesRecipe.frame.size.height / 2
     }
-
 }

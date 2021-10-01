@@ -26,8 +26,8 @@ class FavoriteCollectionViewController: UICollectionViewController {
 //        loadItems()
 //        collectionView.reloadData()
 //    }
-    
-    
+
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let DescriptionVC = segue.destination as? DescriptionViewController {
             DescriptionVC.recipel = sender as? Recipe
@@ -36,17 +36,11 @@ class FavoriteCollectionViewController: UICollectionViewController {
     }
 
     private func loadItems() {
-        let request: NSFetchRequest<Favorite> = Favorite.fetchRequest()
-        let categoryPredicate = NSPredicate(format: "parentUser.uid MATCHES %@", FirebaseServise.searchUserFirebase())
-        request.predicate = categoryPredicate
-        do {
-            colectionFavorite = try SettingCoreDate.context.fetch(request)
-        } catch {
-            print("Error fetching data from context: \(error)")
+        if let recipes = SettingCoreDate.getFavorite() {
+            colectionFavorite = recipes
+            collectionView.reloadData()
         }
-        collectionView.reloadData()
     }
-
 }
 
 // MARK: UICollectionViewDataSource
@@ -64,10 +58,10 @@ extension FavoriteCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let recipeData = colectionFavorite[indexPath.row].allfavoriteRecipe
         guard let newEncodedDataRecipe = recipeData else { return }
-        recipe =  parseData(withData: newEncodedDataRecipe)
+        recipe = parseData(withData: newEncodedDataRecipe)
         performSegue(withIdentifier: "segueFavoriteRecipe", sender: recipe)
     }
-    
+
     public func parseData(withData data: Data) -> Recipe? {
         let decoder = JSONDecoder()
         do {
@@ -78,9 +72,6 @@ extension FavoriteCollectionViewController {
         }
         return nil
     }
-    
-    
-    
 }
 
 
