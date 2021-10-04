@@ -27,7 +27,6 @@ class SingInVC: UIViewController {
         openingSeting()
         startKeyboardObserver()
         
-//        let userFiribas = FirebaseServise.searchUserFirebase()
         
         Auth.auth().addStateDidChangeListener({ [weak self] _, user in
             guard let _ = user else { return }

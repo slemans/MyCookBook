@@ -65,7 +65,7 @@ extension FavoriteCollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "favoriteCell", for: indexPath) as! FavoriteCell
-        let favoriteRecipe = colectionFavorite[indexPath.row]
+        let favoriteRecipe = colectionFavorite[indexPath.item]
         cell.configure(recipe: favoriteRecipe)
         cell.layer.borderColor = UIColor.green.cgColor
         cell.layer.borderWidth = Border.borderWidth

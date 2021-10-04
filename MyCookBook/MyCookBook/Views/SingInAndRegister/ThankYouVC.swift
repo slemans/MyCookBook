@@ -17,7 +17,10 @@ class ThankYouVC: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
     @IBAction func goBackBtAct() {
-        navigationController?.popToRootViewController(animated: true)
+        let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
+        controller.modalPresentationStyle = .fullScreen
+        self.present(controller, animated: true, completion: nil)
     }
     
     
