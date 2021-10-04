@@ -19,6 +19,7 @@ class MyRecipesTableViewController: UITableViewController {
         super.viewDidLoad()
         loadItems()
         user = SettingCoreDate.userCoreDate()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
     @IBAction func addNewRecipe(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: Constants.Segues.addNewRecipe, sender: nil)
@@ -41,7 +42,7 @@ class MyRecipesTableViewController: UITableViewController {
 }
 
 // MARK: - Table view data source
-extension MyRecipesTableViewController{
+extension MyRecipesTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MyRecipes.isEmpty ? 0 : MyRecipes.count
     }
@@ -50,14 +51,16 @@ extension MyRecipesTableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellMyRecipe", for: indexPath) as! MyRecipeTableViewCell
         let recipe = MyRecipes[indexPath.row]
         cell.nameRecipeLb.text = recipe.name
-        cell.imagesRecipe.image = UIImage(data: recipe.images!)
+        if let image = UIImage(data: recipe.images!) {
+            cell.imagesRecipe.image = image
+        }
         return cell
     }
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
+
         let cateroryDelete = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
             if let name = self.MyRecipes[indexPath.row].name,
-               let userUid = self.user.uid{
+                let userUid = self.user.uid {
                 let request: NSFetchRequest<MyRecipe> = MyRecipe.fetchRequest()
                 let categoryPredicate = NSPredicate(format: "parentUser.uid MATCHES %@", userUid)
                 let itemPredicate = NSPredicate(format: "name MATCHES %@", name)
@@ -68,7 +71,7 @@ extension MyRecipesTableViewController{
                     }
                     self.MyRecipes.remove(at: indexPath.row)
                     SettingCoreDate.saveInCoreData()
-                    tableView.reloadData()
+                    tableView.deleteRows(at: [indexPath], with: .fade)
                 }
             }
         }
@@ -76,6 +79,18 @@ extension MyRecipesTableViewController{
         let swipeActions = UISwipeActionsConfiguration(actions: [cateroryDelete])
         return swipeActions
     }
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let firstRecipe = MyRecipes.remove(at: sourceIndexPath.row)
+        MyRecipes.insert(firstRecipe, at: destinationIndexPath.row)
+        tableView.reloadData()
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recipe = MyRecipes[indexPath.row]
         recipeId = indexPath.row

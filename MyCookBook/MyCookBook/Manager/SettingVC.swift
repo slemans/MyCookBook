@@ -13,6 +13,8 @@ struct Color {
 
 struct Border {
     static let borderRadius: CGFloat = 20
+    static let borderRadius8: CGFloat = 8
+    static let borderRadius11: CGFloat = 11
     static let borderRadius15: CGFloat = 15
     static let borderRadiusMax: CGFloat = 50
     static let borderWidth: CGFloat = 1.0

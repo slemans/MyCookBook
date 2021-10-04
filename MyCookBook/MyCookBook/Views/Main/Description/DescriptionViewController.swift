@@ -32,6 +32,8 @@ class DescriptionViewController: UIViewController {
     var flag = false
     var ingredientOrhealth = true
     var mainRecipeOrFavorite: Bool?
+    var categoryFood: TypeFood?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +50,7 @@ class DescriptionViewController: UIViewController {
             favoriteImage(bool: recipel.favorite)
         }
     }
+   
 
     @IBAction func ingridientBtAction(_ sender: UIButton) {
         reload(first: sender, second: healthBt, bool: true)
@@ -63,6 +66,7 @@ class DescriptionViewController: UIViewController {
                 let newRecipe = Favorite(context: SettingCoreDate.context)
                 newRecipe.label = recipel?.label
                 newRecipe.image = recipel?.image
+                newRecipe.categoryFood = findCategoryNumber()
                 newRecipe.allfavoriteRecipe = newEncodedDataRecipe
                 newRecipe.parentUser = SettingCoreDate.userCoreDate()
                 SettingCoreDate.saveInCoreData()
@@ -70,7 +74,6 @@ class DescriptionViewController: UIViewController {
                 recipel.favorite = !(recipel.favorite)!
             }
         } else {
-            print("удалил рецепт")
             recipel.favorite = !(recipel.favorite)!
             navigationController?.popToRootViewController(animated: true)
             deleteRecipe()
@@ -140,6 +143,20 @@ class DescriptionViewController: UIViewController {
                 }
             }
         }.resume()
+    }
+    public func findCategoryNumber() -> Int16{
+        var categoryFoodNumber = 0
+        switch categoryFood {
+        case .chicken:
+            categoryFoodNumber = 1
+        case .beef:
+            categoryFoodNumber = 2
+        case .fish:
+            categoryFoodNumber = 3
+        default:
+            categoryFoodNumber = 0
+        }
+        return Int16(categoryFoodNumber)
     }
 }
 

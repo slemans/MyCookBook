@@ -24,7 +24,6 @@ class MainTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         imagesRecipe.image = #imageLiteral(resourceName: "imagePlaceholder")
-        // imagesRecipe.layer.cornerRadius = 5.0
         firstStackViewCell.layer.cornerRadius = 10.0
     }
 
@@ -38,7 +37,7 @@ class MainTableViewCell: UITableViewCell {
         fatLb.text = tableviewFunction.returnToFullString(tip: "FAT", recipe: recipe)
         fiberLb.text = tableviewFunction.returnToFullString(tip: "FIBTG", recipe: recipe)
         carbLb.text = tableviewFunction.returnToFullString(tip: "CHOCDF", recipe: recipe)
-        sugarLb.text = String((Int(recipe.calories ?? 0) * 10) / 10) //returnToFullString(tip: "SUGAR", recipe: recipe)
+        sugarLb.text = String((Int(recipe.calories ?? 0) * 10) / 10)
         putImage(image: recipe.image)
     }
     private func returnTime(time: Int?) -> String {
