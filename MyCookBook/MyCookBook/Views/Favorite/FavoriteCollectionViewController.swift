@@ -17,20 +17,24 @@ class FavoriteCollectionViewController: UICollectionViewController {
     var height: CGFloat!
     var colectionFavorite: [Favorite] = []
     var recipe: Recipe?
+    var sizeLable: [CGFloat] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         loadItems()
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         self.navigationItem.leftBarButtonItem = self.editButtonItem
-
-        
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         loadItems()
         collectionView.reloadData()
     }
+
+    
+    
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let DescriptionVC = segue.destination as? DescriptionViewController {
             DescriptionVC.recipel = sender as? Recipe
@@ -43,6 +47,13 @@ class FavoriteCollectionViewController: UICollectionViewController {
             colectionFavorite = recipes
             collectionView.reloadData()
         }
+    }
+    private func estimateFrameForText(text: String, size: CGFloat) -> CGRect {
+        let height: CGFloat = 210
+        let size = CGSize(width: size, height: height)
+        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.light)]
+        return NSString(string: text).boundingRect(with: size, options: options, attributes: attributes, context: nil)
     }
 }
 
@@ -88,7 +99,9 @@ extension FavoriteCollectionViewController: UICollectionViewDelegateFlowLayout {
         let padding = 10 * (itemPerRow + 1) // считаю сколько отступов нужно
         let availableWidth = collectionView.frame.width - padding
         let widthPerItem = availableWidth / itemPerRow
-        return CGSize(width: widthPerItem, height: 210)
+//        return CGSize(width: widthPerItem, height: 225 + estimateFrameForText(text: colectionFavorite[indexPath.row].label!, size: availableWidth).height)
+        return CGSize(width: widthPerItem, height: 225)
+        
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
