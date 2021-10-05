@@ -17,6 +17,17 @@ class StartVC: UIViewController {
         super.viewDidLoad()
         openingSeting()
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if Core.shared.inNewUser(){
+            let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+            let welcomViewControllerVC = storyboard.instantiateViewController(identifier: "welcom") as! WelcomViewController
+            welcomViewControllerVC.modalPresentationStyle = .fullScreen
+            present(welcomViewControllerVC, animated: true)
+        }
+    }
+    
+    
     private func requestAutorization(){
       //  notificationCenter.
     }
@@ -40,5 +51,16 @@ class StartVC: UIViewController {
 
     @IBAction func singUpAct() {
         performSegue(withIdentifier: Constants.Segues.singUp, sender: nil)
+    }
+}
+
+class Core{
+    static let shared = Core()
+    
+    func inNewUser() -> Bool{
+        return !UserDefaults.standard.bool(forKey: "isNewUser")
+    }
+    func setIsNotNewUser(){
+        UserDefaults.standard.set(true, forKey: "isNewUser")
     }
 }

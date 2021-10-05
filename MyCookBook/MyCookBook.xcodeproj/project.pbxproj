@@ -11,12 +11,13 @@
 		7F0DAFB526E5561F0039AFF9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DAFB426E5561F0039AFF9 /* MainTableViewCell.swift */; };
 		7F0DB02426ED0DBE0039AFF9 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DB02326ED0DBE0039AFF9 /* DescriptionViewController.swift */; };
 		7F0DB04D26EF71D60039AFF9 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DB04C26EF71D60039AFF9 /* ForgotPasswordViewController.swift */; };
+		7F41E881270C555F0002A851 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F41E880270C555D0002A851 /* Onboarding.storyboard */; };
+		7F41E886270C7E230002A851 /* WelcomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F41E885270C7E230002A851 /* WelcomViewController.swift */; };
 		7F708AB926D5750F00DAC8B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708AB826D5750F00DAC8B0 /* AppDelegate.swift */; };
 		7F708ABB26D5750F00DAC8B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708ABA26D5750F00DAC8B0 /* SceneDelegate.swift */; };
 		7F708AC026D5750F00DAC8B0 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F708ABE26D5750F00DAC8B0 /* TabBar.storyboard */; };
 		7F708AC226D5751F00DAC8B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F708AC126D5751F00DAC8B0 /* Assets.xcassets */; };
 		7F708AC526D5751F00DAC8B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F708AC326D5751F00DAC8B0 /* LaunchScreen.storyboard */; };
-		7F708AD026D5751F00DAC8B0 /* MyCookBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708ACF26D5751F00DAC8B0 /* MyCookBookTests.swift */; };
 		7F708ADB26D5751F00DAC8B0 /* MyCookBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708ADA26D5751F00DAC8B0 /* MyCookBookUITests.swift */; };
 		7F708AF026D57F0100DAC8B0 /* SingIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F708AEF26D57F0100DAC8B0 /* SingIn.storyboard */; };
 		7F708AF926D589AF00DAC8B0 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708AF826D589AF00DAC8B0 /* StartVC.swift */; };
@@ -69,6 +70,8 @@
 		7F0DAFB426E5561F0039AFF9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		7F0DB02326ED0DBE0039AFF9 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		7F0DB04C26EF71D60039AFF9 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		7F41E880270C555D0002A851 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		7F41E885270C7E230002A851 /* WelcomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomViewController.swift; sourceTree = "<group>"; };
 		7F708AB526D5750F00DAC8B0 /* MyCookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F708AB826D5750F00DAC8B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F708ABA26D5750F00DAC8B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,8 +80,6 @@
 		7F708AC426D5751F00DAC8B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F708AC626D5751F00DAC8B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F708ACB26D5751F00DAC8B0 /* MyCookBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyCookBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7F708ACF26D5751F00DAC8B0 /* MyCookBookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCookBookTests.swift; sourceTree = "<group>"; };
-		7F708AD126D5751F00DAC8B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F708AD626D5751F00DAC8B0 /* MyCookBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyCookBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F708ADA26D5751F00DAC8B0 /* MyCookBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCookBookUITests.swift; sourceTree = "<group>"; };
 		7F708ADC26D5751F00DAC8B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -144,11 +145,18 @@
 			path = Description;
 			sourceTree = "<group>";
 		};
+		7F41E882270C75660002A851 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				7F41E885270C7E230002A851 /* WelcomViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		7F708AAC26D5750E00DAC8B0 = {
 			isa = PBXGroup;
 			children = (
 				7F708AB726D5750F00DAC8B0 /* MyCookBook */,
-				7F708ACE26D5751F00DAC8B0 /* MyCookBookTests */,
 				7F708AD926D5751F00DAC8B0 /* MyCookBookUITests */,
 				7F708AB626D5750F00DAC8B0 /* Products */,
 			);
@@ -181,15 +189,6 @@
 			path = MyCookBook;
 			sourceTree = "<group>";
 		};
-		7F708ACE26D5751F00DAC8B0 /* MyCookBookTests */ = {
-			isa = PBXGroup;
-			children = (
-				7F708ACF26D5751F00DAC8B0 /* MyCookBookTests.swift */,
-				7F708AD126D5751F00DAC8B0 /* Info.plist */,
-			);
-			path = MyCookBookTests;
-			sourceTree = "<group>";
-		};
 		7F708AD926D5751F00DAC8B0 /* MyCookBookUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +204,7 @@
 				7F708ABE26D5750F00DAC8B0 /* TabBar.storyboard */,
 				7F708AEF26D57F0100DAC8B0 /* SingIn.storyboard */,
 				7F708AC326D5751F00DAC8B0 /* LaunchScreen.storyboard */,
+				7F41E880270C555D0002A851 /* Onboarding.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -212,6 +212,7 @@
 		7F708AE926D575A000DAC8B0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7F41E882270C75660002A851 /* Onboarding */,
 				7F708B3A26DA2E6900DAC8B0 /* SingInAndRegister */,
 				7F708B3F26DB856000DAC8B0 /* Main */,
 				7F708B0926D6D07900DAC8B0 /* Favorite */,
@@ -459,6 +460,7 @@
 				7F708AF026D57F0100DAC8B0 /* SingIn.storyboard in Resources */,
 				7F708AC526D5751F00DAC8B0 /* LaunchScreen.storyboard in Resources */,
 				7F708B4A26DBDA7700DAC8B0 /* GoogleService-Info.plist in Resources */,
+				7F41E881270C555F0002A851 /* Onboarding.storyboard in Resources */,
 				7F708AC226D5751F00DAC8B0 /* Assets.xcassets in Resources */,
 				7F708AC026D5750F00DAC8B0 /* TabBar.storyboard in Resources */,
 			);
@@ -533,6 +535,7 @@
 				7F708B0226D6CAF100DAC8B0 /* ServiseAPI.swift in Sources */,
 				7F708B3926D97DAF00DAC8B0 /* SingInVC.swift in Sources */,
 				7F708AF926D589AF00DAC8B0 /* StartVC.swift in Sources */,
+				7F41E886270C7E230002A851 /* WelcomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,7 +543,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F708AD026D5751F00DAC8B0 /* MyCookBookTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
