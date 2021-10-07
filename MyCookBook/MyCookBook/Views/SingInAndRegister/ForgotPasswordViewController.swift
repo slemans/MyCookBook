@@ -40,8 +40,6 @@ class ForgotPasswordViewController: UIViewController {
             self.navigationController?.popToRootViewController(animated: true)
         })
     }
-    
-    
 }
 // remove keyboard
 extension ForgotPasswordViewController: UITextFieldDelegate {

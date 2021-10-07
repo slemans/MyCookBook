@@ -13,6 +13,7 @@
 		7F0DB04D26EF71D60039AFF9 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0DB04C26EF71D60039AFF9 /* ForgotPasswordViewController.swift */; };
 		7F41E881270C555F0002A851 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F41E880270C555D0002A851 /* Onboarding.storyboard */; };
 		7F41E886270C7E230002A851 /* WelcomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F41E885270C7E230002A851 /* WelcomViewController.swift */; };
+		7F51C75B270DEE18009F8E0F /* SettingUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F51C75A270DEE18009F8E0F /* SettingUserDefault.swift */; };
 		7F708AB926D5750F00DAC8B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708AB826D5750F00DAC8B0 /* AppDelegate.swift */; };
 		7F708ABB26D5750F00DAC8B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F708ABA26D5750F00DAC8B0 /* SceneDelegate.swift */; };
 		7F708AC026D5750F00DAC8B0 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F708ABE26D5750F00DAC8B0 /* TabBar.storyboard */; };
@@ -72,6 +73,7 @@
 		7F0DB04C26EF71D60039AFF9 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		7F41E880270C555D0002A851 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		7F41E885270C7E230002A851 /* WelcomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomViewController.swift; sourceTree = "<group>"; };
+		7F51C75A270DEE18009F8E0F /* SettingUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingUserDefault.swift; sourceTree = "<group>"; };
 		7F708AB526D5750F00DAC8B0 /* MyCookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F708AB826D5750F00DAC8B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F708ABA26D5750F00DAC8B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 				7F708B3626D97C3D00DAC8B0 /* Registration.swift */,
 				7FEC6AF626F9FEC1000A5FBB /* SettingCoreDate.swift */,
 				7FEC6AF826FB2E87000A5FBB /* FirebaseServise.swift */,
+				7F51C75A270DEE18009F8E0F /* SettingUserDefault.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				7F0DAFB326E376240039AFF9 /* ConstantsApi.swift in Sources */,
 				7F708B3C26DA301000DAC8B0 /* Register.swift in Sources */,
 				7F708AB926D5750F00DAC8B0 /* AppDelegate.swift in Sources */,
+				7F51C75B270DEE18009F8E0F /* SettingUserDefault.swift in Sources */,
 				7FEC6AF026F87EDE000A5FBB /* MyCookBook.xcdatamodeld in Sources */,
 				7F0DAFB526E5561F0039AFF9 /* MainTableViewCell.swift in Sources */,
 				7FEC6AF226F88607000A5FBB /* MyRecipeTableViewCell.swift in Sources */,

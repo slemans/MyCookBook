@@ -22,16 +22,13 @@ class SingInVC: UIViewController {
     private var isValidEmail = false
     private var isValidPass = false
 
-
     override func viewDidLoad() {
         openingSeting()
         startKeyboardObserver()
-        
-        
         Auth.auth().addStateDidChangeListener({ [weak self] _, user in
             guard let _ = user else { return }
-            let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
+            let storyboard = UIStoryboard(name: Constants.storyboardName.tabBar, bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: Constants.viewControllerId.tabBarVC)
             controller.modalPresentationStyle = .fullScreen
             self?.present(controller, animated: true, completion: nil)
         })
@@ -64,30 +61,28 @@ class SingInVC: UIViewController {
     }
     @IBAction func registrationBtAct() {
         performSegue(withIdentifier: Constants.Segues.singUp, sender: nil)
-        dismiss(animated: true, completion: nil)
     }
     fileprivate func openingSeting() {
         self.navigationItem.setHidesBackButton(true, animated: true)
-        paswordAndEmaileErrorLb.alpha = 0.0
-        singInLB.alpha = 0.0
-        inLb.alpha = 0.0
+        paswordAndEmaileErrorLb.alpha = numberCGFloat.numberZero
+        singInLB.alpha = numberCGFloat.numberZero
+        inLb.alpha = numberCGFloat.numberZero
         singInBT.layer.cornerRadius = Border.borderRadius
         UIView.animate(withDuration: 1.05) { [weak self] in
-            self?.singInLB.alpha = 1.0
-            self?.inLb.alpha = 1.0
+            self?.singInLB.alpha = numberCGFloat.numberOneZero
+            self?.inLb.alpha = numberCGFloat.numberOneZero
         }
     }
-
 }
 
 // Warning
 extension SingInVC {
     private func displayWarningText(text: String) {
         paswordAndEmaileErrorLb.text = text
-        UIView.animate(withDuration: 4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations: { [weak self] in
-            self?.paswordAndEmaileErrorLb.alpha = 1.0
+        UIView.animate(withDuration: 4, delay: 0, usingSpringWithDamping: numberCGFloat.numberOneZero, initialSpringVelocity: numberCGFloat.numberOneZero, options: .curveEaseInOut, animations: { [weak self] in
+            self?.paswordAndEmaileErrorLb.alpha = numberCGFloat.numberOneZero
         }) { [weak self] complete in
-            self?.paswordAndEmaileErrorLb.alpha = 0
+            self?.paswordAndEmaileErrorLb.alpha = numberCGFloat.numberZero
         }
     }
 }
@@ -108,7 +103,7 @@ extension SingInVC {
     }
     @objc func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
+            self.view.frame.origin.y = numberCGFloat.numberZero
         }
     }
 

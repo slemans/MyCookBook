@@ -25,17 +25,9 @@ class Register: UIViewController {
     @IBOutlet var verifPassLine: [UIView]!
 
     var users: [User] = []
-    
-
     private var isValidEmail = false
     private var passwordStrenngth: PasswordLine = .veryWeak
     private var isValidEconfPass = false
-
-//    var passworUser: String?
-//    var nameUser: String?
-//    var emailUser: String?
-//    var newUser: User!
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,9 +55,9 @@ class Register: UIViewController {
         errorLbPasword.isHidden = !(passwordStrenngth == .veryWeak)
         verifPassLine.enumerated().forEach { (index, view) in
             if (index < (passwordStrenngth.rawValue)) {
-                view.alpha = 1
+                view.alpha = numberCGFloat.numberOneZero
             } else {
-                view.alpha = 0.1
+                view.alpha = numberCGFloat.numberZeroPointOne
             }
         }
         checkConfPass()
@@ -96,9 +88,7 @@ class Register: UIViewController {
             displayWarningLabelEmail(withText: "Wrong Email")
         }
     }
-    
     private func saveItems(name: String?, email: String, userUid: String) {
-       // guard let entity = NSEntityDescription.entity(forEntityName: "User", in: context) else { return }
         let context = SettingCoreDate.getContext()
         let newUser = User(context: SettingCoreDate.getContext())
         newUser.name = name
@@ -106,16 +96,12 @@ class Register: UIViewController {
         newUser.uid = userUid
         do {
             try context.save()
-            print("все добавилось")
         } catch {
             print(error.localizedDescription)
         }
     }
-
-
     @IBAction func singInBtAct() {
         performSegue(withIdentifier: Constants.Segues.singIn, sender: nil)
-        dismiss(animated: true, completion: nil)
     }
 
     private func checkConfPass() {
@@ -125,36 +111,27 @@ class Register: UIViewController {
     private func checkValidTf() {
         if isValidEmail == true && isValidEconfPass == true && (passwordStrenngth != .veryWeak) {
             registrationBt.isUserInteractionEnabled = true
-            registrationBt.alpha = 1
+            registrationBt.alpha = numberCGFloat.numberOneZero
         } else {
             registrationBt.isUserInteractionEnabled = false
-            registrationBt.alpha = 0.2
+            registrationBt.alpha = numberCGFloat.numberZeroPointTwo
         }
     }
-
-
-
     private func openingSeting() {
         self.navigationItem.setHidesBackButton(true, animated: true)
-        //registrationLB.alpha = 0.0
-        errorLbEmail.alpha = 0
+        errorLbEmail.alpha = numberCGFloat.numberZero
         registrationBt.layer.cornerRadius = Border.borderRadius
-//        UIView.animate(withDuration: 1.05) {
-//            self.registrationLB.alpha = 1.0
-//        }
-
     }
-
-
-
 }
 
 // Label
 extension Register {
     private func displayWarningLabelEmail(withText text: String) {
         errorLbEmail.text = text
-        UIView.animate(withDuration: 3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations: { [weak self] in self?.errorLbEmail.alpha = 1 }) { [weak self] _ in
-            self?.errorLbEmail.alpha = 0
+        UIView.animate(withDuration: 3, delay: numberOther.numberZero, usingSpringWithDamping: numberCGFloat.numberOneZero, initialSpringVelocity: numberCGFloat.numberOneZero, options: .curveEaseInOut, animations: { [weak self] in
+            self?.errorLbEmail.alpha = numberCGFloat.numberOneZero
+        }) { [weak self] _ in
+            self?.errorLbEmail.alpha = numberCGFloat.numberZero
         }
     }
 }
@@ -170,16 +147,15 @@ extension Register {
     @objc func keyboardWillShow(notification: NSNotification) {
         guard let keyboardSize =
             (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
-        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
+        let contentInsets = UIEdgeInsets(top: numberCGFloat.numberZero, left: numberCGFloat.numberZero, bottom: keyboardSize.height, right: numberCGFloat.numberZero)
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
     }
     @objc func keyboardWillHide() {
-        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+        let contentInsets = UIEdgeInsets(top: numberCGFloat.numberZero, left: numberCGFloat.numberZero, bottom: numberCGFloat.numberZero, right: numberCGFloat.numberZero)
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
     }
-
 }
 
 // remove keyboard

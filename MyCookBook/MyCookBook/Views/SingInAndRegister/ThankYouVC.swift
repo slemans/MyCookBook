@@ -17,18 +17,13 @@ class ThankYouVC: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
     @IBAction func goBackBtAct() {
-        let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
-        controller.modalPresentationStyle = .fullScreen
-        self.present(controller, animated: true, completion: nil)
+        performSegue(withIdentifier: "segueSingInforBack", sender: nil)
     }
-    
-    
     private func openingSeting() {
-        thankYouLB.alpha = 0.0
+        thankYouLB.alpha = numberCGFloat.numberZero
         goBackBt.layer.cornerRadius = Border.borderRadius
-        UIView.animate(withDuration: 1.05) {
-            self.thankYouLB.alpha = 1.0
+        UIView.animate(withDuration: numberOther.numberOnePointZeroFive) {
+            self.thankYouLB.alpha = numberCGFloat.numberOneZero
         }
     }
 }

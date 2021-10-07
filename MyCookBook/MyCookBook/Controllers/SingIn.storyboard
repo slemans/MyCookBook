@@ -13,11 +13,11 @@
             <objects>
                 <viewController storyboardIdentifier="SingInVC" id="Y6W-OH-hqX" customClass="SingInVC" customModule="MyCookBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TxR-RI-YRR">
-                                <rect key="frame" x="25" y="113" width="84.5" height="15"/>
+                                <rect key="frame" x="25" y="25" width="84.5" height="15"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBA-ZE-e3k">
                                         <rect key="frame" x="0.0" y="0.0" width="28.5" height="15"/>
@@ -35,7 +35,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xE-oV-Xdi">
-                                <rect key="frame" x="25" y="193" width="369" height="34"/>
+                                <rect key="frame" x="25" y="105" width="369" height="34"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SING " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fj2-wp-V9M">
                                         <rect key="frame" x="0.0" y="0.0" width="85" height="34"/>
@@ -56,7 +56,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="xcS-fx-dkw">
-                                <rect key="frame" x="25" y="493" width="364" height="186"/>
+                                <rect key="frame" x="25" y="439" width="364" height="186"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="B4M-pK-BZt">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="61.5"/>
@@ -144,7 +144,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gNd-jh-twz">
-                                <rect key="frame" x="25" y="749" width="364" height="88"/>
+                                <rect key="frame" x="25" y="695" width="364" height="88"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7X4-S6-sis">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="40"/>
@@ -228,11 +228,11 @@
             <objects>
                 <viewController id="zGW-xd-C8u" customClass="ForgotPasswordViewController" customModule="MyCookBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F4L-XU-gRO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="x3F-WZ-mvc">
-                                <rect key="frame" x="25" y="294" width="364" height="138"/>
+                                <rect key="frame" x="25" y="206" width="364" height="138"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwm-xC-8db">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="28"/>
@@ -255,7 +255,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4OO-kF-9m4">
-                                <rect key="frame" x="25" y="113" width="84.5" height="15"/>
+                                <rect key="frame" x="25" y="25" width="84.5" height="15"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27X-fA-4tO">
                                         <rect key="frame" x="0.0" y="0.0" width="28.5" height="15"/>
@@ -273,7 +273,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4v9-vd-avO">
-                                <rect key="frame" x="25" y="797" width="364" height="40"/>
+                                <rect key="frame" x="25" y="743" width="364" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSR-ca-yxu">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="40"/>
@@ -317,7 +317,7 @@
         <!--StartVC-->
         <scene sceneID="ZrM-fy-OVc">
             <objects>
-                <viewController id="tMy-ag-pct" customClass="StartVC" customModule="MyCookBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StartVC" id="tMy-ag-pct" customClass="StartVC" customModule="MyCookBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cyp-Rx-rAu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -437,11 +437,11 @@
             <objects>
                 <viewController storyboardIdentifier="SingUpVC" id="1hQ-2J-JrM" customClass="Register" customModule="MyCookBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Qj-6H-aZ3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZT6-ob-KmN">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOP-MR-0gi">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="794.5"/>
@@ -793,11 +793,11 @@
             <objects>
                 <viewController storyboardIdentifier="ThankYouVC" id="NDs-ih-MVl" customClass="ThankYouVC" customModule="MyCookBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h1X-4V-BHA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIu-YJ-UBU">
-                                <rect key="frame" x="25" y="113" width="84.5" height="15"/>
+                                <rect key="frame" x="25" y="25" width="84.5" height="15"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhS-g4-hs4">
                                         <rect key="frame" x="0.0" y="0.0" width="28.5" height="15"/>
@@ -815,13 +815,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for registration with us" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mac-p0-88W">
-                                <rect key="frame" x="25" y="441.5" width="364" height="67.5"/>
+                                <rect key="frame" x="25" y="370.5" width="364" height="67.5"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="30"/>
                                 <color key="textColor" systemColor="systemGreenColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iha-dQ-SyK">
-                                <rect key="frame" x="25" y="797" width="364" height="40"/>
+                                <rect key="frame" x="25" y="743" width="364" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JcT-5O-Xnk">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="40"/>
@@ -857,6 +857,7 @@
                     <connections>
                         <outlet property="goBackBt" destination="JcT-5O-Xnk" id="eq8-ea-5kt"/>
                         <outlet property="thankYouLB" destination="Mac-p0-88W" id="AQ0-Fn-Ley"/>
+                        <segue destination="Y6W-OH-hqX" kind="show" identifier="segueSingInforBack" id="LSF-RV-pN6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="glp-hQ-RaP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -866,7 +867,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ri6-dK-ElG">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="50o-mE-8XZ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="StartNavigation" automaticallyAdjustsScrollViewInsets="NO" id="50o-mE-8XZ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UXQ-Wu-gEQ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -883,8 +884,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZP3-K0-uuD"/>
-        <segue reference="aqD-PC-yAi"/>
+        <segue reference="Tvr-CU-yTd"/>
+        <segue reference="LSF-RV-pN6"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

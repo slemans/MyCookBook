@@ -91,7 +91,6 @@ class DescriptionViewController: UIViewController {
             for recipe in recipesFavorite {
                 SettingCoreDate.context.delete(recipe)
             }
-//            self.MyRecipes.remove(at: indexPath.row)
             SettingCoreDate.saveInCoreData()
         }
     }

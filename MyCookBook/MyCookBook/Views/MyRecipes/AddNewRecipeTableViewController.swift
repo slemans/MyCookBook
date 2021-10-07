@@ -85,9 +85,8 @@ class AddNewRecipeTableViewController: UITableViewController{
         } else {
             nameTf.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         }
-        tableView.tableFooterView = UIView() // убираем лишние cell
+        tableView.tableFooterView = UIView() // delete excess cell
         saveBt.isEnabled = false
-
     }
     private func isEqualToImage(_ image: Data?) -> Bool {
         let data1 = image
@@ -98,7 +97,6 @@ class AddNewRecipeTableViewController: UITableViewController{
         navigationController?.popToRootViewController(animated: true)
         dismiss(animated: true)
     }
-
 }
 
 // MARK: - Table view data source
@@ -110,12 +108,12 @@ extension AddNewRecipeTableViewController {
             let actionSheet = UIAlertController(title: nil,
                 message: nil,
                 preferredStyle: .actionSheet)
-            let camera = UIAlertAction(title: "Camera", style: .default) { _ in
-                self.cooseImagePicker(source: .camera)
+            let camera = UIAlertAction(title: "Camera", style: .default) { [weak self] _ in
+                self?.cooseImagePicker(source: .camera)
             }
             camera.setValue(cameraIcon, forKey: "image")
-            let photo = UIAlertAction(title: "Photo", style: .default) { _ in
-                self.cooseImagePicker(source: .photoLibrary)
+            let photo = UIAlertAction(title: "Photo", style: .default) { [weak self] _ in
+                self?.cooseImagePicker(source: .photoLibrary)
             }
             photo.setValue(photoIcon, forKey: "image")
             let cancel = UIAlertAction(title: "Cancel", style: .cancel)
@@ -135,7 +133,7 @@ extension AddNewRecipeTableViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    // проверка на пустое имя
+    // check for empty name
     @objc private func textFieldChanged() {
         if nameTf.text?.isEmpty == false {
             saveBt.isEnabled = true
@@ -159,7 +157,7 @@ extension AddNewRecipeTableViewController: UITextFieldDelegate {
 // MARK: Work with image
 extension AddNewRecipeTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    // выбор что открываем, и разрешаем редактировать изображение
+    // select what we open and allow to edit the image
     func cooseImagePicker(source: UIImagePickerController.SourceType) {
         if UIImagePickerController.isSourceTypeAvailable(source) {
             let imagePicker = UIImagePickerController()
@@ -169,14 +167,12 @@ extension AddNewRecipeTableViewController: UIImagePickerControllerDelegate, UINa
             present(imagePicker, animated: true)
         }
     }
-
-    // вставляем в UIImages фото пользователя
+    // put UIImages photo user
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         imagesFood.image = info[.editedImage] as? UIImage
         imagesFood.contentMode = .scaleAspectFill
-        imagesFood.clipsToBounds = true // обрезка фото по границу Lb
+        imagesFood.clipsToBounds = true // crop photo to border Lb
         imageIsChanged = true
         dismiss(animated: true)
     }
-
 }
