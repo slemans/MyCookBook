@@ -16,7 +16,7 @@
   <li>MVC</li>
   <li>REST API(https://rapidapi.com/)</li>
   <li>JSON</li>
-  <li>URKSession</li>
+  <li>URLSession</li>
   <li>UIImagePicker</li>
 </ul>
 
