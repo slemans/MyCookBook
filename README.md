@@ -3,6 +3,10 @@
 
 <h2>Introduction</h2>
 <p>A simple cooking app, where people can seach for recipes, add this recipes in favorite block, create your recipes</p>
+
+<h2>Screen Shots</h2>
+<img src="https://i.ibb.co/p03xb0X/demo-Project.jpg" style="max-width: 100%;">
+
 <h2>Contents</h2>
 <ul>
   <li>UIKit components</li>
@@ -10,7 +14,7 @@
   <li>Core Data</li>
   <li>Firebase</li>
   <li>MVC</li>
-  <li></li>
+  <li>REST API</li>
   <li></li>
 </ul>
 
