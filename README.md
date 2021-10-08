@@ -12,9 +12,9 @@
   <li>UIKit components</li>
   <li>UIScrollView, UITableView, UICollectionView1, Protocols and Delegates</li>
   <li>Core Data</li>
-  <li>Firebase</li>
+  <li>Firebase(Authentication)</li>
   <li>MVC</li>
-  <li>REST API</li>
+  <li>REST API(https://rapidapi.com/)</li>
   <li></li>
 </ul>
 
