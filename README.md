@@ -15,7 +15,9 @@
   <li>Firebase(Authentication)</li>
   <li>MVC</li>
   <li>REST API(https://rapidapi.com/)</li>
-  <li></li>
+  <li>JSON</li>
+  <li>URKSession</li>
+  <li>UIImagePicker</li>
 </ul>
 
 <h2>System Requirement</h2>
