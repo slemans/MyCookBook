@@ -9,9 +9,9 @@ import UIKit
 import Firebase
 
 class MainViewController: UIViewController {
-
-    @IBOutlet weak var stackMain: UIStackView!
-   
+//
+//    @IBOutlet weak var stackMain: UIStackView!
+//
     @IBOutlet weak var categoryFirstBt: UIButton!
     @IBOutlet weak var categorySecondBt: UIButton!
     @IBOutlet weak var categoryThreeBt: UIButton!

@@ -62,7 +62,7 @@ class SingInVC: UIViewController {
     @IBAction func registrationBtAct() {
         performSegue(withIdentifier: Constants.Segues.singUp, sender: nil)
     }
-    fileprivate func openingSeting() {
+    private func openingSeting() {
         self.navigationItem.setHidesBackButton(true, animated: true)
         paswordAndEmaileErrorLb.alpha = numberCGFloat.numberZero
         singInLB.alpha = numberCGFloat.numberZero

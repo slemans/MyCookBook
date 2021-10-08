@@ -16,8 +16,6 @@ struct Constants {
     }
     enum viewControllerId{
         static let singInVC = "SingInVC"
-        static let singUpVC = ""
-        static let startVC = ""
         static let startNavigation = "StartNavigation"
         static let tabBarVC = "TabBarViewController"
     }

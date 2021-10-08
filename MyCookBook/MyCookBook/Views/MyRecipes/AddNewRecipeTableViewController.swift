@@ -14,7 +14,7 @@ protocol DelegatReturnTable: AnyObject {
     func returnTableReviewOld(recipe: MyRecipe, index: Int)
 }
 
-class AddNewRecipeTableViewController: UITableViewController{
+class AddNewRecipeTableViewController: UITableViewController {
 
     @IBOutlet weak var imagesFood: UIImageView!
     @IBOutlet weak var saveBt: UIBarButtonItem!
@@ -143,14 +143,14 @@ extension AddNewRecipeTableViewController: UITextFieldDelegate {
     }
     @objc private func caloriesTfChanged() {
         guard let recipe = recipe else { return }
-            if caloriesTf.text != recipe.calories ||
-                ingridientsTV.text != recipe.ingridients ||
-                totalTimeTf.text != recipe.totalTime
-                {
-                saveBt.isEnabled = true
-            } else {
-                saveBt.isEnabled = false
-            }
+        if caloriesTf.text != recipe.calories ||
+            ingridientsTV.text != recipe.ingridients ||
+            totalTimeTf.text != recipe.totalTime
+        {
+            saveBt.isEnabled = true
+        } else {
+            saveBt.isEnabled = false
+        }
     }
 }
 

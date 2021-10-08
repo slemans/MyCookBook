@@ -33,7 +33,7 @@ struct numberCGFloat {
     static let numberZeroPointOne: CGFloat = 0.1
     static let numberZeroPointTwo: CGFloat = 0.2
     static let numberOneZero: CGFloat = 1.0
-    
+    static let numberTen: CGFloat = 10.0
 }
 
 

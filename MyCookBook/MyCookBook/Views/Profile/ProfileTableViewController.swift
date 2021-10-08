@@ -18,29 +18,22 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var imagesProfileUser: UIImageView!
 
 
-    var user: User!
+    var user: User! {
+        SettingCoreDate.userCoreDate()
+    }
     var imageIsChanged = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchUser()
         startSetting()
     }
-
     override func viewWillAppear(_ animated: Bool) {
-        searchUser()
         findeFavoriteAndMyRecipeCount()
         tableView.reloadData()
     }
-
-
     @IBAction func logOutBtAct(_ sender: UIBarButtonItem) {
         FirebaseServise.logOutUserFirebase()
         navigationController?.popToRootViewController(animated: true)
         dismiss(animated: true, completion: nil)
-    }
-
-    private func searchUser() {
-        user = SettingCoreDate.userCoreDate()
     }
 
     public func startSetting() {
@@ -129,7 +122,7 @@ extension ProfileTableViewController {
 // MARK: Work with image
 extension ProfileTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-//     выбор что открываем, и разрешаем редактировать изображение
+//     select what we open and allow to edit the image
     func cooseImagePicker(source: UIImagePickerController.SourceType) {
         if UIImagePickerController.isSourceTypeAvailable(source) {
             let imagePicker = UIImagePickerController()
@@ -139,7 +132,7 @@ extension ProfileTableViewController: UIImagePickerControllerDelegate, UINavigat
             present(imagePicker, animated: true)
         }
     }
-    // вставляем в UIImages фото пользователя
+    // put in UIImages photo user 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         imagesProfileUser.image = info[.editedImage] as? UIImage
         imagesProfileUser.contentMode = .scaleAspectFill
