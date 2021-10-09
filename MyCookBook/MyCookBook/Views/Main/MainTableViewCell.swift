@@ -26,29 +26,17 @@ class MainTableViewCell: UITableViewCell {
         imagesRecipe.image = #imageLiteral(resourceName: "imagePlaceholder")
         firstStackViewCell.layer.cornerRadius = 10.0
     }
-
-
-
     func fenchRecipe(forrecipe recipe: Recipe?) {
         guard let recipe = recipe else { return }
         nameRecipeLb.text = recipe.label
         dishTypeLb.text = recipe.mealType.first??.rawValue
-        timeLb.text = returnTime(time: recipe.totalTime)
+        timeLb.text = tableviewFunction.returnTotalTimeString(time: recipe.totalTime)
         fatLb.text = tableviewFunction.returnToFullString(tip: "FAT", recipe: recipe)
         fiberLb.text = tableviewFunction.returnToFullString(tip: "FIBTG", recipe: recipe)
         carbLb.text = tableviewFunction.returnToFullString(tip: "CHOCDF", recipe: recipe)
         sugarLb.text = String((Int(recipe.calories ?? 0) * 10) / 10)
         putImage(image: recipe.image)
     }
-    private func returnTime(time: Int?) -> String {
-        if time != 0, let time = time  {
-            return "\(time) minutes"
-        } else {
-            return "time not unknown"
-        }
-    }
-
-
     private func putImage(image: String?) {
         guard let image = image,
             let urlImg = URL(string: image) else { return }

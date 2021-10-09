@@ -113,21 +113,12 @@ class DescriptionViewController: UIViewController {
     private func fenchRecipe() {
         putImage(image: recipel?.image)
         nameProductLb.text = recipel?.label
-        timeСookingLb.text = totalTime(time: recipel?.totalTime)
+        timeСookingLb.text = tableviewFunction.returnTotalTimeString(time: recipel?.totalTime)
         stackViewMain.layer.borderWidth = Border.borderWidth
         stackViewMain.layer.borderColor = Color.backgroundColor
         stackViewMain.layer.cornerRadius = Border.borderRadius15
         tableView.layer.cornerRadius = Border.borderRadius15
         title = recipel?.label
-
-    }
-    private func totalTime(time: Int?) -> String {
-        if time != 0, let time = time {
-            return "\(time) minutes"
-        } else {
-            return "time not unknown"
-        }
-
     }
     private func putImage(image: String?) {
         guard let image = image,
@@ -162,7 +153,7 @@ class DescriptionViewController: UIViewController {
 extension DescriptionViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let ingredients = recipel?.ingredients.count,
-            let healthLabels = recipel?.healthLabels?.count else { return 0 }
+              let healthLabels = recipel?.healthLabels.count else { return 0 }
         return ingredientOrhealth == true ? ingredients : healthLabels
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -170,7 +161,7 @@ extension DescriptionViewController: UITableViewDelegate, UITableViewDataSource 
         if ingredientOrhealth == true,
             let ingridient = recipel?.ingredients[indexPath.row] {
             cell.textLabel?.text = ingridient.text
-        } else if let health = recipel?.healthLabels?[indexPath.row] {
+        } else if let health = recipel?.healthLabels[indexPath.row] {
             cell.textLabel?.text = health
         }
         cell.textLabel?.numberOfLines = 0

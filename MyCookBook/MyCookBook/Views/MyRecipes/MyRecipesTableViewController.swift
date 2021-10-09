@@ -90,7 +90,7 @@ extension MyRecipesTableViewController {
         MyRecipes.insert(firstRecipe, at: destinationIndexPath.row)
         tableView.reloadData()
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recipe = MyRecipes[indexPath.row]
         recipeId = indexPath.row

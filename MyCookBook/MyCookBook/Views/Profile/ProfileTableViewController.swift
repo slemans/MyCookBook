@@ -132,7 +132,7 @@ extension ProfileTableViewController: UIImagePickerControllerDelegate, UINavigat
             present(imagePicker, animated: true)
         }
     }
-    // put in UIImages photo user 
+    // put in UIImages photo user
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         imagesProfileUser.image = info[.editedImage] as? UIImage
         imagesProfileUser.contentMode = .scaleAspectFill

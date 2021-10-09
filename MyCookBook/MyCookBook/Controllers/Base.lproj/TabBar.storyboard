@@ -291,7 +291,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="icons8-clown-fish-100"/>
                                         <connections>
-                                            <action selector="feshActionBt" destination="k6G-aL-dOM" eventType="touchUpInside" id="zME-TK-4dJ"/>
+                                            <action selector="fishActionBt" destination="k6G-aL-dOM" eventType="touchUpInside" id="zME-TK-4dJ"/>
                                         </connections>
                                     </button>
                                 </subviews>

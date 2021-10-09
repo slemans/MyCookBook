@@ -14,4 +14,11 @@ struct tableviewFunction {
         let newQuantity = (Int(quantity) * 10) / 10
         return "\(newQuantity) \(unit)"
     }
+    static func returnTotalTimeString(time: Double?) -> String {
+        if time != 0, let time = time {
+            return "\(time) minutes"
+        } else {
+            return "time not unknown"
+        }
+    }
 }
