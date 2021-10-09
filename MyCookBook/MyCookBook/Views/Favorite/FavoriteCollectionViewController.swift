@@ -23,18 +23,13 @@ class FavoriteCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         loadItems()
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
         loadItems()
         collectionView.reloadData()
     }
-
-    
-    
-    
-    
+  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let DescriptionVC = segue.destination as? DescriptionViewController {
             DescriptionVC.recipel = sender as? Recipe
@@ -62,7 +57,7 @@ extension FavoriteCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return colectionFavorite.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "favoriteCell", for: indexPath) as! FavoriteCell
         let favoriteRecipe = colectionFavorite[indexPath.item]
@@ -96,21 +91,20 @@ extension FavoriteCollectionViewController {
 extension FavoriteCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemPerRow: CGFloat = 2
-        let padding = 10 * (itemPerRow + 1) // считаю сколько отступов нужно
+        let padding = 10 * (itemPerRow + 1)
         let availableWidth = collectionView.frame.width - padding
         let widthPerItem = availableWidth / itemPerRow
-//        return CGSize(width: widthPerItem, height: 225 + estimateFrameForText(text: colectionFavorite[indexPath.row].label!, size: availableWidth).height)
         return CGSize(width: widthPerItem, height: 225)
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        return UIEdgeInsets(top: numberCGFloat.numberTen, left: numberCGFloat.numberTen, bottom: numberCGFloat.numberTen, right: numberCGFloat.numberTen)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return numberCGFloat.numberTen
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return numberCGFloat.numberTen
     }
 
 }

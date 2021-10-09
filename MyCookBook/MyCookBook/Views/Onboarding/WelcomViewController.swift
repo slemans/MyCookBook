@@ -14,9 +14,7 @@ class WelcomViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        configure()
+    override func viewDidAppear(_ animated: Bool) {
         if !SettingUserDefault.shared.inNewUser() {
             dismiss(animated: true, completion: nil)
             let storyboard = UIStoryboard(name: Constants.storyboardName.singIn, bundle: nil)
@@ -24,6 +22,10 @@ class WelcomViewController: UIViewController {
             singInVC.modalPresentationStyle = .fullScreen
             present(singInVC, animated: true)
         }
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        configure()
     }
 
 

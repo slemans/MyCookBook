@@ -82,6 +82,7 @@ extension MyRecipesTableViewController {
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
+    //cell can move to another location in the table view or no
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -90,7 +91,7 @@ extension MyRecipesTableViewController {
         MyRecipes.insert(firstRecipe, at: destinationIndexPath.row)
         tableView.reloadData()
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recipe = MyRecipes[indexPath.row]
         recipeId = indexPath.row

@@ -9,9 +9,9 @@ import UIKit
 import Firebase
 
 class MainViewController: UIViewController {
-
-    @IBOutlet weak var stackMain: UIStackView!
-   
+//
+//    @IBOutlet weak var stackMain: UIStackView!
+//
     @IBOutlet weak var categoryFirstBt: UIButton!
     @IBOutlet weak var categorySecondBt: UIButton!
     @IBOutlet weak var categoryThreeBt: UIButton!
@@ -29,6 +29,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         startSetting()
     }
+    
     public func startSetting() {
         getUrlSession(type: .pork, numberTo: pageTo)
         categoryFirstBt.layer.cornerRadius = categoryFirstBt.frame.size.height / 2
@@ -39,19 +40,26 @@ class MainViewController: UIViewController {
     
     @IBAction func beefActionBt() {
         categoryFood = .pork
+        pageToZero()
         getUrlSession(type: categoryFood, numberTo: numberOther.numberTenForTo)
     }
     @IBAction func chiekenActionBt() {
         categoryFood = .chicken
+        pageToZero()
         getUrlSession(type: categoryFood, numberTo: numberOther.numberTenForTo)
     }
     @IBAction func sneckActionBt() {
         categoryFood = .beef
+        pageToZero()
         getUrlSession(type: categoryFood, numberTo: numberOther.numberTenForTo)
     }
-    @IBAction func feshActionBt() {
+    @IBAction func fishActionBt() {
         categoryFood = .fish
+        pageToZero()
         getUrlSession(type: categoryFood, numberTo: numberOther.numberTenForTo)
+    }
+    public func pageToZero(){
+        pageTo = 0
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let DescriptionVC = segue.destination as? DescriptionViewController {
