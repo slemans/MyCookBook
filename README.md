@@ -8,7 +8,7 @@
 <ul>
   <li>You nead register on https://rapidapi.com</li>
   <li>Choose right Plan for you on https://rapidapi.com/edamam/api/recipe-search-and-diet/pricing</li>
-  <li>Past your key in code <br/>
+  <li>Past your key in code on page ServiseAPI.swift<br/>
     <img src="https://i.ibb.co/99mW5hz/66c98286ce.jpg" style="max-width: 100%;">
   </li>
 </ul>
