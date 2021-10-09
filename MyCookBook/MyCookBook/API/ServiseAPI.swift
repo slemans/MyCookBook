@@ -11,7 +11,6 @@ import SwiftyJSON
 class ServiseAPI {
     fileprivate let headers = [
         "x-rapidapi-host": "edamam-recipe-search.p.rapidapi.com",
-//        "x-rapidapi-key": "eba0823ae8msh6033297465cdf65p145577jsn53c564785219"
         "x-rapidapi-key": "a9251ae6d4msh7bffd76584bf303p1fed23jsn21bc8922aab6"
     ]
 
@@ -37,7 +36,6 @@ class ServiseAPI {
         request.allHTTPHeaderFields = headers
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { [weak self] data, response, error in
-             print(JSON(data))
             if let data = data, let myRecipes = self?.parseJSON(withData: data) {
                 completionHandler(myRecipes)
             }

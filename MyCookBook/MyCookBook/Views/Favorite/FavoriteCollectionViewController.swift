@@ -23,7 +23,6 @@ class FavoriteCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         loadItems()
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +57,7 @@ extension FavoriteCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return colectionFavorite.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "favoriteCell", for: indexPath) as! FavoriteCell
         let favoriteRecipe = colectionFavorite[indexPath.item]

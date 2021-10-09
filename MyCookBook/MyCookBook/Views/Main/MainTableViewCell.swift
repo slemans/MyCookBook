@@ -20,7 +20,6 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var secondStackViewCell: UIStackView!
     @IBOutlet weak var firstStackViewCell: UIStackView!
 
-
     override func awakeFromNib() {
         super.awakeFromNib()
         imagesRecipe.image = #imageLiteral(resourceName: "imagePlaceholder")
