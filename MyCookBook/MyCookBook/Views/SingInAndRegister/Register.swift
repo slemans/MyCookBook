@@ -55,9 +55,9 @@ class Register: UIViewController {
         errorLbPasword.isHidden = !(passwordStrenngth == .veryWeak)
         verifPassLine.enumerated().forEach { (index, view) in
             if (index < (passwordStrenngth.rawValue)) {
-                view.alpha = numberCGFloat.numberOneZero
+                view.alpha = NumberCGFloat.numberOneZero
             } else {
-                view.alpha = numberCGFloat.numberZeroPointOne
+                view.alpha = NumberCGFloat.numberZeroPointOne
             }
         }
         checkConfPass()
@@ -111,15 +111,15 @@ class Register: UIViewController {
     private func checkValidTf() {
         if isValidEmail == true && isValidEconfPass == true && (passwordStrenngth != .veryWeak) {
             registrationBt.isUserInteractionEnabled = true
-            registrationBt.alpha = numberCGFloat.numberOneZero
+            registrationBt.alpha = NumberCGFloat.numberOneZero
         } else {
             registrationBt.isUserInteractionEnabled = false
-            registrationBt.alpha = numberCGFloat.numberZeroPointTwo
+            registrationBt.alpha = NumberCGFloat.numberZeroPointTwo
         }
     }
     private func openingSeting() {
         self.navigationItem.setHidesBackButton(true, animated: true)
-        errorLbEmail.alpha = numberCGFloat.numberZero
+        errorLbEmail.alpha = NumberCGFloat.numberZero
         registrationBt.layer.cornerRadius = Border.borderRadius
     }
 }
@@ -128,10 +128,10 @@ class Register: UIViewController {
 extension Register {
     private func displayWarningLabelEmail(withText text: String) {
         errorLbEmail.text = text
-        UIView.animate(withDuration: 3, delay: numberOther.numberZero, usingSpringWithDamping: numberCGFloat.numberOneZero, initialSpringVelocity: numberCGFloat.numberOneZero, options: .curveEaseInOut, animations: { [weak self] in
-            self?.errorLbEmail.alpha = numberCGFloat.numberOneZero
+        UIView.animate(withDuration: 3, delay: NumberOther.numberZeroDouble, usingSpringWithDamping: NumberCGFloat.numberOneZero, initialSpringVelocity: NumberCGFloat.numberOneZero, options: .curveEaseInOut, animations: { [weak self] in
+            self?.errorLbEmail.alpha = NumberCGFloat.numberOneZero
         }) { [weak self] _ in
-            self?.errorLbEmail.alpha = numberCGFloat.numberZero
+            self?.errorLbEmail.alpha = NumberCGFloat.numberZero
         }
     }
 }
@@ -147,12 +147,12 @@ extension Register {
     @objc func keyboardWillShow(notification: NSNotification) {
         guard let keyboardSize =
             (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
-        let contentInsets = UIEdgeInsets(top: numberCGFloat.numberZero, left: numberCGFloat.numberZero, bottom: keyboardSize.height, right: numberCGFloat.numberZero)
+        let contentInsets = UIEdgeInsets(top: NumberCGFloat.numberZero, left: NumberCGFloat.numberZero, bottom: keyboardSize.height, right: NumberCGFloat.numberZero)
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
     }
     @objc func keyboardWillHide() {
-        let contentInsets = UIEdgeInsets(top: numberCGFloat.numberZero, left: numberCGFloat.numberZero, bottom: numberCGFloat.numberZero, right: numberCGFloat.numberZero)
+        let contentInsets = UIEdgeInsets(top: NumberCGFloat.numberZero, left: NumberCGFloat.numberZero, bottom: NumberCGFloat.numberZero, right: NumberCGFloat.numberZero)
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
     }

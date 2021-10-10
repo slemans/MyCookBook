@@ -19,7 +19,6 @@ class ForgotPasswordViewController: UIViewController {
     
     @IBAction func sendNwwPasBtAct() {
         sendPasswordReset(withEmail: EmailtextField.text!)
-        
     }
     func sendPasswordReset(withEmail email: String, _ callback: ((Error?) -> ())? = nil){
         Auth.auth().sendPasswordReset(withEmail: email) { error in

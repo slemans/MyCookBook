@@ -30,7 +30,7 @@ class ServiseAPI {
         let request = NSMutableURLRequest(url: NSURL(
             string: "\(url)")! as URL,
             cachePolicy: .useProtocolCachePolicy,
-            timeoutInterval: 10.0)
+            timeoutInterval: TimeIntervalNumber.numberTenPointZero)
         
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
@@ -46,6 +46,7 @@ class ServiseAPI {
     fileprivate func parseJSON(withData data: Data) -> Recipes? {
         let decoder = JSONDecoder()
         do {
+//            print(JSON(data))
             let recipes = try decoder.decode(Recipes.self, from: data)
             guard let recipe = Recipes(recipe: recipes) else { return nil }
             return recipe

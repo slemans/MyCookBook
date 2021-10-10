@@ -87,7 +87,6 @@ extension FavoriteCollectionViewController {
 
 }
 
-
 extension FavoriteCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemPerRow: CGFloat = 2
@@ -98,13 +97,13 @@ extension FavoriteCollectionViewController: UICollectionViewDelegateFlowLayout {
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: numberCGFloat.numberTen, left: numberCGFloat.numberTen, bottom: numberCGFloat.numberTen, right: numberCGFloat.numberTen)
+        return UIEdgeInsets(top: NumberCGFloat.numberTen, left: NumberCGFloat.numberTen, bottom: NumberCGFloat.numberTen, right: NumberCGFloat.numberTen)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return numberCGFloat.numberTen
+        return NumberCGFloat.numberTen
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return numberCGFloat.numberTen
+        return NumberCGFloat.numberTen
     }
 
 }

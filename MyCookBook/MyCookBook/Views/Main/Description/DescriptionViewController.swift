@@ -8,9 +8,6 @@
 import UIKit
 import CoreData
 
-//protocol DelegatReturnCollection: AnyObject {
-//    func returnCollectionView(recipe: Favorite)
-//}
 
 class DescriptionViewController: UIViewController {
 
@@ -34,15 +31,13 @@ class DescriptionViewController: UIViewController {
     var mainRecipeOrFavorite: Bool?
     var categoryFood: TypeFood?
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         fenchRecipe()
         startSetting()
-        
     }
     public func startSetting() {
-        calLb.text = String((Int(recipel.calories ?? 0) * 10) / 10)
+        calLb.text = String((Int(recipel.calories ?? NumberOther.numberZeroDouble) * NumberOther.numberTenForTo) / NumberOther.numberTenForTo)
         fatLb.text = tableviewFunction.returnToFullString(tip: "FAT", recipe: recipel)
         carbLb.text = tableviewFunction.returnToFullString(tip: "FIBTG", recipe: recipel)
         fiverLb.text = tableviewFunction.returnToFullString(tip: "CHOCDF", recipe: recipel)
@@ -50,8 +45,6 @@ class DescriptionViewController: UIViewController {
             favoriteImage(bool: recipel.favorite)
         }
     }
-   
-
     @IBAction func ingridientBtAction(_ sender: UIButton) {
         reload(first: sender, second: healthBt, bool: true)
     }
@@ -102,9 +95,9 @@ class DescriptionViewController: UIViewController {
     }
 
     private func reload(first: UIButton, second: UIButton, bool: Bool) {
-        first.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-        first.tintColor = .white
-        second.backgroundColor = .white
+        first.backgroundColor = Color.backgroundColorUI
+        first.tintColor = Color.colorWhite
+        second.backgroundColor = Color.colorWhite
         second.tintColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         ingredientOrhealth = bool
         tableView.reloadData()
@@ -115,7 +108,7 @@ class DescriptionViewController: UIViewController {
         nameProductLb.text = recipel?.label
         timeСookingLb.text = tableviewFunction.returnTotalTimeString(time: recipel?.totalTime)
         stackViewMain.layer.borderWidth = Border.borderWidth
-        stackViewMain.layer.borderColor = Color.backgroundColor
+        stackViewMain.layer.borderColor = Color.backgroundColorCG
         stackViewMain.layer.cornerRadius = Border.borderRadius15
         tableView.layer.cornerRadius = Border.borderRadius15
         title = recipel?.label

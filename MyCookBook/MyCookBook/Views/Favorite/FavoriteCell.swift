@@ -17,15 +17,14 @@ class FavoriteCell: UICollectionViewCell {
     
   
     func configure(recipe: Favorite) {
-        stackImageType.layer.cornerRadius = stackImageType.frame.size.height / 2
+        stackImageType.layer.cornerRadius = stackImageType.frame.size.height / NumberCGFloat.numberTwoZero
         stackImageType.layer.borderWidth = Border.borderWidth
-        stackImageType.layer.borderColor = Color.backgroundColor
+        stackImageType.layer.borderColor = Color.backgroundColorCG
         imageType.image = numberCatygoryFood(catygory: recipe.categoryFood)
         nameLb.text = recipe.label
         if recipe.image != nil {
             putImage(image: recipe.image!)
         }
-        
     }
     public func numberCatygoryFood(catygory: Int16) -> UIImage{
         var image: UIImage
