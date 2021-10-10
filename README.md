@@ -15,7 +15,7 @@
 <h2>Contents</h2>
 <ul>
   <li>UIKit components</li>
-  <li>UIScrollView, UITableView, UICollectionView1, Protocols and Delegates</li>
+  <li>UIScrollView, UITableView, UICollectionView, Protocols and Delegates</li>
   <li>Core Data</li>
   <li>Firebase(Authentication)</li>
   <li>MVC</li>
