@@ -27,12 +27,10 @@ class WelcomViewController: UIViewController {
         super.viewDidLayoutSubviews()
         configure()
     }
-
-
     private func configure() {
         scrollView.frame = holderView.bounds
-        let title = ["Discover delicious food with us", "Save the food you like and sweat yourself"]
-        let titleTwo = ["AWESOME FOOD", "GET FOOD"]
+        let title = ["Discover delicious food with us", "Save the recipes you like and make your recipes"]
+        let titleTwo = ["AWESOME FOOD", "GET AND MAKE RECIPES"]
         holderView.addSubview(scrollView)
         for x in 0..<2 {
             let pageView = UIView(frame: CGRect(x: CGFloat(x) * holderView.frame.size.width, y: 0, width: holderView.frame.size.width, height: holderView.frame.size.height))
@@ -41,7 +39,7 @@ class WelcomViewController: UIViewController {
             let image = UIImageView(frame: CGRect(x: 0, y: 0, width: pageView.frame.size.width, height: pageView.frame.size.height))
             let button = UIButton(frame: CGRect(x: 25, y: holderView.frame.size.height - 100, width: holderView.frame.size.width - 50, height: 40))
 
-            let label = UILabel(frame: CGRect(x: 25, y: holderView.frame.size.height - 210, width: pageView.frame.size.width - 50, height: 60))
+            let label = UILabel(frame: CGRect(x: 25, y: holderView.frame.size.height - 210, width: pageView.frame.size.width - 50, height: 100))
             let labelTwo = UILabel(frame: CGRect(x: 25, y: holderView.frame.size.height - 250, width: pageView.frame.size.width - 50, height: 60))
             
 
@@ -51,6 +49,7 @@ class WelcomViewController: UIViewController {
             pageView.addSubview(image)
 
             label.textAlignment = .left
+            label.numberOfLines = 0
             label.font = UIFont(name: "Arial", size: 18)
             label.textColor = .white
 

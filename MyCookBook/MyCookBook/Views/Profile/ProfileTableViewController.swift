@@ -11,6 +11,7 @@ import CoreData
 
 class ProfileTableViewController: UITableViewController {
 
+    @IBOutlet weak var emailLb: UILabel!
     @IBOutlet weak var nameUserLb: UILabel!
     @IBOutlet weak var myRecipeLb: UILabel!
     @IBOutlet weak var favoritesLb: UILabel!
@@ -49,6 +50,7 @@ class ProfileTableViewController: UITableViewController {
             nameUserLb.text = "Write name"
             nameUserLb.textColor = .red
         }
+        emailLb.text = user.email
         findeFavoriteAndMyRecipeCount()
         tableView.tableFooterView = UIView()
     }

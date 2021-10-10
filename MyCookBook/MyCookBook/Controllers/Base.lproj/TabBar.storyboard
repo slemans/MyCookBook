@@ -843,7 +843,7 @@
                                             <constraint firstAttribute="height" constant="30" id="meY-rw-jhO"/>
                                         </constraints>
                                         <state key="normal">
-                                            <imageReference key="image" image="icons8-heart-100" symbolScale="large"/>
+                                            <imageReference key="image" image="icons8-heart-100new1" symbolScale="large"/>
                                         </state>
                                         <connections>
                                             <action selector="faloverBtActive:" destination="p8G-yC-vwt" eventType="touchUpInside" id="jGg-Fb-aFD"/>
@@ -1007,6 +1007,7 @@
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2x-vW-xHs">
                                                                 <rect key="frame" x="175" y="0.0" width="175" height="30"/>
+                                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                 <state key="normal" title="HEALTH"/>
                                                                 <connections>
                                                                     <action selector="healthBtAction:" destination="p8G-yC-vwt" eventType="touchUpInside" id="wdr-k8-CUh"/>
@@ -1086,7 +1087,7 @@
             </objects>
             <point key="canvasLocation" x="13632" y="184"/>
         </scene>
-        <!--Profile-->
+        <!--Account-->
         <scene sceneID="73e-5c-r4q">
             <objects>
                 <tableViewController id="R4m-fY-g0X" customClass="ProfileTableViewController" customModule="MyCookBook" customModuleProvider="target" sceneMemberID="viewController">
@@ -1174,8 +1175,44 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellEmail" rowHeight="57" id="9bG-x6-7Xs">
+                                        <rect key="frame" x="0.0" y="408.33333396911621" width="390" height="57"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9bG-x6-7Xs" id="bx5-2m-xmM">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="57"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mln-yw-bJg">
+                                                    <rect key="frame" x="16" y="8" width="358" height="45"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Vx-1L-9gG">
+                                                            <rect key="frame" x="0.0" y="0.0" width="116.66666666666667" height="45"/>
+                                                            <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFc-Dq-XUc">
+                                                            <rect key="frame" x="124.66666666666664" y="0.0" width="233.33333333333337" height="45"/>
+                                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="6Vx-1L-9gG" firstAttribute="width" secondItem="JFc-Dq-XUc" secondAttribute="width" multiplier="1:2" id="Pxl-WB-Ryk"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Mln-yw-bJg" secondAttribute="bottom" constant="4" id="1Y4-if-YTl"/>
+                                                <constraint firstItem="Mln-yw-bJg" firstAttribute="top" secondItem="bx5-2m-xmM" secondAttribute="top" constant="8" id="IGO-TE-wcX"/>
+                                                <constraint firstAttribute="trailing" secondItem="Mln-yw-bJg" secondAttribute="trailing" constant="16" id="s6a-du-q40"/>
+                                                <constraint firstItem="Mln-yw-bJg" firstAttribute="leading" secondItem="bx5-2m-xmM" secondAttribute="leading" constant="16" id="uMl-ql-kGv"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellCalories" rowHeight="114" id="hpW-Fh-rYy">
-                                        <rect key="frame" x="0.0" y="408.33333396911621" width="390" height="114"/>
+                                        <rect key="frame" x="0.0" y="465.33333396911621" width="390" height="114"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hpW-Fh-rYy" id="oet-bu-SH7">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="114"/>
@@ -1237,7 +1274,7 @@
                             <outlet property="delegate" destination="R4m-fY-g0X" id="1wh-QC-BYH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Profile" id="7aJ-lw-kkj">
+                    <navigationItem key="navigationItem" title="Account" id="7aJ-lw-kkj">
                         <barButtonItem key="rightBarButtonItem" title="Log out" style="done" id="bQ2-rn-aej">
                             <color key="tintColor" systemColor="systemGreenColor"/>
                             <connections>
@@ -1246,6 +1283,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="emailLb" destination="JFc-Dq-XUc" id="hXR-Vp-NqJ"/>
                         <outlet property="favoritesLb" destination="0Gk-9t-gQs" id="HIj-gm-cE5"/>
                         <outlet property="imagesProfileUser" destination="gwT-Pr-woW" id="NXk-LR-hTI"/>
                         <outlet property="myRecipeLb" destination="Fuf-ep-78W" id="QCz-t9-4Vr"/>
@@ -1289,7 +1327,7 @@
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="icons8-clown-fish-100" width="100" height="100"/>
         <image name="icons8-frying-64" width="64" height="64"/>
-        <image name="icons8-heart-100" width="100" height="100"/>
+        <image name="icons8-heart-100new1" width="100" height="100"/>
         <image name="icons8-meat-100" width="100" height="100"/>
         <image name="icons8-pig-80" width="80" height="80"/>
         <image name="icons8-thanksgiving-100" width="100" height="100"/>
@@ -1308,6 +1346,9 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

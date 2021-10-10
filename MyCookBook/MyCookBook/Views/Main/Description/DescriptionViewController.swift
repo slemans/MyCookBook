@@ -36,7 +36,8 @@ class DescriptionViewController: UIViewController {
         fenchRecipe()
         startSetting()
     }
-    public func startSetting() {
+    private func startSetting() {
+        healthBt.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         calLb.text = String((Int(recipel.calories ?? NumberOther.numberZeroDouble) * NumberOther.numberTenForTo) / NumberOther.numberTenForTo)
         fatLb.text = tableviewFunction.returnToFullString(tip: "FAT", recipe: recipel)
         carbLb.text = tableviewFunction.returnToFullString(tip: "FIBTG", recipe: recipel)
@@ -73,7 +74,7 @@ class DescriptionViewController: UIViewController {
         }
         favoriteImage(bool: recipel.favorite)
     }
-    func deleteRecipe() {
+    private func deleteRecipe() {
         guard let label = recipel.label,
               let userUid = SettingCoreDate.getUserCoreDataUid() else { return }
         let request: NSFetchRequest<Favorite> = Favorite.fetchRequest()
@@ -90,15 +91,15 @@ class DescriptionViewController: UIViewController {
 
     private func favoriteImage(bool: Bool?) {
         guard let bool = bool else { return }
-        let image = UIImage(named: bool ? "icons8-heart-100Green.png" : "icons8-heart-100.png")
+        let image = UIImage(named: bool ? "icons8-heart-100new2.png" : "icons8-heart-100new1.png")
         self.faloverBt.setImage(image, for: .normal)
     }
 
     private func reload(first: UIButton, second: UIButton, bool: Bool) {
         first.backgroundColor = Color.backgroundColorUI
         first.tintColor = Color.colorWhite
-        second.backgroundColor = Color.colorWhite
-        second.tintColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        second.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        second.tintColor = .white
         ingredientOrhealth = bool
         tableView.reloadData()
     }
@@ -127,7 +128,7 @@ class DescriptionViewController: UIViewController {
             }
         }.resume()
     }
-    public func findCategoryNumber() -> Int16{
+    private func findCategoryNumber() -> Int16{
         var categoryFoodNumber = 0
         switch categoryFood {
         case .chicken:
