@@ -9,6 +9,7 @@ import UIKit
 
 class MainTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var indicatorActiviti: UIActivityIndicatorView!
     @IBOutlet weak var imagesRecipe: UIImageView!
     @IBOutlet weak var nameRecipeLb: UILabel!
     @IBOutlet weak var dishTypeLb: UILabel!
@@ -23,7 +24,7 @@ class MainTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         imagesRecipe.image = #imageLiteral(resourceName: "imagePlaceholder")
-        firstStackViewCell.layer.cornerRadius = 10.0
+        firstStackViewCell.layer.cornerRadius = NumberCGFloat.numberTen
     }
     func fenchRecipe(forrecipe recipe: Recipe?) {
         guard let recipe = recipe else { return }
@@ -33,7 +34,7 @@ class MainTableViewCell: UITableViewCell {
         fatLb.text = tableviewFunction.returnToFullString(tip: "FAT", recipe: recipe)
         fiberLb.text = tableviewFunction.returnToFullString(tip: "FIBTG", recipe: recipe)
         carbLb.text = tableviewFunction.returnToFullString(tip: "CHOCDF", recipe: recipe)
-        sugarLb.text = String((Int(recipe.calories ?? 0) * 10) / 10)
+        sugarLb.text = String((Int(recipe.calories ?? NumberOther.numberZeroDouble) * NumberOther.numberTenForTo) / NumberOther.numberTenForTo)
         putImage(image: recipe.image)
     }
     private func putImage(image: String?) {
@@ -50,5 +51,4 @@ class MainTableViewCell: UITableViewCell {
             }
         }.resume()
     }
-
 }

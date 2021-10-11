@@ -64,13 +64,13 @@ class SingInVC: UIViewController {
     }
     private func openingSeting() {
         self.navigationItem.setHidesBackButton(true, animated: true)
-        paswordAndEmaileErrorLb.alpha = numberCGFloat.numberZero
-        singInLB.alpha = numberCGFloat.numberZero
-        inLb.alpha = numberCGFloat.numberZero
+        paswordAndEmaileErrorLb.alpha = NumberCGFloat.numberZero
+        singInLB.alpha = NumberCGFloat.numberZero
+        inLb.alpha = NumberCGFloat.numberZero
         singInBT.layer.cornerRadius = Border.borderRadius
-        UIView.animate(withDuration: 1.05) { [weak self] in
-            self?.singInLB.alpha = numberCGFloat.numberOneZero
-            self?.inLb.alpha = numberCGFloat.numberOneZero
+        UIView.animate(withDuration: TimeIntervalNumber.numberOnePointZeroFive) { [weak self] in
+            self?.singInLB.alpha = NumberCGFloat.numberOneZero
+            self?.inLb.alpha = NumberCGFloat.numberOneZero
         }
     }
 }
@@ -79,14 +79,13 @@ class SingInVC: UIViewController {
 extension SingInVC {
     private func displayWarningText(text: String) {
         paswordAndEmaileErrorLb.text = text
-        UIView.animate(withDuration: 4, delay: 0, usingSpringWithDamping: numberCGFloat.numberOneZero, initialSpringVelocity: numberCGFloat.numberOneZero, options: .curveEaseInOut, animations: { [weak self] in
-            self?.paswordAndEmaileErrorLb.alpha = numberCGFloat.numberOneZero
+        UIView.animate(withDuration: TimeIntervalNumber.numberFour, delay: TimeIntervalNumber.numberZero, usingSpringWithDamping: NumberCGFloat.numberOneZero, initialSpringVelocity: NumberCGFloat.numberOneZero, options: .curveEaseInOut, animations: { [weak self] in
+            self?.paswordAndEmaileErrorLb.alpha = NumberCGFloat.numberOneZero
         }) { [weak self] complete in
-            self?.paswordAndEmaileErrorLb.alpha = numberCGFloat.numberZero
+            self?.paswordAndEmaileErrorLb.alpha = NumberCGFloat.numberZero
         }
     }
 }
-
 
 // Work with keyboord
 extension SingInVC {
@@ -96,17 +95,16 @@ extension SingInVC {
     }
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y = 20 - keyboardSize.height
+            if self.view.frame.origin.y == NumberCGFloat.numberZero {
+                self.view.frame.origin.y = NumberCGFloat.numberTwenty - keyboardSize.height
             }
         }
     }
     @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = numberCGFloat.numberZero
+        if self.view.frame.origin.y != NumberCGFloat.numberZero {
+            self.view.frame.origin.y = NumberCGFloat.numberZero
         }
     }
-
 }
 
 // remove keyboard

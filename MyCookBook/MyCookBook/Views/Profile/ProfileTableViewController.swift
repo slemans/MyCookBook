@@ -11,6 +11,7 @@ import CoreData
 
 class ProfileTableViewController: UITableViewController {
 
+    @IBOutlet weak var emailLb: UILabel!
     @IBOutlet weak var nameUserLb: UILabel!
     @IBOutlet weak var myRecipeLb: UILabel!
     @IBOutlet weak var favoritesLb: UILabel!
@@ -49,6 +50,7 @@ class ProfileTableViewController: UITableViewController {
             nameUserLb.text = "Write name"
             nameUserLb.textColor = .red
         }
+        emailLb.text = user.email
         findeFavoriteAndMyRecipeCount()
         tableView.tableFooterView = UIView()
     }
@@ -74,7 +76,7 @@ class ProfileTableViewController: UITableViewController {
 // MARK: - Table view data source
 extension ProfileTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
+        if indexPath.row == NumberOther.numberZeroInt {
             let cameraIcon = #imageLiteral(resourceName: "camera")
             let photoIcon = #imageLiteral(resourceName: "photo")
             let actionSheet = UIAlertController(title: nil,
@@ -93,7 +95,7 @@ extension ProfileTableViewController {
             actionSheet.addAction(photo)
             actionSheet.addAction(cancel)
             present(actionSheet, animated: true)
-        } else if indexPath.row == 1 {
+        } else if indexPath.row == NumberOther.numberOneInt {
             let alert = UIAlertController(title: "Enter your name", message: nil, preferredStyle: .alert)
             alert.addTextField { textField in
                 textField.placeholder = "Ivan"
@@ -136,7 +138,7 @@ extension ProfileTableViewController: UIImagePickerControllerDelegate, UINavigat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         imagesProfileUser.image = info[.editedImage] as? UIImage
         imagesProfileUser.contentMode = .scaleAspectFill
-        imagesProfileUser.clipsToBounds = true // обрезка фото по границу Lb
+        imagesProfileUser.clipsToBounds = true // pruning photo for border Lb
         imageIsChanged = true
         userImagesAndName(image: info[.editedImage] as? UIImage, name: nil)
         dismiss(animated: true)

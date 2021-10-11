@@ -8,9 +8,6 @@
 import UIKit
 import CoreData
 
-//protocol DelegatReturnCollection: AnyObject {
-//    func returnCollectionView(recipe: Favorite)
-//}
 
 class DescriptionViewController: UIViewController {
 
@@ -34,15 +31,14 @@ class DescriptionViewController: UIViewController {
     var mainRecipeOrFavorite: Bool?
     var categoryFood: TypeFood?
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         fenchRecipe()
         startSetting()
-        
     }
-    public func startSetting() {
-        calLb.text = String((Int(recipel.calories ?? 0) * 10) / 10)
+    private func startSetting() {
+        healthBt.backgroundColor = Color.backgroundColorGreyUI
+        calLb.text = String((Int(recipel.calories ?? NumberOther.numberZeroDouble) * NumberOther.numberTenForTo) / NumberOther.numberTenForTo)
         fatLb.text = tableviewFunction.returnToFullString(tip: "FAT", recipe: recipel)
         carbLb.text = tableviewFunction.returnToFullString(tip: "FIBTG", recipe: recipel)
         fiverLb.text = tableviewFunction.returnToFullString(tip: "CHOCDF", recipe: recipel)
@@ -50,8 +46,6 @@ class DescriptionViewController: UIViewController {
             favoriteImage(bool: recipel.favorite)
         }
     }
-   
-
     @IBAction func ingridientBtAction(_ sender: UIButton) {
         reload(first: sender, second: healthBt, bool: true)
     }
@@ -80,7 +74,7 @@ class DescriptionViewController: UIViewController {
         }
         favoriteImage(bool: recipel.favorite)
     }
-    func deleteRecipe() {
+    private func deleteRecipe() {
         guard let label = recipel.label,
               let userUid = SettingCoreDate.getUserCoreDataUid() else { return }
         let request: NSFetchRequest<Favorite> = Favorite.fetchRequest()
@@ -97,15 +91,15 @@ class DescriptionViewController: UIViewController {
 
     private func favoriteImage(bool: Bool?) {
         guard let bool = bool else { return }
-        let image = UIImage(named: bool ? "icons8-heart-100Green.png" : "icons8-heart-100.png")
+        let image = UIImage(named: bool ? "icons8-heart-100new2.png" : "icons8-heart-100new1.png")
         self.faloverBt.setImage(image, for: .normal)
     }
 
     private func reload(first: UIButton, second: UIButton, bool: Bool) {
-        first.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-        first.tintColor = .white
-        second.backgroundColor = .white
-        second.tintColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        first.backgroundColor = Color.backgroundColorUI
+        first.tintColor = Color.colorWhite
+        second.backgroundColor = Color.backgroundColorGreyUI
+        second.tintColor = Color.colorWhite
         ingredientOrhealth = bool
         tableView.reloadData()
     }
@@ -115,7 +109,7 @@ class DescriptionViewController: UIViewController {
         nameProductLb.text = recipel?.label
         timeСookingLb.text = tableviewFunction.returnTotalTimeString(time: recipel?.totalTime)
         stackViewMain.layer.borderWidth = Border.borderWidth
-        stackViewMain.layer.borderColor = Color.backgroundColor
+        stackViewMain.layer.borderColor = Color.backgroundColorCG
         stackViewMain.layer.cornerRadius = Border.borderRadius15
         tableView.layer.cornerRadius = Border.borderRadius15
         title = recipel?.label
@@ -134,17 +128,17 @@ class DescriptionViewController: UIViewController {
             }
         }.resume()
     }
-    public func findCategoryNumber() -> Int16{
-        var categoryFoodNumber = 0
+    private func findCategoryNumber() -> Int16{
+        var categoryFoodNumber = NumberOther.numberZeroInt
         switch categoryFood {
         case .chicken:
-            categoryFoodNumber = 1
+            categoryFoodNumber = NumberOther.numberOneInt
         case .beef:
-            categoryFoodNumber = 2
+            categoryFoodNumber = NumberOther.numberTwoInt
         case .fish:
-            categoryFoodNumber = 3
+            categoryFoodNumber = NumberOther.numberThreeInt
         default:
-            categoryFoodNumber = 0
+            categoryFoodNumber = NumberOther.numberZeroInt
         }
         return Int16(categoryFoodNumber)
     }
@@ -153,7 +147,7 @@ class DescriptionViewController: UIViewController {
 extension DescriptionViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let ingredients = recipel?.ingredients.count,
-              let healthLabels = recipel?.healthLabels.count else { return 0 }
+              let healthLabels = recipel?.healthLabels.count else { return NumberOther.numberZeroInt }
         return ingredientOrhealth == true ? ingredients : healthLabels
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -164,7 +158,7 @@ extension DescriptionViewController: UITableViewDelegate, UITableViewDataSource 
         } else if let health = recipel?.healthLabels[indexPath.row] {
             cell.textLabel?.text = health
         }
-        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.numberOfLines = NumberOther.numberZeroInt
         return cell
     }
 }

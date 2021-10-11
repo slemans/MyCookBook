@@ -9,9 +9,7 @@ import UIKit
 import Firebase
 
 class MainViewController: UIViewController {
-//
-//    @IBOutlet weak var stackMain: UIStackView!
-//
+
     @IBOutlet weak var categoryFirstBt: UIButton!
     @IBOutlet weak var categorySecondBt: UIButton!
     @IBOutlet weak var categoryThreeBt: UIButton!
@@ -20,47 +18,35 @@ class MainViewController: UIViewController {
     @IBOutlet weak var indicatorActivity: UIActivityIndicatorView!
     
     var serviseAPI = ServiseAPI()
-    var pageTo = numberOther.numberTenForTo
+    var pageTo = NumberOther.numberTenForTo
     private var recipes: [Hit] = []
     var categoryFood: TypeFood = .pork
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         startSetting()
     }
-    
-    public func startSetting() {
-        getUrlSession(type: .pork, numberTo: pageTo)
-        categoryFirstBt.layer.cornerRadius = categoryFirstBt.frame.size.height / 2
-        categorySecondBt.layer.cornerRadius = categorySecondBt.frame.size.height / 2
-        categoryThreeBt.layer.cornerRadius = categoryThreeBt.frame.size.height / 2
-        categoryForeBt.layer.cornerRadius = categoryForeBt.frame.size.height / 2
-    }
-    
     @IBAction func beefActionBt() {
         categoryFood = .pork
-        pageToZero()
-        getUrlSession(type: categoryFood, numberTo: numberOther.numberTenForTo)
+        borderBtVanishOrNo(typeFood: categoryFood)
+        getUrlSession(type: categoryFood, numberTo: NumberOther.numberTenForTo)
     }
     @IBAction func chiekenActionBt() {
         categoryFood = .chicken
-        pageToZero()
-        getUrlSession(type: categoryFood, numberTo: numberOther.numberTenForTo)
+        borderBtVanishOrNo(typeFood: categoryFood)
+        getUrlSession(type: categoryFood, numberTo: NumberOther.numberTenForTo)
     }
     @IBAction func sneckActionBt() {
         categoryFood = .beef
-        pageToZero()
-        getUrlSession(type: categoryFood, numberTo: numberOther.numberTenForTo)
+        borderBtVanishOrNo(typeFood: categoryFood)
+        getUrlSession(type: categoryFood, numberTo: NumberOther.numberTenForTo)
     }
     @IBAction func fishActionBt() {
         categoryFood = .fish
-        pageToZero()
-        getUrlSession(type: categoryFood, numberTo: numberOther.numberTenForTo)
+        borderBtVanishOrNo(typeFood: categoryFood)
+        getUrlSession(type: categoryFood, numberTo: NumberOther.numberTenForTo)
     }
-    public func pageToZero(){
-        pageTo = 0
-    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let DescriptionVC = segue.destination as? DescriptionViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
@@ -70,13 +56,55 @@ class MainViewController: UIViewController {
             }
         }
     }
-    func getUrlSession(type food: TypeFood, numberTo: Int) {
+    private func getUrlSession(type food: TypeFood, numberTo: Int) {
         serviseAPI.fetchUrlSession(forType: food, numberTo: numberTo) { recipes in
                 self.recipes = recipes.hits
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     self.indicatorActivity.stopAnimating()
                 }
+        }
+    }
+    public func pageToZero(){
+        pageTo = NumberOther.numberZeroInt
+        recipes.removeAll()
+        tableView.reloadData()
+    }
+    public func startSetting() {
+        getUrlSession(type: .pork, numberTo: pageTo)
+        categoryFirstBt.layer.borderColor = Color.backgroundColorCG
+        categorySecondBt.layer.borderColor = Color.backgroundColorCG
+        categoryThreeBt.layer.borderColor = Color.backgroundColorCG
+        categoryForeBt.layer.borderColor = Color.backgroundColorCG
+        categoryFirstBt.layer.borderWidth = NumberCGFloat.numberOneZero
+        categoryFirstBt.layer.cornerRadius = categoryFirstBt.frame.size.height / NumberCGFloat.numberTwoZero
+        categorySecondBt.layer.cornerRadius = categorySecondBt.frame.size.height / NumberCGFloat.numberTwoZero
+        categoryThreeBt.layer.cornerRadius = categoryThreeBt.frame.size.height / NumberCGFloat.numberTwoZero
+        categoryForeBt.layer.cornerRadius = categoryForeBt.frame.size.height / NumberCGFloat.numberTwoZero
+    }
+    private func borderBtVanishOrNo(typeFood: TypeFood){
+        pageToZero()
+        switch typeFood {
+        case .chicken:
+            categoryFirstBt.layer.borderWidth = NumberCGFloat.numberZero
+            categorySecondBt.layer.borderWidth = NumberCGFloat.numberOneZero
+            categoryThreeBt.layer.borderWidth = NumberCGFloat.numberZero
+            categoryForeBt.layer.borderWidth = NumberCGFloat.numberZero
+        case .beef:
+            categoryFirstBt.layer.borderWidth = NumberCGFloat.numberZero
+            categorySecondBt.layer.borderWidth = NumberCGFloat.numberZero
+            categoryThreeBt.layer.borderWidth = NumberCGFloat.numberOneZero
+            categoryForeBt.layer.borderWidth = NumberCGFloat.numberZero
+        case .fish:
+            categoryFirstBt.layer.borderWidth = NumberCGFloat.numberZero
+            categorySecondBt.layer.borderWidth = NumberCGFloat.numberZero
+            categoryThreeBt.layer.borderWidth = NumberCGFloat.numberZero
+            categoryForeBt.layer.borderWidth = NumberCGFloat.numberOneZero
+        default:
+            categoryFirstBt.layer.borderWidth = NumberCGFloat.numberOneZero
+            categorySecondBt.layer.borderWidth = NumberCGFloat.numberZero
+            categoryThreeBt.layer.borderWidth = NumberCGFloat.numberZero
+            categoryForeBt.layer.borderWidth = NumberCGFloat.numberZero
         }
     }
 }
@@ -86,12 +114,12 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         return recipes.count
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
-        if indexPath.row == recipes.count - 1 { // last cell
+        if indexPath.row == recipes.count - NumberOther.numberOneInt { // last cell
             let spinner = UIActivityIndicatorView(style: .large)
             spinner.startAnimating()
-            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(144))
+            spinner.frame = CGRect(x: CGFloat(NumberCGFloat.numberZero), y: CGFloat(NumberCGFloat.numberZero), width: tableView.bounds.width, height: CGFloat(144))
             self.tableView.tableFooterView = spinner
-            pageTo += numberOther.numberTenForTo
+            pageTo += NumberOther.numberTenForTo
             getUrlSession(type: categoryFood, numberTo: pageTo)
             self.tableView.tableFooterView = spinner
             self.tableView.tableFooterView?.isHidden = false

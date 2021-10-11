@@ -20,10 +20,10 @@ class ThankYouVC: UIViewController {
         performSegue(withIdentifier: "segueSingInforBack", sender: nil)
     }
     private func openingSeting() {
-        thankYouLB.alpha = numberCGFloat.numberZero
+        thankYouLB.alpha = NumberCGFloat.numberZero
         goBackBt.layer.cornerRadius = Border.borderRadius
-        UIView.animate(withDuration: numberOther.numberOnePointZeroFive) {
-            self.thankYouLB.alpha = numberCGFloat.numberOneZero
+        UIView.animate(withDuration: NumberOther.numberOnePointZeroFive) {
+            self.thankYouLB.alpha = NumberCGFloat.numberOneZero
         }
     }
 }

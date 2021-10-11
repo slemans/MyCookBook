@@ -30,7 +30,7 @@ class ServiseAPI {
         let request = NSMutableURLRequest(url: NSURL(
             string: "\(url)")! as URL,
             cachePolicy: .useProtocolCachePolicy,
-            timeoutInterval: 10.0)
+            timeoutInterval: TimeIntervalNumber.numberTenPointZero)
         
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers

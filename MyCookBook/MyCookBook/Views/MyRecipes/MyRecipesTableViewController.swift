@@ -44,7 +44,7 @@ class MyRecipesTableViewController: UITableViewController {
 // MARK: - Table view data source
 extension MyRecipesTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MyRecipes.isEmpty ? 0 : MyRecipes.count
+        return MyRecipes.isEmpty ? NumberOther.numberZeroInt : MyRecipes.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
