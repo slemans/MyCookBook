@@ -46,7 +46,6 @@ class ServiseAPI {
     fileprivate func parseJSON(withData data: Data) -> Recipes? {
         let decoder = JSONDecoder()
         do {
-//            print(JSON(data))
             let recipes = try decoder.decode(Recipes.self, from: data)
             guard let recipe = Recipes(recipe: recipes) else { return nil }
             return recipe

@@ -37,7 +37,7 @@ class DescriptionViewController: UIViewController {
         startSetting()
     }
     private func startSetting() {
-        healthBt.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        healthBt.backgroundColor = Color.backgroundColorGreyUI
         calLb.text = String((Int(recipel.calories ?? NumberOther.numberZeroDouble) * NumberOther.numberTenForTo) / NumberOther.numberTenForTo)
         fatLb.text = tableviewFunction.returnToFullString(tip: "FAT", recipe: recipel)
         carbLb.text = tableviewFunction.returnToFullString(tip: "FIBTG", recipe: recipel)
@@ -98,8 +98,8 @@ class DescriptionViewController: UIViewController {
     private func reload(first: UIButton, second: UIButton, bool: Bool) {
         first.backgroundColor = Color.backgroundColorUI
         first.tintColor = Color.colorWhite
-        second.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        second.tintColor = .white
+        second.backgroundColor = Color.backgroundColorGreyUI
+        second.tintColor = Color.colorWhite
         ingredientOrhealth = bool
         tableView.reloadData()
     }
@@ -129,16 +129,16 @@ class DescriptionViewController: UIViewController {
         }.resume()
     }
     private func findCategoryNumber() -> Int16{
-        var categoryFoodNumber = 0
+        var categoryFoodNumber = NumberOther.numberZeroInt
         switch categoryFood {
         case .chicken:
-            categoryFoodNumber = 1
+            categoryFoodNumber = NumberOther.numberOneInt
         case .beef:
-            categoryFoodNumber = 2
+            categoryFoodNumber = NumberOther.numberTwoInt
         case .fish:
-            categoryFoodNumber = 3
+            categoryFoodNumber = NumberOther.numberThreeInt
         default:
-            categoryFoodNumber = 0
+            categoryFoodNumber = NumberOther.numberZeroInt
         }
         return Int16(categoryFoodNumber)
     }
@@ -147,7 +147,7 @@ class DescriptionViewController: UIViewController {
 extension DescriptionViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let ingredients = recipel?.ingredients.count,
-              let healthLabels = recipel?.healthLabels.count else { return 0 }
+              let healthLabels = recipel?.healthLabels.count else { return NumberOther.numberZeroInt }
         return ingredientOrhealth == true ? ingredients : healthLabels
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -158,7 +158,7 @@ extension DescriptionViewController: UITableViewDelegate, UITableViewDataSource 
         } else if let health = recipel?.healthLabels[indexPath.row] {
             cell.textLabel?.text = health
         }
-        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.numberOfLines = NumberOther.numberZeroInt
         return cell
     }
 }

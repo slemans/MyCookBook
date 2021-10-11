@@ -9,6 +9,7 @@ import UIKit
 
 class MainTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var indicatorActiviti: UIActivityIndicatorView!
     @IBOutlet weak var imagesRecipe: UIImageView!
     @IBOutlet weak var nameRecipeLb: UILabel!
     @IBOutlet weak var dishTypeLb: UILabel!

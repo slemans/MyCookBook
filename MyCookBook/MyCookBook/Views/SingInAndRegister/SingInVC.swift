@@ -87,7 +87,6 @@ extension SingInVC {
     }
 }
 
-
 // Work with keyboord
 extension SingInVC {
     private func startKeyboardObserver() {

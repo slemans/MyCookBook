@@ -83,7 +83,6 @@ class Register: UIViewController {
                         self?.performSegue(withIdentifier: Constants.Segues.start, sender: nil)
                     }
                 })
-
         } else {
             displayWarningLabelEmail(withText: "Wrong Email")
         }

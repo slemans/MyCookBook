@@ -18,7 +18,7 @@ class StartVC: UIViewController {
         openingSeting()
     }
     private func openingSeting() {
-        titleVC.alpha = 0.0
+        titleVC.alpha = NumberCGFloat.numberZero
         singInBt.layer.cornerRadius = Border.borderRadius
         singUpBt.layer.cornerRadius = Border.borderRadius
         singUpBt.layer.borderWidth = Border.borderWidth

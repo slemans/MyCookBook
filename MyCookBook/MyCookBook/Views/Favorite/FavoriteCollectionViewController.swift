@@ -89,8 +89,8 @@ extension FavoriteCollectionViewController {
 
 extension FavoriteCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemPerRow: CGFloat = 2
-        let padding = 10 * (itemPerRow + 1)
+        let itemPerRow: CGFloat = NumberCGFloat.numberTwoZero
+        let padding = NumberCGFloat.numberTen * (itemPerRow + NumberCGFloat.numberOneZero)
         let availableWidth = collectionView.frame.width - padding
         let widthPerItem = availableWidth / itemPerRow
         return CGSize(width: widthPerItem, height: 225)

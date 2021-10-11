@@ -34,7 +34,7 @@ class ForgotPasswordViewController: UIViewController {
         guard let email = EmailtextField.text else { return }
         let alert = UIAlertController(title: "We have sent an email to your email: \n \(email)", message: "", preferredStyle: .alert)
         self.present(alert, animated: true)
-        _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
+        _ = Timer.scheduledTimer(withTimeInterval: TimeIntervalNumber.numberOnePointZero, repeats: true, block: { timer in
             alert.dismiss(animated: true, completion: nil)
             self.navigationController?.popToRootViewController(animated: true)
         })

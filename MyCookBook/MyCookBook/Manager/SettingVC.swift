@@ -10,6 +10,7 @@ import UIKit
 struct Color {
     static let backgroundColorCG: CGColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
     static let backgroundColorUI: UIColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+    static let backgroundColorGreyUI: UIColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     static let colorWhite: UIColor = .white
 }
 
@@ -28,6 +29,7 @@ struct NumberOther {
     static let numberZeroInt = 0
     static let numberOneInt = 1
     static let numberTwoInt = 2
+    static let numberThreeInt = 2
     static let numberZeroDouble = 0.0
     static let numberOnePointZero = 1.0
     static let numberOnePointZeroFive = 1.05
@@ -46,7 +48,15 @@ struct NumberCGFloat {
 struct TimeIntervalNumber {
     static let numberTenPointZero: TimeInterval = 10.0
     static let numberOnePointZeroFive: TimeInterval = 1.05
+    static let numberOnePointZero: TimeInterval = 1.0
     static let numberFour: TimeInterval = 4
     static let numberZero: TimeInterval = 0
 }
 
+struct NumberInt16 {
+    static let numberZero: Int16 = 0
+    static let numberOne: Int16 = 1
+    static let numberTwo: Int16 = 2
+    static let numberTree: Int16 = 3
+
+}

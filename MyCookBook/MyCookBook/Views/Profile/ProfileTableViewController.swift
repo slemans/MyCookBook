@@ -76,7 +76,7 @@ class ProfileTableViewController: UITableViewController {
 // MARK: - Table view data source
 extension ProfileTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
+        if indexPath.row == NumberOther.numberZeroInt {
             let cameraIcon = #imageLiteral(resourceName: "camera")
             let photoIcon = #imageLiteral(resourceName: "photo")
             let actionSheet = UIAlertController(title: nil,

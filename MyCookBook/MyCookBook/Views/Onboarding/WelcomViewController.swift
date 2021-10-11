@@ -11,9 +11,11 @@ class WelcomViewController: UIViewController {
 
     @IBOutlet var holderView: UIView!
     let scrollView = UIScrollView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         if !SettingUserDefault.shared.inNewUser() {
             dismiss(animated: true, completion: nil)
@@ -36,14 +38,12 @@ class WelcomViewController: UIViewController {
             let pageView = UIView(frame: CGRect(x: CGFloat(x) * holderView.frame.size.width, y: 0, width: holderView.frame.size.width, height: holderView.frame.size.height))
             scrollView.addSubview(pageView)
 
+            // body page View
             let image = UIImageView(frame: CGRect(x: 0, y: 0, width: pageView.frame.size.width, height: pageView.frame.size.height))
             let button = UIButton(frame: CGRect(x: 25, y: holderView.frame.size.height - 100, width: holderView.frame.size.width - 50, height: 40))
-
             let label = UILabel(frame: CGRect(x: 25, y: holderView.frame.size.height - 210, width: pageView.frame.size.width - 50, height: 100))
             let labelTwo = UILabel(frame: CGRect(x: 25, y: holderView.frame.size.height - 250, width: pageView.frame.size.width - 50, height: 60))
             
-
-
             image.contentMode = .scaleToFill
             image.image = UIImage(named: "fon_\(x)")
             pageView.addSubview(image)
@@ -64,7 +64,7 @@ class WelcomViewController: UIViewController {
             pageView.addSubview(labelTwo)
             
             button.setTitleColor(.white, for: .normal)
-            button.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+            button.backgroundColor = Color.backgroundColorUI
             button.setTitle("NEXT", for: .normal)
             button.layer.cornerRadius = Border.borderRadius
             if x == 1 {
@@ -91,6 +91,5 @@ class WelcomViewController: UIViewController {
         }
         scrollView.setContentOffset(CGPoint(x: holderView.frame.size.width * CGFloat(button.tag), y: 0), animated: true)
     }
-
 
 }

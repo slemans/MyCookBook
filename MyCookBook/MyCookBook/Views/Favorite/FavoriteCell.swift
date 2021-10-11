@@ -14,8 +14,6 @@ class FavoriteCell: UICollectionViewCell {
     @IBOutlet weak var stackImageType: UIStackView!
     @IBOutlet weak var imageType: UIImageView!
     
-    
-  
     func configure(recipe: Favorite) {
         stackImageType.layer.cornerRadius = stackImageType.frame.size.height / NumberCGFloat.numberTwoZero
         stackImageType.layer.borderWidth = Border.borderWidth
@@ -29,11 +27,11 @@ class FavoriteCell: UICollectionViewCell {
     public func numberCatygoryFood(catygory: Int16) -> UIImage{
         var image: UIImage
         switch catygory {
-        case 1:
+        case NumberInt16.numberOne:
             image = #imageLiteral(resourceName: "icons8-thanksgiving-100")
-        case 2:
+        case NumberInt16.numberTwo:
             image = #imageLiteral(resourceName: "icons8-meat-100")
-        case 3:
+        case NumberInt16.numberTree:
             image = #imageLiteral(resourceName: "icons8-clown-fish-100")
         default:
             image = #imageLiteral(resourceName: "icons8-pig-80")
